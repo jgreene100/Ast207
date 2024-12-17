@@ -3,11 +3,12 @@
 [![Jupyter Book Badge](https://jupyterbook.org/badge.svg)](<https://jgreene100.github.io/Ast207/>)
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/jgreene100/Ast207/HEAD)
 
-Course website: [https://jgreene100.github.io/Ast207/](https://jgreene100.github.io/Ast207/) (Password: `Ast207_Spring25`)
+Course website: [https://jgreene100.github.io/Ast207/](https://jgreene100.github.io/Ast207/) (Password: `AST207`)
 
 A course designed for Princeton majors and non-majors interested in understanding astronomical data. 
 
 Maintained by Jenny Greene, Jared Siegel, Erin Flowers, and Jiaxuan Li. 
+
 
 
 ## Recommended Workflow for Students
@@ -21,7 +22,7 @@ To work on the Jupyter notebooks provided in this book and submit your completed
 - Then Google Colab will ask you to authorize your GitHub account to access the notebook. Click on "Authorize" and follow the instructions to log in to your GitHub account. Then you will be able to open the notebook in Google Colab. The notebook is automatically saved to your Google Drive.
 
 ### 2. Save a Copy to Your Google Drive
-- In Google Colab, go to the menu and select File → Save a Copy in Drive. This will create a personal copy of the notebook in your Google Drive, ensuring you can edit and save your work. We suggest you to make a folder for all the notebooks you will work on, and save your progress regularly.
+- In Google Colab, go to the menu and select **File → Save a Copy** in Drive. This will create a personal copy of the notebook in your Google Drive, ensuring you can edit and save your work. We suggest you to make a folder for all the notebooks you will work on, and save your progress regularly.
 
 - If you see a warning that "This notebook was not authored by Google," you can click on "Run Anyway" to proceed.
 
@@ -33,12 +34,12 @@ To work on the Jupyter notebooks provided in this book and submit your completed
 ### 4. Download and Submit Your Work
 
 - Once you’ve completed the notebook, download two versions of your work for submission:
-    - IPYNB (Jupyter Notebook): Go to File → Download → Download .ipynb to get the notebook file.
-    - PDF Version: Go to File → Print or File → Save as PDF to export your notebook as a PDF.
+    - `ipynb` (Jupyter Notebook): Go to **File → Download → Download .ipynb** to get the notebook file.
+    - PDF Version: Go to **File → Print or File → Save as PDF** to export your notebook as a PDF.
 
     Ensure all code cells, outputs, and any written explanations are visible in the PDF.
 
-- Submit both the .ipynb file and the PDF file through Canvas.
+- Submit both the `.ipynb` file and the PDF file through Canvas.
 
 > [!IMPORTANT]  
 > Make sure your notebook runs **without errors** before submission. You can check this by opening the notebook in Google Colab and running all cells. If you encounter any errors, try to fix them before submitting your work.

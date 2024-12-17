@@ -1,6 +1,6 @@
 # AST207: A Gateway to Science: Observational Astronomy in the James Webb Era
 
-Welcome to the course website for AST207 at Princeton University!
+Welcome to the course website (password: `AST207`) for AST207 at Princeton University! 
 
 ## Course Description
 
@@ -47,7 +47,7 @@ To work on the Jupyter notebooks provided in this book and submit your completed
 - Then Google Colab will ask you to authorize your GitHub account to access the notebook. Click on "Authorize" and follow the instructions to log in to your GitHub account. Then you will be able to open the notebook in Google Colab. The notebook is automatically saved to your Google Drive.
 
 ### 2. Save a Copy to Your Google Drive
-- In Google Colab, go to the menu and select File → Save a Copy in Drive. This will create a personal copy of the notebook in your Google Drive, ensuring you can edit and save your work. We suggest you to make a folder for all the notebooks you will work on, and save your progress regularly.
+- In Google Colab, go to the menu and select **File → Save a Copy** in Drive. This will create a personal copy of the notebook in your Google Drive, ensuring you can edit and save your work. We suggest you to make a folder for all the notebooks you will work on, and save your progress regularly.
 
 - If you see a warning that "This notebook was not authored by Google," you can click on "Run Anyway" to proceed.
 
@@ -59,12 +59,12 @@ To work on the Jupyter notebooks provided in this book and submit your completed
 ### 4. Download and Submit Your Work
 
 - Once you’ve completed the notebook, download two versions of your work for submission:
-    - IPYNB (Jupyter Notebook): Go to File → Download → Download .ipynb to get the notebook file.
-    - PDF Version: Go to File → Print or File → Save as PDF to export your notebook as a PDF.
+    - `ipynb` (Jupyter Notebook): Go to **File → Download → Download .ipynb** to get the notebook file.
+    - PDF Version: Go to **File → Print or File → Save as PDF** to export your notebook as a PDF.
 
     Ensure all code cells, outputs, and any written explanations are visible in the PDF.
 
-- Submit both the .ipynb file and the PDF file through Canvas.
+- Submit both the `.ipynb` file and the PDF file through Canvas.
 
 > [!IMPORTANT]  
 > Make sure your notebook runs **without errors** before submission. You can check this by opening the notebook in Google Colab and running all cells. If you encounter any errors, try to fix them before submitting your work.
