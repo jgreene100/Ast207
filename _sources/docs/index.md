@@ -34,6 +34,42 @@ We will work in `Python` and gain some comfort with basic scientific computing a
 
 - Practice science communication through short presentations.
 
+
+
+## Recommended Workflow for Students
+To work on the Jupyter notebooks provided in this book and submit your completed work, please follow the steps below:
+
+### 1. Open the Notebook in Google Colab
+- Navigate to the desired notebook in this Jupyter Book.
+
+- At the top of the notebook page, click on the rocket icon and then click the "Colab" button. This will launch the notebook in Google Colab, where you can interactively work on it. 
+
+- Then Google Colab will ask you to authorize your GitHub account to access the notebook. Click on "Authorize" and follow the instructions to log in to your GitHub account. Then you will be able to open the notebook in Google Colab. The notebook is automatically saved to your Google Drive.
+
+### 2. Save a Copy to Your Google Drive
+- In Google Colab, go to the menu and select File → Save a Copy in Drive. This will create a personal copy of the notebook in your Google Drive, ensuring you can edit and save your work. We suggest you to make a folder for all the notebooks you will work on, and save your progress regularly.
+
+- If you see a warning that "This notebook was not authored by Google," you can click on "Run Anyway" to proceed.
+
+### 3. Work on the Notebook
+- Complete the tasks, exercises, or questions in the notebook as instructed.
+
+- Make sure all cells are executed, and your results are correctly displayed.
+
+### 4. Download and Submit Your Work
+
+- Once you’ve completed the notebook, download two versions of your work for submission:
+    - IPYNB (Jupyter Notebook): Go to File → Download → Download .ipynb to get the notebook file.
+    - PDF Version: Go to File → Print or File → Save as PDF to export your notebook as a PDF.
+
+    Ensure all code cells, outputs, and any written explanations are visible in the PDF.
+
+- Submit both the .ipynb file and the PDF file through Canvas.
+
+> [!IMPORTANT]  
+> Make sure your notebook runs **without errors** before submission. You can check this by opening the notebook in Google Colab and running all cells. If you encounter any errors, try to fix them before submitting your work.
+
+
 <!-- 
 We propose development funds for a new course on Observational Astronomy, designed both for majors and non-majors interested in understanding Astronomical telescopes and data. A draft syllabus is attached at the end of this proposal for context. We currently run a Junior Methods course (Astro 303) that tried to cover observing, statistics, and computational methods. As a result, students are not able to dive into the details of telescopes at different wavelengths, data gathering, or data reduction. We thus intend to create an Observational Methods course that covers observations fully, and then keep statistical and computational methods in Astronomy 303. At the same time, we feel that a course on observing will have wide appeal to students outside of the major, and would be a wonderful venue for learning the basics of scientific computing (python) as well as some associated soft skills, like reading scientific papers. 
 ```{note}
