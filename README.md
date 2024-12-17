@@ -4,7 +4,7 @@
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/AstroJacobLi/ObsAstGreene/HEAD)
 
 A course designed for Princeton majors and non-majors interested in understanding astronomical data. 
-
+Yeah!
 Maintained by Jenny Greene, Jared Siegel, Erin Flowers, and Jiaxuan Li. 
 
 ## How to build the book?
