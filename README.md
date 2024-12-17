@@ -1,4 +1,4 @@
-# Observational Astronomy Course Website
+# Observational Astronomy Course Website[^1]
 
 [![Jupyter Book Badge](https://jupyterbook.org/badge.svg)](<https://jgreene100.github.io/Ast207/>)
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/jgreene100/Ast207/HEAD)
@@ -78,4 +78,4 @@ jb clean --all book/
 This repository is published automatically to `gh-pages` upon `push` to the `master` branch. -->
 
 
-This repository is built based on [quantecon-mini-example](https://github.com/executablebooks/quantecon-mini-example) using [Jupyter book](https://jupyterbook.org/start/overview.html).
+[^1]: This repository is built based on [quantecon-mini-example](https://github.com/executablebooks/quantecon-mini-example) using [Jupyter book](https://jupyterbook.org/start/overview.html).
