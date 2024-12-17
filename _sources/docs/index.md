@@ -10,7 +10,11 @@ We will talk about detectors, and all the work that is required to take raw data
 
 We will work in `Python` and gain some comfort with basic scientific computing and statistics. We will read both popular and astronomical literature. Finally, as part of the final project, we will practice given public-level talks.
 
-![JWST](https://jgreene100.github.io/Ast207/_static/lecture_specific/jwst_artist.png)
+<figure>
+  <img src="../_static/lecture_specific/jwst_artist.jpg" alt="Alt text" width="600">
+  <figcaption>Artist's impression of the NASA/ESA/CSA James Webb Space Telescope. Credit: ESA, NASA, S. Beckwith (STScI) and the HUDF Team, Northrop Grumman Aerospace Systems / STScI / ATG medialab</figcaption>
+</figure>
+
 
 ## Course Objectives
 
