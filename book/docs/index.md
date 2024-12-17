@@ -11,7 +11,7 @@ We will talk about detectors, and all the work that is required to take raw data
 We will work in `Python` and gain some comfort with basic scientific computing and statistics. We will read both popular and astronomical literature. Finally, as part of the final project, we will practice given public-level talks.
 
 <figure>
-  <img src="../_static/lecture_specific/jwst_artist.jpg" alt="Alt text" width="600">
+  <img src="../_static/lecture_specific/jwst_artist.jpg" alt="Alt text">
   <figcaption>Artist's impression of the NASA/ESA/CSA James Webb Space Telescope. Credit: ESA, NASA, S. Beckwith (STScI) and the HUDF Team, Northrop Grumman Aerospace Systems / STScI / ATG medialab</figcaption>
 </figure>
 
@@ -66,9 +66,9 @@ To work on the Jupyter notebooks provided in this book and submit your completed
 
 - Submit both the `.ipynb` file and the PDF file through Canvas.
 
-> [!IMPORTANT]  
-> Make sure your notebook runs **without errors** before submission. You can check this by opening the notebook in Google Colab and running all cells. If you encounter any errors, try to fix them before submitting your work.
-
+```{important}
+Make sure your notebook runs **without errors** before submission. You can check this by opening the notebook in Google Colab and running all cells. If you encounter any errors, try to fix them before submitting your work.
+```
 
 <!-- 
 We propose development funds for a new course on Observational Astronomy, designed both for majors and non-majors interested in understanding Astronomical telescopes and data. A draft syllabus is attached at the end of this proposal for context. We currently run a Junior Methods course (Astro 303) that tried to cover observing, statistics, and computational methods. As a result, students are not able to dive into the details of telescopes at different wavelengths, data gathering, or data reduction. We thus intend to create an Observational Methods course that covers observations fully, and then keep statistical and computational methods in Astronomy 303. At the same time, we feel that a course on observing will have wide appeal to students outside of the major, and would be a wonderful venue for learning the basics of scientific computing (python) as well as some associated soft skills, like reading scientific papers. 
