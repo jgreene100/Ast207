@@ -35,6 +35,10 @@ We will work in `Python` and gain some comfort with basic scientific computing a
 - Practice science communication through short presentations.
 
 
+## Textbooks
+
+TBD
+
 
 ## Recommended Workflow for Students
 To work on the Jupyter notebooks provided in this book and submit your completed work, please follow the steps below:
@@ -57,7 +61,6 @@ To work on the Jupyter notebooks provided in this book and submit your completed
 - Make sure all cells are executed, and your results are correctly displayed.
 
 ### 4. Download and Submit Your Work
-
 - Once you’ve completed the notebook, download two versions of your work for submission:
     - `ipynb` (Jupyter Notebook): Go to **File → Download → Download .ipynb** to get the notebook file.
     - PDF Version: Go to **File → Print or File → Save as PDF** to export your notebook as a PDF.
@@ -66,9 +69,22 @@ To work on the Jupyter notebooks provided in this book and submit your completed
 
 - Submit both the `.ipynb` file and the PDF file through Canvas.
 
-```{important}
-Make sure your notebook runs **without errors** before submission. You can check this by opening the notebook in Google Colab and running all cells. If you encounter any errors, try to fix them before submitting your work.
+
+## Grading
+
+```{note}
+Your homework will be graded based on the following criteria:
+- Correctness and completeness of your solutions
+- Whether you could explain your thoughts and results clearly, even if the solution is incorrect. We encourage you to write comments to your code and detailed explanations in the markdown cells.
+- Proper use of variable names, functions, and Python code style. Please try to make your code readable and well-organized.
 ```
+
+```{important}
+We will grade your homework mainly based on the submitted PDF file. However, we will also check your code in the `.ipynb` file to understand your work better and ensure that the code runs without errors. 
+
+Therefore, please make sure your notebook runs **without errors** before submission. You can check this by opening the notebook in Google Colab and running all cells. If you encounter any errors, try to fix them before submitting your work.
+```
+
 
 <!-- 
 We propose development funds for a new course on Observational Astronomy, designed both for majors and non-majors interested in understanding Astronomical telescopes and data. A draft syllabus is attached at the end of this proposal for context. We currently run a Junior Methods course (Astro 303) that tried to cover observing, statistics, and computational methods. As a result, students are not able to dive into the details of telescopes at different wavelengths, data gathering, or data reduction. We thus intend to create an Observational Methods course that covers observations fully, and then keep statistical and computational methods in Astronomy 303. At the same time, we feel that a course on observing will have wide appeal to students outside of the major, and would be a wonderful venue for learning the basics of scientific computing (python) as well as some associated soft skills, like reading scientific papers. 
