@@ -80,9 +80,9 @@ Your homework will be graded based on the following criteria:
 ```
 
 ```{important}
-We will grade your homework mainly based on the submitted PDF file. However, we will also check your code in the `.ipynb` file to understand your work better and ensure that the code runs without errors. 
+We will grade your homework mainly based on the submitted PDF file. However, we may also check your code in the `.ipynb` file on occassion to understand your work better and ensure that the code runs without errors. 
 
-Therefore, please make sure your notebook runs **without errors** before submission. You can check this by opening the notebook in Google Colab and running all cells. If you encounter any errors, try to fix them before submitting your work.
+Therefore, please make sure your notebook runs **in order** and **without errors** before submission. You can check this by opening the notebook in Google Colab and running all cells from the beginning and in order. If you encounter any errors, try to fix them before submitting your work.
 ```
 
 
