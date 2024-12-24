@@ -303,3 +303,10 @@ plt.show()
 
 Don\'t worry about the details for now --- let\'s just run it and see
 what happens. Hopefully you will get a beautiful plot!
+
+
+## Homework
+1. Set up your Python environment, either on Google Colab, or on your own laptop. If you are working on your local machine, please make sure you can run a Jupyter notebook. If you are working on Google Colab, please make sure you can open a notebook and run the code.
+2. Familiarize yourself with the Jupyter notebook interface. Try running some code, writing some text, and inserting a figure in a Markdown cell.
+3. Run the test program above and make sure you get a plot. If you encounter any errors, please let us know. 
+4. Download the notebook as `.ipynb` and print it as a PDF. Submit both files through Canvas.
