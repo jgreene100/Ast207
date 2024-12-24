@@ -410,7 +410,6 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sort-the-players-by-height">3. Sort the players by height</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-and-logical-operations">4. Comparison and logical operations</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-the-height-and-weight-of-the-players">5. Plotting the height and weight of the players</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a></li>
 </ul>
             </nav>
         </div>
@@ -454,6 +453,7 @@ document.write(`
 </div>
 </div>
 </div>
+<p><strong>Import packages</strong></p>
 <p>Note how we import the packages. There are mainly 3 ways to import packages:</p>
 <ul class="simple">
 <li><p>directly import something, such as <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">matplotlib</span></code>. In this way, you can call the functions under this package like <code class="docutils literal notranslate"><span class="pre">matplotlib.colorbar</span></code> directly.</p></li>
@@ -595,16 +595,20 @@ weight = &lt;class &#39;numpy.ndarray&#39;&gt;
 </div>
 </div>
 </div>
-<p><strong>Quiz:</strong> can you find out the length of the height and weight arrays?</p>
-<blockquote>
-<div><p>Tips: you can use the <code class="docutils literal notranslate"><span class="pre">len()</span></code> function to find out the length of an array.</p>
-</div></blockquote>
+<div class="admonition-quiz admonition">
+<p class="admonition-title">Quiz</p>
+<p>Can you find out the length of the height and weight arrays?</p>
+<p><em>Tips: you can use the <code class="docutils literal notranslate"><span class="pre">len()</span></code> function to find out the length of an array.</em></p>
+</div>
 <section id="indexing-and-slicing">
 <h3>Indexing and slicing<a class="headerlink" href="#indexing-and-slicing" title="Permalink to this heading">#</a></h3>
 <p>Indexing refers to selecting an element from an array. Slicing refers to selecting a range of elements from an array. In Python, the index starts from 0. For example, the first element of an array is indexed as 0, the second element is indexed as 1, and so on.</p>
 <p>If we wanna select the first element of an array, we can use <code class="docutils literal notranslate"><span class="pre">array[0]</span></code>. If we wanna select the forth element of an array, we can use <code class="docutils literal notranslate"><span class="pre">array[3]</span></code>. For the last element of an array, we can use <code class="docutils literal notranslate"><span class="pre">array[-1]</span></code>. The second last element of an array can be selected as <code class="docutils literal notranslate"><span class="pre">array[-2]</span></code>.</p>
 <p>If we wanna select the first 3 elements of an array, we can use <code class="docutils literal notranslate"><span class="pre">array[0:3]</span></code>. The first number is the starting index, and the second number is the ending index. The ending index is not included in the selection. If we wanna select the first 3 elements of an array, we can also use <code class="docutils literal notranslate"><span class="pre">array[:3]</span></code>. If we wanna select the last 3 elements of an array, we can use <code class="docutils literal notranslate"><span class="pre">array[-3:]</span></code>. If we wanna select every other element of an array, we can use <code class="docutils literal notranslate"><span class="pre">array[::2]</span></code>.</p>
-<p><strong>Exercise</strong>: try to select the first 5 elements of the height array, and the last 5 elements of the weight array.</p>
+<div class="admonition-exercise admonition">
+<p class="admonition-title">Exercise</p>
+<p>Try to select the first 5 elements of the height array, and the last 5 elements of the weight array.</p>
+</div>
 </section>
 </section>
 <section id="who-s-the-tallest-and-heaviest-player">
@@ -636,6 +640,10 @@ weight = &lt;class &#39;numpy.ndarray&#39;&gt;
 </pre></div>
 </div>
 </div>
+</div>
+<div class="admonition-quiz admonition">
+<p class="admonition-title">Quiz</p>
+<p>Find out the player with the maximum weight.</p>
 </div>
 </section>
 <section id="sort-the-players-by-height">
@@ -701,7 +709,10 @@ weight = &lt;class &#39;numpy.ndarray&#39;&gt;
 </div>
 <p>The above code tries to check if the price is between 20 and 40. <code class="docutils literal notranslate"><span class="pre">price</span> <span class="pre">&gt;</span> <span class="pre">20</span> <span class="pre">and</span> <span class="pre">price</span> <span class="pre">&lt;</span> <span class="pre">40</span></code> is a composite condition, and it is <code class="docutils literal notranslate"><span class="pre">True</span></code> if the price is between 20 and 40. However, in Python, you can’t write <code class="docutils literal notranslate"><span class="pre">20</span> <span class="pre">&lt;</span> <span class="pre">price</span> <span class="pre">&lt;</span> <span class="pre">40</span></code>. You have to write <code class="docutils literal notranslate"><span class="pre">20</span> <span class="pre">&lt;</span> <span class="pre">price</span> <span class="pre">and</span> <span class="pre">price</span> <span class="pre">&lt;</span> <span class="pre">40</span></code>.</p>
 <p>We also see <code class="docutils literal notranslate"><span class="pre">if</span></code> and <code class="docutils literal notranslate"><span class="pre">else</span></code> in the code. <code class="docutils literal notranslate"><span class="pre">if</span></code> is a conditional statement that executes some specified code after checking if the condition is <code class="docutils literal notranslate"><span class="pre">True</span></code>. <code class="docutils literal notranslate"><span class="pre">else</span></code> is a conditional statement that executes some specified code if the condition is <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
-<p><strong>Example</strong>: Let’s check how many players have a height greater than 75 inches and a weight greater than 200 pounds.</p>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
+<p>Let’s check how many players have a height greater than 75 inches and a weight greater than 200 pounds.</p>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># The command below will give us a boolean array with True for players taller than 75 inches</span>
@@ -742,7 +753,10 @@ The <code class="docutils literal notranslate"><span class="pre">&amp;</span></c
 </div>
 </div>
 </div>
+<div class="tip admonition">
+<p class="admonition-title">Tips</p>
 <p>See also: <code class="docutils literal notranslate"><span class="pre">np.all</span></code> and <code class="docutils literal notranslate"><span class="pre">np.any</span></code> functions.</p>
+</div>
 </section>
 <section id="plotting-the-height-and-weight-of-the-players">
 <h2>5. Plotting the height and weight of the players<a class="headerlink" href="#plotting-the-height-and-weight-of-the-players" title="Permalink to this heading">#</a></h2>
@@ -871,15 +885,18 @@ The <code class="docutils literal notranslate"><span class="pre">&amp;</span></c
 <img alt="../../_images/3674f45b594e96b4e6982b3a280068ddcd4b18e14e51283f9166fdc61c0b476d.png" src="../../_images/3674f45b594e96b4e6982b3a280068ddcd4b18e14e51283f9166fdc61c0b476d.png" />
 </div>
 </div>
-<p><strong>Tips</strong>: You can adjust the subplots separation by using <code class="docutils literal notranslate"><span class="pre">plt.subplots_adjust()</span></code>. e.g., <code class="docutils literal notranslate"><span class="pre">plt.subplots_adjust(wspace=0.5)</span></code> will adjust the width space between the two subplots to be 0.5.</p>
-</section>
-<section id="exercises">
-<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h2>
+<div class="tip admonition">
+<p class="admonition-title">Tips</p>
+<p>You can adjust the subplots separation by using <code class="docutils literal notranslate"><span class="pre">plt.subplots_adjust()</span></code>. e.g., <code class="docutils literal notranslate"><span class="pre">plt.subplots_adjust(wspace=0.5)</span></code> will adjust the width space between the two subplots to be 0.5.</p>
+</div>
+<div class="important admonition">
+<p class="admonition-title">Exercises</p>
 <ol class="arabic simple">
 <li><p>Plot a scatter plot of weight vs. age. Set the marker type to “squares”, and the marker color to orange.</p></li>
 <li><p>Let’s calculate the BMI of these football players. BMI is defined as <code class="docutils literal notranslate"><span class="pre">BMI</span> <span class="pre">=</span> <span class="pre">weight</span> <span class="pre">/</span> <span class="pre">height**2</span></code>, where weight is in kg and height is in meters. The weight and height in the above data are in lbs and inches. Please convert the units, and then calculate the BMI.</p></li>
 <li><p>Plot a scatter plot of the calculated BMI vs. age. Do you see any trend?</p></li>
 </ol>
+</div>
 </section>
 </section>
 
@@ -954,7 +971,6 @@ The <code class="docutils literal notranslate"><span class="pre">&amp;</span></c
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sort-the-players-by-height">3. Sort the players by height</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-and-logical-operations">4. Comparison and logical operations</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-the-height-and-weight-of-the-players">5. Plotting the height and weight of the players</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a></li>
 </ul>
   </nav></div>
 
