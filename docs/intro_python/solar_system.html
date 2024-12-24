@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>About Python &#8212; Observational Astronomy</title>
+    <title>Planets in Solar System &#8212; Observational Astronomy</title>
   
   
   
@@ -63,12 +63,10 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/intro_python/about_py';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/intro_python/solar_system';</script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Setting up Your Python Environment" href="getting_started.html" />
-    <link rel="prev" title="AST207: A Gateway to Science: Observational Astronomy in the James Webb Era" href="../index.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -163,8 +161,8 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to Python</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">About Python</a></li>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="about_py.html">About Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="getting_started.html">Setting up Your Python Environment</a></li>
 <li class="toctree-l1"><a class="reference internal" href="python_by_example.html">An Introductory Example</a></li>
 <li class="toctree-l1"><a class="reference internal" href="numpy_and_plotting.html">Working with arrays</a></li>
@@ -277,7 +275,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://colab.research.google.com/github/jgreene100/Ast207/blob/main//book/docs/intro_python/about_py.md" target="_blank"
+      <li><a href="https://colab.research.google.com/github/jgreene100/Ast207/blob/main//book/docs/intro_python/solar_system.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onColab"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -308,24 +306,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../../_sources/docs/intro_python/about_py.ipynb" target="_blank"
-   class="btn btn-sm btn-download-notebook-button dropdown-item"
-   title="Download notebook file"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fas fa-code"></i>
-  </span>
-<span class="btn__text-container">.ipynb</span>
-</a>
-</li>
-      
-      
-      
-      
-      <li><a href="../../_sources/docs/intro_python/about_py.md" target="_blank"
+      <li><a href="../../_sources/docs/intro_python/solar_system.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -335,7 +316,7 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -396,9 +377,7 @@ document.write(`
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</label>
+
 </div></div>
       
     </div>
@@ -409,27 +388,11 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>About Python</h1>
+    <h1>Planets in Solar System</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-s-python">What’s Python?</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#python-for-scientific-programming">Python for Scientific Programming</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#textbooks-and-tutorials">Textbooks and Tutorials</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#popularity">Popularity</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#features">Features</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code-style">Code Style</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-to-do-if-your-code-doesn-t-work">What to do if your code doesn’t work?</a></li>
-</ul>
-            </nav>
         </div>
     </div>
 </div>
@@ -439,66 +402,97 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="about-python">
-<span id="about-py"></span><h1>About Python<a class="headerlink" href="#about-python" title="Permalink to this heading">#</a></h1>
-<blockquote>
-<div><p>“Python has gotten sufficiently weapons grade that we don’t descend
-into R anymore. Sorry, R people. I used to be one of you but we no
-longer descend into R.” – Chris Wiggins</p>
-</div></blockquote>
-<section id="what-s-python">
-<h2>What’s Python?<a class="headerlink" href="#what-s-python" title="Permalink to this heading">#</a></h2>
-<p><a class="reference external" href="https://www.python.org">Python</a> is a general-purpose programming
-language conceived in 1989 by Dutch programmer <a class="reference external" href="https://en.wikipedia.org/wiki/Guido_van_Rossum">Guido van
-Rossum</a>.</p>
-<p>Python is free and open source, with development coordinated through the
-<a class="reference external" href="https://www.python.org/psf/">Python Software Foundation</a>.</p>
-<p>Python has experienced rapid adoption in the last decade and is now one
-of the most commonly used programming languages. It has a large and supportive user community, especially in the scientific and data science domains. Python is beginner-friendly and routinely used to teach computer science and programming in top computer science programs.</p>
-<section id="python-for-scientific-programming">
-<h3>Python for Scientific Programming<a class="headerlink" href="#python-for-scientific-programming" title="Permalink to this heading">#</a></h3>
-<p>Python has become one of the core languages of scientific computing.</p>
-<p>It’s either the dominant player or a major player in <a class="reference external" href="https://pytorch.org/">machine learning</a>, <a class="reference external" href="http://scikit-learn.org/stable/">data science</a>, <a class="reference external" href="http://www.astropy.org/">astronomy</a>, <a class="reference external" href="http://chemlab.github.io/chemlab/">chemistry</a>, <a class="reference external" href="http://biopython.org/wiki/Main_Page">computational biology</a>, and <a class="reference external" href="https://pypi.org/project/meteorology/">meteorology</a>.</p>
-</section>
-<section id="textbooks-and-tutorials">
-<h3>Textbooks and Tutorials<a class="headerlink" href="#textbooks-and-tutorials" title="Permalink to this heading">#</a></h3>
-<p>Our favorite Python textbooks/tutorials include:</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://nbviewer.org/github/jakevdp/WhirlwindTourOfPython/blob/master/Index.ipynb">A Whirlwind Tour of Python</a> by Jake VanderPlas: <strong>highly recommended for everyone</strong>. It’s worth reading even if you are already familiar with Python. We will cover some of the materials in the course.</p></li>
-<li><p><a class="reference external" href="https://jakevdp.github.io/PythonDataScienceHandbook/">Python Data Science Handbook</a> also by Jake VanderPlas. It covers more advanced packages such as <code class="docutils literal notranslate"><span class="pre">pandas</span></code>.</p></li>
-<li><p><a class="reference external" href="https://learn.astropy.org/">Learn Astropy</a> tutorials.</p></li>
-</ul>
-<p>Of course, when you encounter a problem, you can always ask for help on <a class="reference external" href="https://stackoverflow.com/">Stack Overflow</a>, or ask your favorite large language model.</p>
-</section>
-<section id="popularity">
-<h3>Popularity<a class="headerlink" href="#popularity" title="Permalink to this heading">#</a></h3>
-<p>The following figure (made by Yuan-Sen Ting) shows the evolution of programming languages used in astronomy papers over time. It’s clear that Python has become the dominant language in the field (whereas IRAF and IDL were dominant in the past). Python is now the number one choice not only because it is easy to learn, but also because it has a huge number of libraries that fit the needs of astronomers (especially observational astronomers!!).</p>
-<p>You will have a chance to use different Python libraries in the course, and some of them will continue to be useful in your future research.</p>
-<figure class="align-default" id="id1">
-<a class="reference internal image-reference" href="../../_images/astro_language_evolution.jpeg"><img alt="../../_images/astro_language_evolution.jpeg" src="../../_images/astro_language_evolution.jpeg" style="height: 450px;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 1 </span><span class="caption-text">Credit: <a class="reference external" href="https://x.com/TingAstro/status/1869723006354022800">Yuan-Sen Ting</a></span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
-</figcaption>
-</figure>
-</section>
-<section id="features">
-<h3>Features<a class="headerlink" href="#features" title="Permalink to this heading">#</a></h3>
-<p>Python is a <a class="reference external" href="https://en.wikipedia.org/wiki/High-level_programming_language">high-level language</a> suitable for rapid development. It supports multiple programming styles are supported (procedural, object-oriented, functional, etc.). We will (probably) use all these styles in the course.</p>
-</section>
-</section>
-<section id="code-style">
-<h2>Code Style<a class="headerlink" href="#code-style" title="Permalink to this heading">#</a></h2>
-<p>It is <strong>very important</strong> to write clean and readable code. We highly recommend you to read this <a class="reference external" href="https://www.classes.cs.uchicago.edu/archive/2017/fall/12100-1/style-guide/index.html">Python Style Guide</a> to get a sense of what good Python code looks like. As you go through the course materials, you will see how we write code and you will be able to develop your own style based on these guidelines.</p>
-</section>
-<section id="what-to-do-if-your-code-doesn-t-work">
-<h2>What to do if your code doesn’t work?<a class="headerlink" href="#what-to-do-if-your-code-doesn-t-work" title="Permalink to this heading">#</a></h2>
-<ul class="simple">
-<li><p>Ask Google, Stack Overflow, or your favorite search engine. New programmers often make the mistake of thinking that they need to solve every problem from scratch. In reality, most programming problems have been encountered by someone else before. Don’t feel embarrassed by the mistakes you make. Everyone makes mistakes when they are learning to program (including the instructors – they still suffer a lot now).</p></li>
-<li><p>Ask your classmates. They are likely to have encountered the same problem.</p></li>
-<li><p>Ask large language models (such as GPT or Claude). These models now are really good at debugging code.</p></li>
-<li><p>Try the AI assistant on Google Colab.</p></li>
-</ul>
-</section>
+  <section class="tex2jax_ignore mathjax_ignore" id="planets-in-solar-system">
+<h1>Planets in Solar System<a class="headerlink" href="#planets-in-solar-system" title="Permalink to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">astroquery.jplhorizons</span> <span class="kn">import</span> <span class="n">Horizons</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="c1"># Set up parameters for Mars</span>
+<span class="n">mars</span> <span class="o">=</span> <span class="n">Horizons</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s1">&#39;499&#39;</span><span class="p">,</span> <span class="n">location</span><span class="o">=</span><span class="s1">&#39;500@0&#39;</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;start&#39;</span><span class="p">:</span> <span class="s1">&#39;2014-01-01&#39;</span><span class="p">,</span> 
+                                                     <span class="s1">&#39;stop&#39;</span><span class="p">:</span> <span class="s1">&#39;2024-01-10&#39;</span><span class="p">,</span> 
+                                                     <span class="s1">&#39;step&#39;</span><span class="p">:</span> <span class="s1">&#39;5d&#39;</span><span class="p">})</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">mars</span><span class="o">.</span><span class="n">vectors</span><span class="p">(</span><span class="n">refplane</span><span class="o">=</span><span class="s1">&#39;ecliptic&#39;</span><span class="p">)</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;r&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;z&#39;</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;datetime_jd&#39;</span><span class="p">]</span> <span class="o">-=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;datetime_jd&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;datetime_jd&#39;</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;r&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;X (AU)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Y (AU)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Mars Orbital Path&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;r&#39;</span><span class="p">])</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;r&#39;</span><span class="p">]))</span> <span class="o">/</span> <span class="mi">2</span>
+<span class="n">r_max</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;r&#39;</span><span class="p">])</span>
+<span class="n">r_min</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;r&#39;</span><span class="p">])</span>
+
+<span class="n">t_max</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;datetime_jd&#39;</span><span class="p">][</span><span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;r&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">r_max</span><span class="p">))]</span>
+<span class="n">t_min</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;datetime_jd&#39;</span><span class="p">][</span><span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;r&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">r_min</span><span class="p">))]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">T</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">t_max</span> <span class="o">-</span> <span class="n">t_min</span><span class="p">)</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">/</span> <span class="mf">365.2422</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">**</span><span class="mi">3</span> <span class="o">/</span> <span class="n">T</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d</span> <span class="kn">import</span> <span class="n">Axes3D</span>
+
+<span class="c1"># Create 3D plot</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span>
+
+<span class="c1"># Plot Neptune&#39;s orbit</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;z&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Mars&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">)</span>
+
+<span class="c1"># ax.set_aspect(&#39;equal&#39;)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlim</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">zlim</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">ylim</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+
+<span class="c1"># Add labels and legend</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;X (AU)&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Y (AU)&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_zlabel</span><span class="p">(</span><span class="s2">&quot;Z (AU)&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Neptune and Pluto Orbits (3D Visualization)&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 
     <script type="text/x-thebe-config">
@@ -531,52 +525,12 @@ of the most commonly used programming languages. It has a large and supportive u
                 <footer class="prev-next-footer">
                   
 <div class="prev-next-area">
-    <a class="left-prev"
-       href="../index.html"
-       title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">AST207: A Gateway to Science: Observational Astronomy in the James Webb Era</p>
-      </div>
-    </a>
-    <a class="right-next"
-       href="getting_started.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Setting up Your Python Environment</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
 </div>
                 </footer>
               
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-s-python">What’s Python?</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#python-for-scientific-programming">Python for Scientific Programming</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#textbooks-and-tutorials">Textbooks and Tutorials</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#popularity">Popularity</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#features">Features</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code-style">Code Style</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-to-do-if-your-code-doesn-t-work">What to do if your code doesn’t work?</a></li>
-</ul>
-  </nav></div>
-
-</div></div>
               
             
           </div>
