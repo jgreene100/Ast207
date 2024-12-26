@@ -43,7 +43,9 @@ Our favorite Python textbooks/tutorials include:
 - [Python Data Science Handbook](https://jakevdp.github.io/PythonDataScienceHandbook/) also by Jake VanderPlas. It covers more advanced packages such as `pandas`.
 - [Learn Astropy](https://learn.astropy.org/) tutorials. 
 
-Of course, when you encounter a problem, you can always ask for help on [Stack Overflow](https://stackoverflow.com/), ask us, ask your friends, or ask your favorite large language model, . 
+Of course, when you encounter a problem, you can always ask for help on [Stack Overflow](https://stackoverflow.com/), ask us, ask your friends, or ask your favorite large language model.
+
+In addition, Princeton offers a number of courses on Python, from introductory to advanced. Some resources are [pre-recorded](https://princetonuniversity.github.io/PUbootcamp_winter2021/sessions/W1A-intro-programming-python/) but there are also courses NEED SCHEDULE HERE! 
 
 
 ### Popularity
