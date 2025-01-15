@@ -2,7 +2,7 @@ format: jb-book
 root: docs/index
 
 parts: 
-- caption: Introduction to Python
+- caption: Introduction to Python (Week 1 Jan 28-30)
   chapters:
   - file: docs/intro_python/about_py
   - file: docs/intro_python/getting_started
