@@ -6,7 +6,7 @@ parts:
   chapters:
   - file: docs/intro_python/about_py
   - file: docs/intro_python/getting_started
-  - file: docs/intro_python/python_by_example
+  #- file: docs/intro_python/python_by_example
   - file: docs/intro_python/numpy_and_plotting
 
 # - caption: Statistics
@@ -21,13 +21,13 @@ parts:
 #  - file: docs/imaging/plotting_jwst
 #  - file: docs/intro_gaia_star
 
-- caption: Final Projects
-  chapters:
-  - file: docs/final_project/variable_stars_and_planets
-  - file: docs/final_project/GalaxyZoo_NeuralNet
-  - file: docs/final_project/lrd/are_LRD_resolved
-
-- caption: Merian Project
-  chapters:
-  - file: docs/final_project/merian/01_merian_intro.ipynb
-  - file: docs/final_project/merian/02_Halpha_map.ipynb
+#- caption: Final Projects
+#  chapters:
+#  - file: docs/final_project/variable_stars_and_planets
+#  - file: docs/final_project/GalaxyZoo_NeuralNet
+#  - file: docs/final_project/lrd/are_LRD_resolved
+#
+#- caption: Merian Project
+#  chapters:
+#  - file: docs/final_project/merian/01_merian_intro.ipynb
+#  - file: docs/final_project/merian/02_Halpha_map.ipynb
