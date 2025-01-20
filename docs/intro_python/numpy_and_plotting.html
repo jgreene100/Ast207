@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Working with arrays &#8212; Observational Astronomy</title>
+    <title>Getting started with arrays and plots in Python &#8212; Observational Astronomy</title>
   
   
   
@@ -165,7 +165,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="about_py.html">About Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="getting_started.html">Setting up Your Python Environment</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Working with arrays</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Getting started with arrays and plots in Python</a></li>
 </ul>
 
     </div>
@@ -335,7 +335,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Working with arrays</h1>
+    <h1>Getting started with arrays and plots in Python</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -353,6 +353,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sort-the-players-by-height">3. Sort the players by height</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-and-logical-operations">4. Comparison and logical operations</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-the-height-and-weight-of-the-players">5. Plotting the height and weight of the players</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
 </ul>
             </nav>
         </div>
@@ -364,8 +365,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="working-with-arrays">
-<h1>Working with arrays<a class="headerlink" href="#working-with-arrays" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="getting-started-with-arrays-and-plots-in-python">
+<h1>Getting started with arrays and plots in Python<a class="headerlink" href="#getting-started-with-arrays-and-plots-in-python" title="Permalink to this heading">#</a></h1>
 <p><strong>Prerequisite:</strong></p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://jgreene100.github.io/Ast207/docs/intro_python/about_py.html">About Python</a></p></li>
@@ -383,6 +384,7 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let&#39;s start with importing our packages</span>
+<span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">scipy</span>
 <span class="kn">import</span> <span class="nn">matplotlib</span>
@@ -396,20 +398,50 @@ document.write(`
 </div>
 </div>
 </div>
-<p><strong>Import packages</strong></p>
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Don&#39;t worry about this cell, it&#39;s just to make the notebook look a little nicer.</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">google.colab</span>
+    <span class="n">IN_COLAB</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+    <span class="n">IN_COLAB</span> <span class="o">=</span> <span class="kc">False</span>
+
+<span class="c1"># Get the directory right</span>
+<span class="k">if</span> <span class="n">IN_COLAB</span><span class="p">:</span>
+  <span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">drive</span>
+  <span class="n">drive</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="s1">&#39;/content/drive/&#39;</span><span class="p">)</span>
+  <span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="s1">&#39;/content/drive/Shareddrives/AST207/data&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s2">&quot;../../../_static/ObsAstroData/&quot;</span><span class="p">):</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="s2">&quot;../../../_static/ObsAstroData/&quot;</span><span class="p">)</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="s1">&#39;../../../_static/ObsAstroData/&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Import packages</p>
 <p>Note how we import the packages. There are mainly 3 ways to import packages:</p>
 <ul class="simple">
 <li><p>directly import something, such as <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">matplotlib</span></code>. In this way, you can call the functions under this package like <code class="docutils literal notranslate"><span class="pre">matplotlib.colorbar</span></code> directly.</p></li>
 <li><p>import something as something, such as <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">numpy</span> <span class="pre">as</span> <span class="pre">np</span></code>. Now <code class="docutils literal notranslate"><span class="pre">np</span></code> is an alias of the package <code class="docutils literal notranslate"><span class="pre">numpy</span></code>. It is a super convenient feature and will save your life. However, there are <strong>conventions</strong> of some popular packages. E.g., <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">numpy</span> <span class="pre">as</span> <span class="pre">np</span></code>, <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">pandas</span> <span class="pre">as</span> <span class="pre">pd</span></code>, etc.</p></li>
 <li><p>import a subpackage from a package, such as <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">matplotlib.pyplot</span> <span class="pre">as</span> <span class="pre">plt</span></code>. By doing this, we import a subpackage <code class="docutils literal notranslate"><span class="pre">pyplot</span></code> from <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>, and set up an alias <code class="docutils literal notranslate"><span class="pre">plt</span></code>. Another example is <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">astropy.table</span> <span class="pre">import</span> <span class="pre">Table</span></code>, where <code class="docutils literal notranslate"><span class="pre">Table</span></code> is a Python class in <code class="docutils literal notranslate"><span class="pre">astropy.table</span></code>. Some other examples are <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">astropy.units</span> <span class="pre">as</span> <span class="pre">u</span></code>, <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">astropy.constants</span> <span class="pre">as</span> <span class="pre">const</span></code>.</p></li>
 </ul>
+</div>
 <p>In this notebook, we are going to learn (for the first time!) how to work with data in Python. As astronomers, a huge amount of what we do involves taking observations in the form of catalogs and comparing them visually. Today, we’re going to take a step back from space and think about <strong>football</strong>, and play around with some data for the 2023 NFL rosters.</p>
 <section id="read-a-catalog-of-the-football-players">
 <h2>1. Read a catalog of the football players<a class="headerlink" href="#read-a-catalog-of-the-football-players" title="Permalink to this heading">#</a></h2>
 <p>We have a catalog of the 2023 NFL rosters. The catalog is in the form of a CSV file, which is a common format for storing data. You can also open this CSV file using Microsoft Excel or MacOS Numbers. In Python, we can read this file using the <code class="docutils literal notranslate"><span class="pre">astropy.table.Table</span></code> class. We have imported this class as <code class="docutils literal notranslate"><span class="pre">Table</span></code> from the <code class="docutils literal notranslate"><span class="pre">astropy.table</span></code> package. Now we use <code class="docutils literal notranslate"><span class="pre">Table.read()</span></code> to read the CSV file.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cat</span> <span class="o">=</span> <span class="n">Table</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;/Users/jiaxuanl/Dropbox/Courses/Ast207/book/_static/ObsAstroData/players_age.csv&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cat</span> <span class="o">=</span> <span class="n">Table</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;./players_age.csv&#39;</span><span class="p">)</span>
 <span class="n">cat</span>
 </pre></div>
 </div>
@@ -538,9 +570,12 @@ weight = &lt;class &#39;numpy.ndarray&#39;&gt;
 </div>
 </div>
 </div>
-<div class="admonition-quiz admonition">
-<p class="admonition-title">Quiz</p>
-<p>Can you find out the length of the height and weight arrays?</p>
+<div class="admonition-exercise-1 admonition">
+<p class="admonition-title">Exercise 1</p>
+<ul class="simple">
+<li><p>Open a new cell below</p></li>
+<li><p>Can you find out the length of the height and weight arrays?</p></li>
+</ul>
 <p><em>Tips: you can use the <code class="docutils literal notranslate"><span class="pre">len()</span></code> function to find out the length of an array.</em></p>
 </div>
 <section id="indexing-and-slicing">
@@ -548,9 +583,9 @@ weight = &lt;class &#39;numpy.ndarray&#39;&gt;
 <p>Indexing refers to selecting an element from an array. Slicing refers to selecting a range of elements from an array. In Python, the index starts from 0. For example, the first element of an array is indexed as 0, the second element is indexed as 1, and so on.</p>
 <p>If we wanna select the first element of an array, we can use <code class="docutils literal notranslate"><span class="pre">array[0]</span></code>. If we wanna select the forth element of an array, we can use <code class="docutils literal notranslate"><span class="pre">array[3]</span></code>. For the last element of an array, we can use <code class="docutils literal notranslate"><span class="pre">array[-1]</span></code>. The second last element of an array can be selected as <code class="docutils literal notranslate"><span class="pre">array[-2]</span></code>.</p>
 <p>If we wanna select the first 3 elements of an array, we can use <code class="docutils literal notranslate"><span class="pre">array[0:3]</span></code>. The first number is the starting index, and the second number is the ending index. The ending index is not included in the selection. If we wanna select the first 3 elements of an array, we can also use <code class="docutils literal notranslate"><span class="pre">array[:3]</span></code>. If we wanna select the last 3 elements of an array, we can use <code class="docutils literal notranslate"><span class="pre">array[-3:]</span></code>. If we wanna select every other element of an array, we can use <code class="docutils literal notranslate"><span class="pre">array[::2]</span></code>.</p>
-<div class="admonition-exercise admonition">
-<p class="admonition-title">Exercise</p>
-<p>Try to select the first 5 elements of the height array, and the last 5 elements of the weight array.</p>
+<div class="admonition-exercise-2 admonition">
+<p class="admonition-title">Exercise 2</p>
+<p>Open a new cell below. Then try to select the first 5 elements of the height array, and the last 5 elements of the weight array.</p>
 </div>
 </section>
 </section>
@@ -584,9 +619,16 @@ weight = &lt;class &#39;numpy.ndarray&#39;&gt;
 </div>
 </div>
 </div>
-<div class="admonition-quiz admonition">
-<p class="admonition-title">Quiz</p>
-<p>Find out the player with the maximum weight.</p>
+<div class="admonition-exercise-3 admonition">
+<p class="admonition-title">Exercise 3</p>
+<p>Find the player with the maximum weight. Is it the same as the player with the maximum height?</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Your answer goes here in this cell</span>
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 <section id="sort-the-players-by-height">
@@ -638,6 +680,17 @@ weight = &lt;class &#39;numpy.ndarray&#39;&gt;
 </div>
 </div>
 </div>
+<div class="admonition-exercise-4 admonition">
+<p class="admonition-title">Exercise 4</p>
+<p>Print out the weights for the players sorted by their height.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Your answer goes here</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="comparison-and-logical-operations">
 <h2>4. Comparison and logical operations<a class="headerlink" href="#comparison-and-logical-operations" title="Permalink to this heading">#</a></h2>
@@ -652,32 +705,14 @@ weight = &lt;class &#39;numpy.ndarray&#39;&gt;
 </div>
 <p>The above code tries to check if the price is between 20 and 40. <code class="docutils literal notranslate"><span class="pre">price</span> <span class="pre">&gt;</span> <span class="pre">20</span> <span class="pre">and</span> <span class="pre">price</span> <span class="pre">&lt;</span> <span class="pre">40</span></code> is a composite condition, and it is <code class="docutils literal notranslate"><span class="pre">True</span></code> if the price is between 20 and 40. However, in Python, you can’t write <code class="docutils literal notranslate"><span class="pre">20</span> <span class="pre">&lt;</span> <span class="pre">price</span> <span class="pre">&lt;</span> <span class="pre">40</span></code>. You have to write <code class="docutils literal notranslate"><span class="pre">20</span> <span class="pre">&lt;</span> <span class="pre">price</span> <span class="pre">and</span> <span class="pre">price</span> <span class="pre">&lt;</span> <span class="pre">40</span></code>.</p>
 <p>We also see <code class="docutils literal notranslate"><span class="pre">if</span></code> and <code class="docutils literal notranslate"><span class="pre">else</span></code> in the code. <code class="docutils literal notranslate"><span class="pre">if</span></code> is a conditional statement that executes some specified code after checking if the condition is <code class="docutils literal notranslate"><span class="pre">True</span></code>. <code class="docutils literal notranslate"><span class="pre">else</span></code> is a conditional statement that executes some specified code if the condition is <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
-<div class="admonition-example admonition">
-<p class="admonition-title">Example</p>
-<p>Let’s check how many players have a height greater than 75 inches and a weight greater than 200 pounds.</p>
+<div class="admonition-exercise-5 admonition">
+<p class="admonition-title">Exercise 5</p>
+<p>Find the number of players who have a height greater than 75 inches and a weight greater than 200 pounds.</p>
+<p>*Tip: you might wanna use <code class="docutils literal notranslate"><span class="pre">np.sum()</span></code>. The sum function treats True as 1 and False as 0. *</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># The command below will give us a boolean array with True for players taller than 75 inches</span>
-<span class="n">height</span> <span class="o">&gt;</span> <span class="mi">75</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ True,  True,  True, ..., False, False, False])
-</pre></div>
-</div>
-</div>
-</div>
-<p>The following code will give us the number of players taller than 75 inches, by summing the True values in the boolean array. The sum function treats True as 1 and False as 0.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">height</span> <span class="o">&gt;</span> <span class="mi">75</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>491
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Your answer goes here</span>
 </pre></div>
 </div>
 </div>
@@ -832,14 +867,42 @@ The <code class="docutils literal notranslate"><span class="pre">&amp;</span></c
 <p class="admonition-title">Tips</p>
 <p>You can adjust the subplots separation by using <code class="docutils literal notranslate"><span class="pre">plt.subplots_adjust()</span></code>. e.g., <code class="docutils literal notranslate"><span class="pre">plt.subplots_adjust(wspace=0.5)</span></code> will adjust the width space between the two subplots to be 0.5.</p>
 </div>
-<div class="important admonition">
-<p class="admonition-title">Exercises</p>
-<ol class="arabic simple">
-<li><p>Plot a scatter plot of weight vs. age. Set the marker type to “squares”, and the marker color to orange.</p></li>
-<li><p>Let’s calculate the BMI of these football players. BMI is defined as <code class="docutils literal notranslate"><span class="pre">BMI</span> <span class="pre">=</span> <span class="pre">weight</span> <span class="pre">/</span> <span class="pre">height**2</span></code>, where weight is in kg and height is in meters. The weight and height in the above data are in lbs and inches. Please convert the units, and then calculate the BMI.</p></li>
-<li><p>Plot a scatter plot of the calculated BMI vs. age. Do you see any trend?</p></li>
-</ol>
+<div class="admonition-exercise-6 admonition">
+<p class="admonition-title">Exercise 6</p>
+<p>Plot a scatter plot of weight vs. age. Set the marker type to “squares”, and the marker color to orange.</p>
 </div>
+<div class="admonition-exercise-7 admonition">
+<p class="admonition-title">Exercise 7</p>
+<p>Let’s calculate the BMI of these football players. BMI is defined as <code class="docutils literal notranslate"><span class="pre">BMI</span> <span class="pre">=</span> <span class="pre">weight</span> <span class="pre">/</span> <span class="pre">height**2</span></code>, where weight is in kg and height is in meters. The weight and height in the above data are in lbs and inches. Please convert the units, and then calculate the BMI.</p>
+</div>
+<div class="admonition-exercise-8 admonition">
+<p class="admonition-title">Exercise 8</p>
+<p>Plot a scatter plot of the calculated BMI vs. age. Do you see any trend?</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Your answer here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your answer here</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>We have learned how to read a catalog using <code class="docutils literal notranslate"><span class="pre">astropy.table.Table</span></code>.</p></li>
+<li><p>We have learned how to convert a column to a <code class="docutils literal notranslate"><span class="pre">numpy</span></code> array.</p></li>
+<li><p>We have learned how to sort an array using <code class="docutils literal notranslate"><span class="pre">np.argsort()</span></code>.</p></li>
+<li><p>We have learned how to compare and combine conditions using comparison and logical operators.</p></li>
+<li><p>We have learned how to plot figures using <code class="docutils literal notranslate"><span class="pre">matplotlib.pyplot</span></code>.</p></li>
+</ul>
 </section>
 </section>
 
@@ -905,6 +968,7 @@ The <code class="docutils literal notranslate"><span class="pre">&amp;</span></c
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sort-the-players-by-height">3. Sort the players by height</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-and-logical-operations">4. Comparison and logical operations</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-the-height-and-weight-of-the-players">5. Plotting the height and weight of the players</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
 </ul>
   </nav></div>
 
