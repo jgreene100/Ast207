@@ -43,9 +43,7 @@ Our favorite Python textbooks/tutorials include:
 - [Python Data Science Handbook](https://jakevdp.github.io/PythonDataScienceHandbook/) also by Jake VanderPlas. It covers more advanced packages such as `pandas`.
 - [Learn Astropy](https://learn.astropy.org/) tutorials. 
 
-Of course, when you encounter a problem, you can always ask for help on [Stack Overflow](https://stackoverflow.com/), ask us, ask your friends, or ask your favorite large language model.
-
-In addition, Princeton offers a number of courses on Python, from introductory to advanced. Some resources are [pre-recorded](https://princetonuniversity.github.io/PUbootcamp_winter2021/sessions/W1A-intro-programming-python/) but there are also courses NEED SCHEDULE HERE! 
+Of course, when you encounter a problem, you can always ask for help on [Stack Overflow](https://stackoverflow.com/), or ask your favorite large language model. 
 
 
 ### Popularity
@@ -73,7 +71,6 @@ It is **very important** to write clean and readable code. We highly recommend y
 
 
 ## What to do if your code doesn't work?
-- Ask us for help, that is what we are here for.
 - Ask Google, Stack Overflow, or your favorite search engine. New programmers often make the mistake of thinking that they need to solve every problem from scratch. In reality, most programming problems have been encountered by someone else before. Don't feel embarrassed by the mistakes you make. Everyone makes mistakes when they are learning to program (including the instructors -- they still suffer a lot now).
 - Ask your classmates. They are likely to have encountered the same problem.
 - Ask large language models (such as GPT or Claude). These models now are really good at debugging code.

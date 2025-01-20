@@ -6,7 +6,6 @@ parts:
   chapters:
   - file: docs/intro_python/about_py
   - file: docs/intro_python/getting_started
-  #- file: docs/intro_python/python_by_example
   - file: docs/intro_python/numpy_and_plotting
 
 # - caption: Statistics
