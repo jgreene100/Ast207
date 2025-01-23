@@ -35,11 +35,6 @@ We will work in `Python` and gain some comfort with basic scientific computing a
 - Practice science communication through short presentations.
 
 
-## Textbooks
-
-TBD
-
-
 ## Recommended Workflow for Students
 To work on the Jupyter notebooks provided in this book and submit your completed work, please follow the steps below:
 
