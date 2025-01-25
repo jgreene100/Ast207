@@ -34,6 +34,13 @@ We will work in `Python` and gain some comfort with basic scientific computing a
 
 - Practice science communication through short presentations.
 
+## Textbook
+
+We have placed the following textbooks on reserve at the library. These can be found in the STEM Circulation Desk on the A floor in Fine Hall (i.e., Lewis Library).
+- Cosmic Perspective
+- Astronomical Methods
+- Measurements and Their Uncertainties
+
 
 ## Recommended Workflow for Students
 To work on the Jupyter notebooks provided in this book and submit your completed work, please follow the steps below:
@@ -68,7 +75,7 @@ To work on the Jupyter notebooks provided in this book and submit your completed
 ## Grading
 
 ```{note}
-Your homework will be graded based on the following criteria:
+Your Python notebooks will be graded based on the following criteria:
 - Correctness and completeness of your solutions
 - Whether you could explain your thoughts and results clearly, even if the solution is incorrect. We encourage you to write comments to your code and detailed explanations in the markdown cells.
 - Proper use of variable names, functions, and Python code style. Please try to make your code readable and well-organized.
