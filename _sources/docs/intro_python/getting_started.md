@@ -40,7 +40,7 @@ To work on the Jupyter notebooks provided in this book and submit your completed
 
 - At the top of the notebook page, click on the rocket icon and then click the "Colab" button. This will launch the notebook in Google Colab, where you can interactively work on it. 
 
-- Then Google Colab will ask you to authorize your GitHub account to access the notebook. Click on "Authorize" and follow the instructions to log in to your GitHub account. Then you will be able to open the notebook in Google Colab. The notebook is automatically saved to your Google Drive.
+<!-- - Then Google Colab will ask you to authorize your GitHub account to access the notebook. Click on "Authorize" and follow the instructions to log in to your GitHub account. Then you will be able to open the notebook in Google Colab. The notebook is automatically saved to your Google Drive. -->
 
 #### 2. Save a Copy to Your Google Drive
 - In Google Colab, go to the menu and select **File → Save a Copy** in Drive. This will create a personal copy of the notebook in your Google Drive, ensuring you can edit and save your work. We suggest you to make a folder for all the notebooks you will work on, and save your progress regularly.
