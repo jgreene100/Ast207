@@ -12,9 +12,9 @@ parts:
   chapters:
   - file: docs/gaia_part1_jared_v2_class_ready
 
-# - caption: Statistics
-#  chapters:
-#  - file: docs/stats/basic_stats
+- caption: Statistics
+  chapters:
+  - file: docs/stats/basic_stats
 #  - file: docs/stats/more_stats_jared_v2
 #
 #- caption: Detector and Imaging
