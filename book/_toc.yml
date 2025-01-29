@@ -10,7 +10,7 @@ parts:
   
 - caption: Getting used to data (Week 2 Feb 4-6)
   chapters:
-  - file: docs/gaia_part1_jared_v2_class_ready
+  - file: docs/gaia
 
 - caption: Statistics
   chapters:
