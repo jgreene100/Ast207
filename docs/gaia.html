@@ -65,7 +65,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/gaia_part1_jared_v2_class_ready';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/gaia';</script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -235,7 +235,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://colab.research.google.com/github/jgreene100/Ast207/blob/main//book/docs/gaia_part1_jared_v2_class_ready.ipynb" target="_blank"
+      <li><a href="https://colab.research.google.com/github/jgreene100/Ast207/blob/main//book/docs/gaia.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onColab"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -266,7 +266,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../_sources/docs/gaia_part1_jared_v2_class_ready.ipynb" target="_blank"
+      <li><a href="../_sources/docs/gaia.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -1150,8 +1150,7 @@ document.write(`
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="getting-started-with-data">
 <h1>2. Getting started with data<a class="headerlink" href="#getting-started-with-data" title="Permalink to this heading">#</a></h1>
-<div class="admonition-exercise-1 admonition">
-<p class="admonition-title">Exercise 1</p>
+<p><strong>Exercise 1</strong></p>
 <ol class="arabic simple">
 <li><p>Using <span class="math notranslate nohighlight">\(\texttt{numpy}\)</span> calculate the mean, median, and standard deviation of the <code class="docutils literal notranslate"><span class="pre">distance</span></code> column.</p></li>
 <li><p>It’s hard to how what these numbers mean without visualizing the data. Let’s make a histogram of the distances. Be sure to include labels on the x and y axis. Include the mean and median as vertical lines.</p></li>
@@ -1160,7 +1159,6 @@ document.write(`
 <em>Bonus: try using for loops to reduce duplicated code</em></p></li>
 <li><p>Write a single sentence summary of each plot. Based on your scatter plots, which properties are most strongly correlated?</p></li>
 </ol>
-</div>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="practicing-with-magnitudes">
 <h1>3. Practicing with magnitudes<a class="headerlink" href="#practicing-with-magnitudes" title="Permalink to this heading">#</a></h1>
@@ -1168,26 +1166,22 @@ document.write(`
 <div class="math notranslate nohighlight">
 \[ m_1 - m_2 = - 2.5 \log_{10} (F_1 / F_2), \]</div>
 <p>where <span class="math notranslate nohighlight">\(m_1, m_2\)</span> are the magnitudes of two stars (creatively named 1 and 2) and <span class="math notranslate nohighlight">\(F_1, F_2\)</span> are the fluxes of those two stars.</p>
-<div class="admonition-exercise-2 admonition">
-<p class="admonition-title">Exercise 2</p>
-<p>To get some practice, let’s convert the magnitudes listed in the table to fluxes. Let’s calculate our fluxes relative to the Sun:
+<p><strong>Exercise 2</strong>
+To get some practice, let’s convert the magnitudes listed in the table to fluxes. Let’s calculate our fluxes relative to the Sun:
 <span class="math notranslate nohighlight">\(m_1 + 26.83 = - 2.5 \log_{10} (F_1 / F_\mathrm{Sun})\)</span>,
 we’ve set <span class="math notranslate nohighlight">\(m_2 = −26.83\)</span> and <span class="math notranslate nohighlight">\(F_2 = F_\mathrm{Sun}\)</span>, where <span class="math notranslate nohighlight">\(F_\mathrm{Sun}\)</span> is the flux (aka. brightness) of the Sun as measured from Earth.</p>
 <ol class="arabic simple">
 <li><p>Make a histogram of <span class="math notranslate nohighlight">\(\log_{10}(F_1 / F_\mathrm{Sun})\)</span> for the <span class="math notranslate nohighlight">\(g\)</span>, <span class="math notranslate nohighlight">\(r\)</span>, and <span class="math notranslate nohighlight">\(b\)</span> Gaia filters (the Gaia magnitudes are stored under the <span class="math notranslate nohighlight">\(\texttt{gmag, rmag, bmag}\)</span> columns). <strong>Bonus: write a function for the flux to magnitude conversion</strong></p></li>
 <li><p>Based on your histograms how much brighter does the Sun appear to us than the brightest nearby star (in gaia g-band)?</p></li>
 </ol>
-</div>
 <p>So far, we have considered how bright stars appear in the sky. However, we know this depends on the stars’ distances from the Earth. Remember the apparent brightness of a star (aka flux <span class="math notranslate nohighlight">\(F\)</span>) is related to its luminosity <span class="math notranslate nohighlight">\(L\)</span> (the amount of energy output by the star each second) and distance <span class="math notranslate nohighlight">\(d\)</span> by:</p>
 <div class="math notranslate nohighlight">
 \[  F = \frac{L}{4 \pi d^2} \]</div>
-<div class="admonition-exercise-3 admonition">
-<p class="admonition-title">Exercise 3</p>
+<p><strong>Exercise 3</strong></p>
 <ol class="arabic simple">
 <li><p>Use the above equation to write an equation for <span class="math notranslate nohighlight">\(L\)</span>. Then write an equation for <span class="math notranslate nohighlight">\(L / L_\mathrm{sun}\)</span>. Using your equation, make a histogram of <span class="math notranslate nohighlight">\(\log_{10} (L / L_\mathrm{Sun})\)</span> (based on the <span class="math notranslate nohighlight">\(g\)</span>-band magnitude).</p></li>
 <li><p>What can we learn from this histogram? Is the Sun typical compared to nearby stars?</p></li>
 </ol>
-</div>
 </section>
 
     <script type="text/x-thebe-config">
