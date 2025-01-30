@@ -568,12 +568,14 @@ The frequency of 6 is 16
 <h2>2. Mean, Median, Standard Deviation<a class="headerlink" href="#mean-median-standard-deviation" title="Permalink to this heading">#</a></h2>
 <p>These are the most useful statistics and are of great importance in astronomical data. If we have a set of data <span class="math notranslate nohighlight">\(\{x_1, x_2, \dots, x_{n}\}\)</span>, these statistics are defined to be:</p>
 <ul class="simple">
-<li><p>Mean: <span class="math notranslate nohighlight">\(\overline{x} = \dfrac{1}{n}(x_1 + x_2 + \cdots + x_n)\)</span></p></li>
+<li><p>Mean: <span class="math notranslate nohighlight">\(\overline{x} = \dfrac{1}{n}(x_1 + x_2 + \cdots + x_n) = \dfrac{\sum_i x_i}{n}\)</span></p></li>
 <li><p>Median: “the middle number”. This is found by ordering all data and picking out the one in the middle (or if there are two middle numbers, taking the mean of those two numbers)</p></li>
-<li><p>Standard deviation: it measures how disperse the data is <span class="math notranslate nohighlight">\(\sigma = \sqrt{\dfrac{(x_i - \overline{x})^2}{n}}\)</span>.</p></li>
+<li><p>Standard deviation: it measures how dispersed the data is <span class="math notranslate nohighlight">\(\sigma = \sqrt{\dfrac{\sum_i(x_i - \overline{x})^2}{n}}\)</span>.</p></li>
 <li><p>Variance: it is typically the square of standard deviation, <span class="math notranslate nohighlight">\(\sigma^2\)</span>.</p></li>
 </ul>
-<p>(maybe add a footnote to discuss the unbias estimator for sample variance, i.e., N-1 v.s. N)</p>
+<blockquote>
+<div><p>Someone uses <span class="math notranslate nohighlight">\(1/(n-1)\)</span> instead of <span class="math notranslate nohighlight">\(1/n\)</span> in the definition of standard deviation. This is a correction known as <a class="reference external" href="https://en.wikipedia.org/wiki/Bessel%27s_correction">Bessel’s correction</a>. It accounts for the fact that when we calculate the sample variance, we’ve already used one degree of freedom to estimate the mean. Since the deviations from the mean must sum to zero, once we know <span class="math notranslate nohighlight">\(n-1\)</span> of the deviations, the last one is determined. This makes our variance estimate biased if we use <span class="math notranslate nohighlight">\(1/n\)</span>. Using <span class="math notranslate nohighlight">\(1/(n-1)\)</span> gives us an <strong>unbiased</strong> estimator of the true population variance.</p>
+</div></blockquote>
 <p>Let’s generate some data by sampling from a <strong><a class="reference external" href="https://en.wikipedia.org/wiki/Continuous_uniform_distribution">uniform distribution</a></strong> from 0 to 1, and calculate their mean, median, and standard deviation.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -630,7 +632,7 @@ The frequency of 6 is 16
 </div>
 </div>
 </div>
-<p>To verify that <code class="docutils literal notranslate"><span class="pre">np.std</span></code> does return the standard deviation, we calculate it manually following <span class="math notranslate nohighlight">\(\sigma = \sqrt{(x_i - \overline{x})^2/ n}\)</span>.</p>
+<p>To verify that <code class="docutils literal notranslate"><span class="pre">np.std</span></code> does return the standard deviation, we calculate it manually following <span class="math notranslate nohighlight">\(\sigma = \sqrt{\sum_i(x_i - \overline{x})^2/ n}\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">data</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">data</span><span class="p">))</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)))</span>
@@ -675,8 +677,8 @@ The frequency of 6 is 16
 <section id="gaussian-normal-distribution">
 <h2>3. Gaussian (normal) distribution<a class="headerlink" href="#gaussian-normal-distribution" title="Permalink to this heading">#</a></h2>
 <p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Normal_distribution">normal distribution</a> is <em>the</em> most important distribution in statistics. The probability distribution function (PDF) has a <em>beautiful</em> form of
-<span class="math notranslate nohighlight">\(p(x) = \frac{1}{\sqrt{2\pi} \sigma} e^{-\frac{(x-\mu)^2}{2\sigma^2}},\)</span>
-where <span class="math notranslate nohighlight">\(e=2.71828..\)</span> is the base of natural logarithms, and <span class="math notranslate nohighlight">\(\mu\)</span> and <span class="math notranslate nohighlight">\(\sigma\)</span> control the centroid and the width (dispersion) of the distribution, respectively. A normal distribution is often written as <span class="math notranslate nohighlight">\(\mathcal{N}(\mu, \sigma^2)\)</span>. Its PDF has a bell-like shape.</p>
+$<span class="math notranslate nohighlight">\(p(x) = \frac{1}{\sqrt{2\pi} \sigma} e^{-\frac{(x-\mu)^2}{2\sigma^2}},\)</span><span class="math notranslate nohighlight">\(
+where \)</span>e=2.71828..<span class="math notranslate nohighlight">\( is the base of natural logarithms, and \)</span>\mu<span class="math notranslate nohighlight">\( and \)</span>\sigma<span class="math notranslate nohighlight">\( control the centroid and the width (dispersion) of the distribution, respectively. A normal distribution is often written as \)</span>\mathcal{N}(\mu, \sigma^2)$. Its PDF has a bell-like shape.</p>
 <p>For a random variable following a normal distribution, its mean is <span class="math notranslate nohighlight">\(\mu\)</span> and its standard deviation is <span class="math notranslate nohighlight">\(\sigma\)</span>. Let’s check it by sampling from a standard normal distribution, whose <span class="math notranslate nohighlight">\(\mu=0\)</span> and <span class="math notranslate nohighlight">\(\sigma=1\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
