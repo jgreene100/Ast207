@@ -178,7 +178,8 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Statistics</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../stats/basic_stats.html">Basic Statistics (Part 1)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../stats/basic_stats_1.html">Basic Statistics (Part 1)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../stats/basic_stats_2.html">Basic Statistics (Part 2)</a></li>
 </ul>
 
     </div>
@@ -361,6 +362,7 @@ document.write(`
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Getting started with arrays and plots in Python</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#import-packages">Import packages</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#read-a-catalog-of-the-football-players">1. Read a catalog of the football players</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#for-loop"><code class="docutils literal notranslate"><span class="pre">for</span></code> loop</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#indexing-and-slicing">Indexing and slicing</a></li>
 </ul>
 </li>
@@ -590,12 +592,29 @@ weight = &lt;class &#39;numpy.ndarray&#39;&gt;
 <li><p>Can you find out the length of the height and weight arrays?</p></li>
 </ul>
 <p><em>Tips: you can use the <code class="docutils literal notranslate"><span class="pre">len()</span></code> function to find out the length of an array.</em></p>
+<section id="for-loop">
+<h3><code class="docutils literal notranslate"><span class="pre">for</span></code> loop<a class="headerlink" href="#for-loop" title="Permalink to this heading">#</a></h3>
+<p>A <code class="docutils literal notranslate"><span class="pre">for</span></code> loop is used when you have a block of code you want to repeat a fixed number of times, or iterate over a list of objects. For example, if we wanna print the first 15 elements in <code class="docutils literal notranslate"><span class="pre">test_array</span></code>, we can do</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">15</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">test_array</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Here <code class="docutils literal notranslate"><span class="pre">i</span></code> stands for the index, and <code class="docutils literal notranslate"><span class="pre">range(15)</span></code> is a counter that starts at 0 and stops at 14.</p>
+<p><code class="docutils literal notranslate"><span class="pre">for</span></code> loop is also used when you want to iterate over a list. Let’s say we want to generate a list of players’ names. We can do the following:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">names</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># start a new empty list to store the names</span>
+<span class="k">for</span> <span class="n">player</span> <span class="ow">in</span> <span class="n">cat</span><span class="p">:</span> <span class="c1"># now we iterate over the whole catalog. `player` is a row in the catalog.</span>
+    <span class="n">names</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">player</span><span class="p">[</span><span class="s1">&#39;displayName&#39;</span><span class="p">])</span> <span class="c1"># you can append things to a list like this</span>
+</pre></div>
+</div>
+<p><strong>Exercise 2:</strong></p>
+<p>Open a new cell below. Use <code class="docutils literal notranslate"><span class="pre">for</span></code> loop to get a list of players’ <code class="docutils literal notranslate"><span class="pre">collegeName</span></code>.</p>
+</section>
 <section id="indexing-and-slicing">
 <h3>Indexing and slicing<a class="headerlink" href="#indexing-and-slicing" title="Permalink to this heading">#</a></h3>
 <p>Indexing refers to selecting an element from an array. Slicing refers to selecting a range of elements from an array. In Python, the index starts from 0. For example, the first element of an array is indexed as 0, the second element is indexed as 1, and so on.</p>
 <p>If we wanna select the first element of an array, we can use <code class="docutils literal notranslate"><span class="pre">array[0]</span></code>. If we wanna select the forth element of an array, we can use <code class="docutils literal notranslate"><span class="pre">array[3]</span></code>. For the last element of an array, we can use <code class="docutils literal notranslate"><span class="pre">array[-1]</span></code>. The second last element of an array can be selected as <code class="docutils literal notranslate"><span class="pre">array[-2]</span></code>.</p>
 <p>If we wanna select the first 3 elements of an array, we can use <code class="docutils literal notranslate"><span class="pre">array[0:3]</span></code>. The first number is the starting index, and the second number is the ending index. The ending index is not included in the selection. If we wanna select the first 3 elements of an array, we can also use <code class="docutils literal notranslate"><span class="pre">array[:3]</span></code>. If we wanna select the last 3 elements of an array, we can use <code class="docutils literal notranslate"><span class="pre">array[-3:]</span></code>. If we wanna select every other element of an array, we can use <code class="docutils literal notranslate"><span class="pre">array[::2]</span></code>.</p>
-<p><strong>Exercise 2:</strong></p>
+<p><strong>Exercise 3:</strong></p>
 <p>Open a new cell below. Then try to select the first 5 elements of the height array, and the last 5 elements of the weight array.</p>
 </section>
 </section>
@@ -629,7 +648,7 @@ weight = &lt;class &#39;numpy.ndarray&#39;&gt;
 </div>
 </div>
 </div>
-<p><strong>Exercise 3:</strong></p>
+<p><strong>Exercise 4:</strong></p>
 <p>Find the player with the maximum weight. Is it the same as the player with the maximum height?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -688,7 +707,7 @@ weight = &lt;class &#39;numpy.ndarray&#39;&gt;
 </div>
 </div>
 </div>
-<p><strong>Exercise 4:</strong></p>
+<p><strong>Exercise 5:</strong></p>
 <p>Print out the weights for the players sorted by their height.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -711,7 +730,7 @@ weight = &lt;class &#39;numpy.ndarray&#39;&gt;
 </div>
 <p>The above code tries to check if the price is between 20 and 40. <code class="docutils literal notranslate"><span class="pre">price</span> <span class="pre">&gt;</span> <span class="pre">20</span> <span class="pre">and</span> <span class="pre">price</span> <span class="pre">&lt;</span> <span class="pre">40</span></code> is a composite condition, and it is <code class="docutils literal notranslate"><span class="pre">True</span></code> if the price is between 20 and 40. However, in Python, you can’t write <code class="docutils literal notranslate"><span class="pre">20</span> <span class="pre">&lt;</span> <span class="pre">price</span> <span class="pre">&lt;</span> <span class="pre">40</span></code>. You have to write <code class="docutils literal notranslate"><span class="pre">20</span> <span class="pre">&lt;</span> <span class="pre">price</span> <span class="pre">and</span> <span class="pre">price</span> <span class="pre">&lt;</span> <span class="pre">40</span></code>.</p>
 <p>We also see <code class="docutils literal notranslate"><span class="pre">if</span></code> and <code class="docutils literal notranslate"><span class="pre">else</span></code> in the code. <code class="docutils literal notranslate"><span class="pre">if</span></code> is a conditional statement that executes some specified code after checking if the condition is <code class="docutils literal notranslate"><span class="pre">True</span></code>. <code class="docutils literal notranslate"><span class="pre">else</span></code> is a conditional statement that executes some specified code if the condition is <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
-<p><strong>Exercise 5:</strong></p>
+<p><strong>Exercise 6:</strong></p>
 <p>Find the number of players who have a height greater than 75 inches and a weight greater than 200 pounds.</p>
 <p><em>Tip: you might wanna use <code class="docutils literal notranslate"><span class="pre">np.sum()</span></code>. The sum function treats True as 1 and False as 0.</em></p>
 <div class="cell docutils container">
@@ -867,11 +886,11 @@ The <code class="docutils literal notranslate"><span class="pre">&amp;</span></c
 </div>
 <p><strong>Tips:</strong></p>
 <p>You can adjust the subplots separation by using <code class="docutils literal notranslate"><span class="pre">plt.subplots_adjust()</span></code>. e.g., <code class="docutils literal notranslate"><span class="pre">plt.subplots_adjust(wspace=0.5)</span></code> will adjust the width space between the two subplots to be 0.5.</p>
-<p><strong>Exercise 6:</strong></p>
-<p>Plot a scatter plot of weight vs. age. Set the marker type to “squares”, and the marker color to orange.</p>
 <p><strong>Exercise 7:</strong></p>
-<p>Let’s calculate the BMI of these football players. BMI is defined as <code class="docutils literal notranslate"><span class="pre">BMI</span> <span class="pre">=</span> <span class="pre">weight</span> <span class="pre">/</span> <span class="pre">height**2</span></code>, where weight is in kg and height is in meters. The weight and height in the above data are in lbs and inches. Please convert the units, and then calculate the BMI.</p>
+<p>Plot a scatter plot of weight vs. age. Set the marker type to “squares”, and the marker color to orange.</p>
 <p><strong>Exercise 8:</strong></p>
+<p>Let’s calculate the BMI of these football players. BMI is defined as <code class="docutils literal notranslate"><span class="pre">BMI</span> <span class="pre">=</span> <span class="pre">weight</span> <span class="pre">/</span> <span class="pre">height**2</span></code>, where weight is in kg and height is in meters. The weight and height in the above data are in lbs and inches. Please convert the units, and then calculate the BMI.</p>
+<p><strong>Exercise 9:</strong></p>
 <p>Plot a scatter plot of the calculated BMI vs. age. Do you see any trend?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -966,6 +985,7 @@ The <code class="docutils literal notranslate"><span class="pre">&amp;</span></c
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Getting started with arrays and plots in Python</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#import-packages">Import packages</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#read-a-catalog-of-the-football-players">1. Read a catalog of the football players</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#for-loop"><code class="docutils literal notranslate"><span class="pre">for</span></code> loop</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#indexing-and-slicing">Indexing and slicing</a></li>
 </ul>
 </li>
