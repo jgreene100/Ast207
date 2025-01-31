@@ -14,7 +14,8 @@ parts:
 
 - caption: Statistics
   chapters:
-  - file: docs/stats/basic_stats
+  - file: docs/stats/basic_stats_1
+  - file: docs/stats/basic_stats_2
 #  - file: docs/stats/more_stats_jared_v2
 #
 #- caption: Detector and Imaging
