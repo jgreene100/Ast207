@@ -177,6 +177,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
+
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Statistics</span></p>
 <ul class="nav bd-sidenav">
@@ -369,7 +370,8 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-started-with-data">2. Getting started with data</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#practicing-with-magnitudes">3. Practicing with magnitudes</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#where-are-the-nearby-stars">3. Where are the nearby stars?</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#practicing-with-magnitudes">4. Practicing with magnitudes</a></li>
 </ul>
 
             </nav>
@@ -432,7 +434,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mounted at /content/drive/
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Drive already mounted at /content/drive/; to attempt to forcibly remount, call drive.mount(&quot;/content/drive/&quot;, force_remount=True).
 </pre></div>
 </div>
 </div>
@@ -448,7 +450,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-74ecf22c-d56e-49bf-b639-fdc7f80a6148" class="colab-df-container">
+  <div id="df-7395f2f8-f738-4d15-ae0b-73bb4330914f" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -473,8 +475,8 @@ document.write(`
       <th>gmag</th>
       <th>rmag</th>
       <th>bmag</th>
-      <th>ecl_lon</th>
-      <th>ecl_lat</th>
+      <th>ra</th>
+      <th>dec</th>
     </tr>
   </thead>
   <tbody>
@@ -486,8 +488,8 @@ document.write(`
       <td>10.241307</td>
       <td>9.135763</td>
       <td>11.498909</td>
-      <td>279.484182</td>
-      <td>8.627836</td>
+      <td>279.686955</td>
+      <td>-14.493090</td>
     </tr>
     <tr>
       <th>1</th>
@@ -497,8 +499,8 @@ document.write(`
       <td>10.019066</td>
       <td>8.943984</td>
       <td>11.186045</td>
-      <td>63.836273</td>
-      <td>38.387682</td>
+      <td>49.061376</td>
+      <td>58.165928</td>
     </tr>
     <tr>
       <th>2</th>
@@ -508,8 +510,8 @@ document.write(`
       <td>10.193903</td>
       <td>9.102655</td>
       <td>11.395733</td>
-      <td>63.836924</td>
-      <td>38.388986</td>
+      <td>49.061466</td>
+      <td>58.167328</td>
     </tr>
     <tr>
       <th>3</th>
@@ -519,8 +521,8 @@ document.write(`
       <td>7.756715</td>
       <td>6.747296</td>
       <td>8.790974</td>
-      <td>7.104283</td>
-      <td>71.152618</td>
+      <td>313.332456</td>
+      <td>62.150958</td>
     </tr>
     <tr>
       <th>4</th>
@@ -530,8 +532,8 @@ document.write(`
       <td>9.495382</td>
       <td>8.347611</td>
       <td>10.836117</td>
-      <td>249.618870</td>
-      <td>-15.836896</td>
+      <td>245.010422</td>
+      <td>-37.524610</td>
     </tr>
   </tbody>
 </table>
@@ -539,7 +541,7 @@ document.write(`
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-74ecf22c-d56e-49bf-b639-fdc7f80a6148')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-7395f2f8-f738-4d15-ae0b-73bb4330914f')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -591,12 +593,12 @@ document.write(`
 
     <script>
       const buttonEl =
-        document.querySelector('#df-74ecf22c-d56e-49bf-b639-fdc7f80a6148 button.colab-df-convert');
+        document.querySelector('#df-7395f2f8-f738-4d15-ae0b-73bb4330914f button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-74ecf22c-d56e-49bf-b639-fdc7f80a6148');
+        const element = document.querySelector('#df-7395f2f8-f738-4d15-ae0b-73bb4330914f');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -616,8 +618,8 @@ document.write(`
   </div>
 
 
-<div id="df-19984bb4-e530-43ca-97fc-c141f8642f3e">
-  <button class="colab-df-quickchart" onclick="quickchart('df-19984bb4-e530-43ca-97fc-c141f8642f3e')"
+<div id="df-9779a9c2-d532-4e30-a2ea-dd01e2eaf060">
+  <button class="colab-df-quickchart" onclick="quickchart('df-9779a9c2-d532-4e30-a2ea-dd01e2eaf060')"
             title="Suggest charts"
             style="display:none;">
 
@@ -736,7 +738,7 @@ document.write(`
     }
     (() => {
       let quickchartButtonEl =
-        document.querySelector('#df-19984bb4-e530-43ca-97fc-c141f8642f3e button');
+        document.querySelector('#df-9779a9c2-d532-4e30-a2ea-dd01e2eaf060 button');
       quickchartButtonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
     })();
@@ -756,7 +758,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-163f9916-427f-48e5-89be-96f3f6e4a4ed" class="colab-df-container">
+  <div id="df-9120bf1d-a85c-4e93-89d8-8804903c0b4d" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -781,8 +783,8 @@ document.write(`
       <th>gmag</th>
       <th>rmag</th>
       <th>bmag</th>
-      <th>ecl_lon</th>
-      <th>ecl_lat</th>
+      <th>ra</th>
+      <th>dec</th>
     </tr>
   </thead>
   <tbody>
@@ -794,8 +796,8 @@ document.write(`
       <td>13.652472</td>
       <td>12.276646</td>
       <td>15.956352</td>
-      <td>212.820918</td>
-      <td>21.919965</td>
+      <td>218.033307</td>
+      <td>8.192058</td>
     </tr>
     <tr>
       <th>502</th>
@@ -805,8 +807,8 @@ document.write(`
       <td>13.079426</td>
       <td>11.746457</td>
       <td>15.165963</td>
-      <td>271.133288</td>
-      <td>60.948970</td>
+      <td>270.693724</td>
+      <td>37.512418</td>
     </tr>
     <tr>
       <th>503</th>
@@ -816,8 +818,8 @@ document.write(`
       <td>6.129808</td>
       <td>5.502101</td>
       <td>6.585531</td>
-      <td>273.994073</td>
-      <td>61.861649</td>
+      <td>272.404105</td>
+      <td>38.455696</td>
     </tr>
     <tr>
       <th>504</th>
@@ -827,8 +829,8 @@ document.write(`
       <td>5.450645</td>
       <td>4.556912</td>
       <td>6.272253</td>
-      <td>336.994179</td>
-      <td>51.894370</td>
+      <td>316.753663</td>
+      <td>38.756073</td>
     </tr>
     <tr>
       <th>505</th>
@@ -838,8 +840,8 @@ document.write(`
       <td>4.766713</td>
       <td>3.977203</td>
       <td>5.439793</td>
-      <td>336.994324</td>
-      <td>51.903146</td>
+      <td>316.748479</td>
+      <td>38.763862</td>
     </tr>
   </tbody>
 </table>
@@ -847,7 +849,7 @@ document.write(`
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-163f9916-427f-48e5-89be-96f3f6e4a4ed')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-9120bf1d-a85c-4e93-89d8-8804903c0b4d')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -899,12 +901,12 @@ document.write(`
 
     <script>
       const buttonEl =
-        document.querySelector('#df-163f9916-427f-48e5-89be-96f3f6e4a4ed button.colab-df-convert');
+        document.querySelector('#df-9120bf1d-a85c-4e93-89d8-8804903c0b4d button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-163f9916-427f-48e5-89be-96f3f6e4a4ed');
+        const element = document.querySelector('#df-9120bf1d-a85c-4e93-89d8-8804903c0b4d');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -924,8 +926,8 @@ document.write(`
   </div>
 
 
-<div id="df-972f515c-5642-4ea3-b6a6-e8665a72cd7f">
-  <button class="colab-df-quickchart" onclick="quickchart('df-972f515c-5642-4ea3-b6a6-e8665a72cd7f')"
+<div id="df-605e26d9-80a1-4316-b28c-da6d7849a7e2">
+  <button class="colab-df-quickchart" onclick="quickchart('df-605e26d9-80a1-4316-b28c-da6d7849a7e2')"
             title="Suggest charts"
             style="display:none;">
 
@@ -1044,7 +1046,7 @@ document.write(`
     }
     (() => {
       let quickchartButtonEl =
-        document.querySelector('#df-972f515c-5642-4ea3-b6a6-e8665a72cd7f button');
+        document.querySelector('#df-605e26d9-80a1-4316-b28c-da6d7849a7e2 button');
       quickchartButtonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
     })();
@@ -1063,9 +1065,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;radius&#39;, &#39;teff&#39;, &#39;distance&#39;, &#39;gmag&#39;, &#39;rmag&#39;, &#39;bmag&#39;, &#39;ecl_lon&#39;,
-       &#39;ecl_lat&#39;],
-      dtype=&#39;object&#39;)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;radius&#39;, &#39;teff&#39;, &#39;distance&#39;, &#39;gmag&#39;, &#39;rmag&#39;, &#39;bmag&#39;, &#39;ra&#39;, &#39;dec&#39;], dtype=&#39;object&#39;)
 </pre></div>
 </div>
 </div>
@@ -1163,13 +1163,28 @@ document.write(`
 <li><p>Write a single sentence summary of each plot. Based on your scatter plots, which properties are most strongly correlated?</p></li>
 </ol>
 </section>
+<section class="tex2jax_ignore mathjax_ignore" id="where-are-the-nearby-stars">
+<h1>3. Where are the nearby stars?<a class="headerlink" href="#where-are-the-nearby-stars" title="Permalink to this heading">#</a></h1>
+<p><strong>Exercise 2:</strong> Let’s see where the stars are located relative to us. In the table, we have the distance to each star, as well as the ra and dec.</p>
+<p>Make a plots of ra vs. dec, one colored by distance and another by stellar radius.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ra</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">gaia</span><span class="p">[</span><span class="s1">&#39;ra&#39;</span><span class="p">])</span>
+<span class="n">dec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">gaia</span><span class="p">[</span><span class="s1">&#39;dec&#39;</span><span class="p">])</span>
+<span class="n">distance</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">gaia</span><span class="p">[</span><span class="s1">&#39;distance&#39;</span><span class="p">])</span>
+<span class="n">radius</span>   <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">gaia</span><span class="p">[</span><span class="s1">&#39;radius&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 <section class="tex2jax_ignore mathjax_ignore" id="practicing-with-magnitudes">
-<h1>3. Practicing with magnitudes<a class="headerlink" href="#practicing-with-magnitudes" title="Permalink to this heading">#</a></h1>
+<h1>4. Practicing with magnitudes<a class="headerlink" href="#practicing-with-magnitudes" title="Permalink to this heading">#</a></h1>
 <p>As we discussed in lecture, magnitudes appear everywhere in astronomy. Let’s practice using magnitudes with our Gaia stars. Remember, the definition of magnitude is:</p>
 <div class="math notranslate nohighlight">
 \[ m_1 - m_2 = - 2.5 \log_{10} (F_1 / F_2), \]</div>
 <p>where <span class="math notranslate nohighlight">\(m_1, m_2\)</span> are the magnitudes of two stars (creatively named 1 and 2) and <span class="math notranslate nohighlight">\(F_1, F_2\)</span> are the fluxes of those two stars.</p>
-<p><strong>Exercise 2</strong>
+<p><strong>Exercise 3</strong>
 To get some practice, let’s convert the magnitudes listed in the table to fluxes. Let’s calculate our fluxes relative to the Sun:
 <span class="math notranslate nohighlight">\(m_1 + 26.83 = - 2.5 \log_{10} (F_1 / F_\mathrm{Sun})\)</span>,
 we’ve set <span class="math notranslate nohighlight">\(m_2 = −26.83\)</span> and <span class="math notranslate nohighlight">\(F_2 = F_\mathrm{Sun}\)</span>, where <span class="math notranslate nohighlight">\(F_\mathrm{Sun}\)</span> is the flux (aka. brightness) of the Sun as measured from Earth.</p>
@@ -1180,7 +1195,7 @@ we’ve set <span class="math notranslate nohighlight">\(m_2 = −26.83\)</span>
 <p>So far, we have considered how bright stars appear in the sky. However, we know this depends on the stars’ distances from the Earth. Remember the apparent brightness of a star (aka flux <span class="math notranslate nohighlight">\(F\)</span>) is related to its luminosity <span class="math notranslate nohighlight">\(L\)</span> (the amount of energy output by the star each second) and distance <span class="math notranslate nohighlight">\(d\)</span> by:</p>
 <div class="math notranslate nohighlight">
 \[  F = \frac{L}{4 \pi d^2} \]</div>
-<p><strong>Exercise 3</strong></p>
+<p><strong>Exercise 4</strong></p>
 <ol class="arabic simple">
 <li><p>Use the above equation to write an equation for <span class="math notranslate nohighlight">\(L\)</span>. Then write an equation for <span class="math notranslate nohighlight">\(L / L_\mathrm{sun}\)</span>. Using your equation, make a histogram of <span class="math notranslate nohighlight">\(\log_{10} (L / L_\mathrm{Sun})\)</span> (based on the <span class="math notranslate nohighlight">\(g\)</span>-band magnitude). It’ll be helpful to remember that the Earth is <span class="math notranslate nohighlight">\(4.848 \times 10^{-6}\)</span> pc away from the Sun.</p></li>
 <li><p>What can we learn from this histogram? Is the Sun typical compared to nearby stars?</p></li>
@@ -1256,7 +1271,8 @@ we’ve set <span class="math notranslate nohighlight">\(m_2 = −26.83\)</span>
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-started-with-data">2. Getting started with data</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#practicing-with-magnitudes">3. Practicing with magnitudes</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#where-are-the-nearby-stars">3. Where are the nearby stars?</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#practicing-with-magnitudes">4. Practicing with magnitudes</a></li>
 </ul>
 
   </nav></div>
