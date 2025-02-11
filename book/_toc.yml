@@ -17,10 +17,10 @@ parts:
   - file: docs/stats/basic_stats_1
   - file: docs/stats/basic_stats_2
   - file: docs/stats/basic_stats_3
-#
-#- caption: Detector and Imaging
-#  chapters:
-#  - file: docs/imaging/calibration_frames
+
+- caption: Detector and Imaging
+ chapters:
+ - file: docs/imaging/calibration_frames
 #  - file: docs/imaging/img_simulation
 #  - file: docs/imaging/plotting_jwst
 #  - file: docs/intro_gaia_star
