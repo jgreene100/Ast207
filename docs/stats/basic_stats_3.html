@@ -377,7 +377,6 @@ document.write(`
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-fitting-models-to-data">Part 2: fitting models to data</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-fit">Linear fit</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fitting-astronomical-data">Fitting astronomical data</a></li>
 </ul>
 </li>
 </ul>
@@ -429,7 +428,7 @@ document.write(`
 $<span class="math notranslate nohighlight">\(p(x) = \frac{1}{\sqrt{2\pi} \sigma} e^{-\frac{(x-\mu)^2}{2\sigma^2}}\)</span>$</p>
 <p>Write a function for the Gaussian pdf: <code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">gaussian_pdf(x,</span> <span class="pre">mu,</span> <span class="pre">sigma)</span></code> that returns <code class="docutils literal notranslate"><span class="pre">p(x)</span></code>. Then plot the Gaussian pdf for <code class="docutils literal notranslate"><span class="pre">-4</span> <span class="pre">&lt;</span> <span class="pre">x</span> <span class="pre">&lt;</span> <span class="pre">4</span></code> alongside a histogram of random draws from the Gaussian distribution (with <code class="docutils literal notranslate"><span class="pre">density=True</span></code>). Repeat this process for <span class="math notranslate nohighlight">\(\sigma = 0.5, 1.0\)</span> (all with <span class="math notranslate nohighlight">\(\mu = 0\)</span>).</p>
 <p>How many random draws do you need for the histogram to closely match <code class="docutils literal notranslate"><span class="pre">p(x)</span></code>? Does <code class="docutils literal notranslate"><span class="pre">p(x)</span></code> match the histogram if we instead set <code class="docutils literal notranslate"><span class="pre">density=False</span></code>?</p>
-<p><em>Bonus:</em> use for loops</p>
+<p><em>Hint:</em> you can take a square root with <code class="docutils literal notranslate"><span class="pre">np.sqrt()</span></code> and an exponential with <code class="docutils literal notranslate"><span class="pre">np.exp()</span></code>. You can also use <code class="docutils literal notranslate"><span class="pre">pi=3.14</span></code> or <code class="docutils literal notranslate"><span class="pre">pi=np.pi</span></code> for a more precise value.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">gaussian_pdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="p">):</span>
@@ -478,12 +477,46 @@ $<span class="math notranslate nohighlight">\(p(x) = \frac{1}{\sqrt{2\pi} \sigma
 $<span class="math notranslate nohighlight">\( y = m * x + b \)</span>$
 in our case, <code class="docutils literal notranslate"><span class="pre">x</span></code> is a player’s height and <code class="docutils literal notranslate"><span class="pre">y</span></code> is the player’s weight.</p>
 <p><strong>Exercise 2</strong></p>
-<p>Make the function <code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">linear(x,m,b)</span></code> that returns <code class="docutils literal notranslate"><span class="pre">y=m*x+b</span></code>. For <code class="docutils literal notranslate"><span class="pre">65</span> <span class="pre">&lt;</span> <span class="pre">x</span> <span class="pre">&lt;</span> <span class="pre">80</span></code> plot <code class="docutils literal notranslate"><span class="pre">linear(x,</span> <span class="pre">m,</span> <span class="pre">b)</span></code> alongside the observed heights and weights. Choose <code class="docutils literal notranslate"><span class="pre">m,b</span></code> such that the line best matches the observed data.</p>
-<p>Be sure to include labels.</p>
+<p><strong>Part a</strong></p>
+<p>First make a scatter plot of player’s height versus their weight. Be sure to include labels.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your answer here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Part b</strong></p>
+<p>Make the function <code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">linear(x,m,b)</span></code> that returns <code class="docutils literal notranslate"><span class="pre">y=m*x+b</span></code>. For <code class="docutils literal notranslate"><span class="pre">0</span> <span class="pre">&lt;</span> <span class="pre">x</span> <span class="pre">&lt;</span> <span class="pre">10</span></code> plot <code class="docutils literal notranslate"><span class="pre">linear(x,</span> <span class="pre">m,</span> <span class="pre">b)</span></code> for <code class="docutils literal notranslate"><span class="pre">m=1</span></code> and <code class="docutils literal notranslate"><span class="pre">b=1</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">linear</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">m</span><span class="p">,</span><span class="n">b</span><span class="p">):</span>
   <span class="c1"># your answer here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Then make a new plot with <code class="docutils literal notranslate"><span class="pre">m=2</span></code> and <code class="docutils literal notranslate"><span class="pre">b=1</span></code>. What do you notice is different?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your answer here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Finally, make a new plot with <code class="docutils literal notranslate"><span class="pre">m=1</span></code> and <code class="docutils literal notranslate"><span class="pre">b=2</span></code>. What do you notice is different?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your answer here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Part c</strong></p>
+<p>For <code class="docutils literal notranslate"><span class="pre">65</span> <span class="pre">&lt;</span> <span class="pre">x</span> <span class="pre">&lt;</span> <span class="pre">80</span></code> plot <code class="docutils literal notranslate"><span class="pre">linear(x,</span> <span class="pre">m,</span> <span class="pre">b)</span></code> alongside the observed heights and weights. Choose <code class="docutils literal notranslate"><span class="pre">m,b</span></code> such that the line best matches the observed data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your answer here</span>
 </pre></div>
 </div>
 </div>
@@ -532,7 +565,48 @@ in our case, <code class="docutils literal notranslate"><span class="pre">x</spa
 </div>
 </div>
 <p><strong>Exercise 4</strong></p>
-<p>Use your <code class="docutils literal notranslate"><span class="pre">objective_function</span></code> to search for good values of <code class="docutils literal notranslate"><span class="pre">m,b</span></code>. Using <code class="docutils literal notranslate"><span class="pre">for</span></code> loops, calculate <code class="docutils literal notranslate"><span class="pre">objective_function</span></code> for <span class="math notranslate nohighlight">\(0&lt;m&lt;20\)</span> and <span class="math notranslate nohighlight">\(-1000&lt;b&lt;0\)</span>. For each combination of <code class="docutils literal notranslate"><span class="pre">b,m</span></code> plot <code class="docutils literal notranslate"><span class="pre">b</span></code> vs. <code class="docutils literal notranslate"><span class="pre">m</span></code> on a scatter plot with the color set by <code class="docutils literal notranslate"><span class="pre">simple_objective_function(x,y,m,b)</span></code>. For an example of a scatter plot with the points colored by a third parameter, see the <a class="reference external" href="https://jgreene100.github.io/Ast207/docs/intro_python/numpy_and_plotting.html"><code class="docutils literal notranslate"><span class="pre">Getting</span> <span class="pre">started</span> <span class="pre">with</span> <span class="pre">arrays</span> <span class="pre">and</span> <span class="pre">plots</span> <span class="pre">in</span> <span class="pre">Python</span> <span class="pre">notebook</span></code></a>. Try 50 values of <code class="docutils literal notranslate"><span class="pre">b</span></code> and 50 values of <code class="docutils literal notranslate"><span class="pre">m</span></code> (it should run in less than a second). For ease of reading, plot <code class="docutils literal notranslate"><span class="pre">np.log10</span></code> of the objective function.</p>
+<p>Below is an example of using a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop.  Loops are helpful when we want to run the same code multiple times.</p>
+<p>In this example, we loop over a variable called <code class="docutils literal notranslate"><span class="pre">x</span></code> and store <code class="docutils literal notranslate"><span class="pre">x**2</span></code> to a list called <code class="docutils literal notranslate"><span class="pre">y</span></code>. We then plot <code class="docutils literal notranslate"><span class="pre">x</span></code> versus <code class="docutils literal notranslate"><span class="pre">y</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># here&#39;s the x values we will loop over</span>
+<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
+
+<span class="c1"># here&#39;s where we will store the y values</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="c1"># here&#39;s the for loop</span>
+<span class="k">for</span> <span class="n">xi</span> <span class="ow">in</span> <span class="n">x</span><span class="p">:</span>
+  <span class="n">y</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">xi</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># let plot x vs y</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+
+<span class="c1"># let&#39;s be good and label our plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;y&#39;)
+</pre></div>
+</div>
+<img alt="../../_images/7a81d233a81ebf0e1482656ac1b6db2c5d57bdce93d3fe03500f5e27f74ee390.png" src="../../_images/7a81d233a81ebf0e1482656ac1b6db2c5d57bdce93d3fe03500f5e27f74ee390.png" />
+</div>
+</div>
+<p><strong>Part a</strong></p>
+<p>Using a for loop, make a plot of <span class="math notranslate nohighlight">\(y = 2 * x + 1\)</span> for <span class="math notranslate nohighlight">\(x\)</span> between <span class="math notranslate nohighlight">\(0\)</span> and <span class="math notranslate nohighlight">\(10\)</span>.</p>
+<p>Use <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">np.linspace(0,</span> <span class="pre">10,</span> <span class="pre">5)</span></code> which will create an array of 10 evenly spaced values bewteen 0 and 10.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your answer here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Part b</strong></p>
+<p>Use your <code class="docutils literal notranslate"><span class="pre">objective_function</span></code> to search for good values of <code class="docutils literal notranslate"><span class="pre">m,b</span></code>. Using <code class="docutils literal notranslate"><span class="pre">for</span></code> loops, calculate <code class="docutils literal notranslate"><span class="pre">objective_function</span></code> for <span class="math notranslate nohighlight">\(0&lt;m&lt;20\)</span> and <span class="math notranslate nohighlight">\(-1000&lt;b&lt;0\)</span>. For each combination of <code class="docutils literal notranslate"><span class="pre">b,m</span></code> plot <code class="docutils literal notranslate"><span class="pre">b</span></code> vs. <code class="docutils literal notranslate"><span class="pre">m</span></code> on a scatter plot with the color set by <code class="docutils literal notranslate"><span class="pre">objective_function(x,y,m,b)</span></code>. For an example of a scatter plot with the points colored by a third parameter, see the <a class="reference external" href="https://jgreene100.github.io/Ast207/docs/intro_python/numpy_and_plotting.html"><code class="docutils literal notranslate"><span class="pre">Getting</span> <span class="pre">started</span> <span class="pre">with</span> <span class="pre">arrays</span> <span class="pre">and</span> <span class="pre">plots</span> <span class="pre">in</span> <span class="pre">Python</span> <span class="pre">notebook</span></code></a>. Try 50 values of <code class="docutils literal notranslate"><span class="pre">b</span></code> and 50 values of <code class="docutils literal notranslate"><span class="pre">m</span></code> (it should run in less than a second). For ease of reading, plot <code class="docutils literal notranslate"><span class="pre">np.log10</span></code> of the objective function.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your answer here</span>
@@ -546,107 +620,6 @@ in our case, <code class="docutils literal notranslate"><span class="pre">x</spa
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your answer here</span>
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="fitting-astronomical-data">
-<h2>Fitting astronomical data<a class="headerlink" href="#fitting-astronomical-data" title="Permalink to this heading">#</a></h2>
-<p>Earlier, we looked at data from the Gaia space telescope. Gaia carefully observes the positions and properties of stars in our galaxy. The code below loads in the Gaia data for all stars within 15 parsec of the Sun.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let&#39;s load in the data</span>
-<span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">drive</span>
-<span class="n">drive</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="s1">&#39;/content/drive/&#39;</span><span class="p">)</span>
-<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="s1">&#39;/content/drive/Shareddrives/AST207/data&#39;</span><span class="p">)</span>
-
-<span class="c1"># path to the table</span>
-<span class="n">path</span> <span class="o">=</span> <span class="s1">&#39;gaia_15pc.csv&#39;</span>
-
-<span class="c1"># loading the table; this function assumes a &#39;comma separated file (aka csv)&#39;</span>
-<span class="n">gaia</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
-
-<span class="c1"># simple errors</span>
-<span class="n">gaia</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;color&#39;</span><span class="p">]</span>     <span class="o">=</span> <span class="n">gaia</span><span class="o">.</span><span class="n">gmag</span> <span class="o">-</span> <span class="n">gaia</span><span class="o">.</span><span class="n">rmag</span>
-<span class="n">gaia</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;color_err&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.04</span>
-<span class="n">gaia</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;teff_err&#39;</span><span class="p">]</span>  <span class="o">=</span> <span class="mf">10.</span> <span class="c1"># K</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Drive already mounted at /content/drive/; to attempt to forcibly remount, call drive.mount(&quot;/content/drive/&quot;, force_remount=True).
-</pre></div>
-</div>
-</div>
-</div>
-<p><strong>Exercise 6</strong></p>
-<p>In a previous activity, we searched for which properties of a star are correlated (like how football players heights and weights are correlated). Let’s revisit that activity here. Below, plot <code class="docutils literal notranslate"><span class="pre">teff</span></code> versus <code class="docutils literal notranslate"><span class="pre">color</span></code> for the Gaia data (<code class="docutils literal notranslate"><span class="pre">teff</span></code> is the temperature of the star and <code class="docutils literal notranslate"><span class="pre">color</span></code> is the difference between the stars’ <code class="docutils literal notranslate"><span class="pre">g</span></code> and <code class="docutils literal notranslate"><span class="pre">r</span></code> magnitudes). Be sure to label your plot.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your plot here</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Cool! We have a clear observational result: color and temperature of a star are strongly correlated.</p>
-<p>However, we still don’t know <em>how</em> color and temperature are related. Is the relation linear, quadratic, or perhaps much more complex? Answering this question will greatly increase our understanding of the stars in our catalog (it will also help our theorist friends try to <em>explain</em> what’s happening here).</p>
-<p><strong>Exercise 7</strong></p>
-<p>Like we did for the football data, fit the <code class="docutils literal notranslate"><span class="pre">teff</span></code> and <code class="docutils literal notranslate"><span class="pre">color</span></code> data with a linear function. Use the “grid search” method we used for the football data. Try fitting the data by hand first to choose appropriate ranges of <code class="docutils literal notranslate"><span class="pre">m,b</span></code> to search.</p>
-<p>Print out the best fit <code class="docutils literal notranslate"><span class="pre">m,b</span></code> and plot the best-fit line against the observed data.</p>
-<p>Hint: the slope (<code class="docutils literal notranslate"><span class="pre">m</span></code>) will be small. Try <code class="docutils literal notranslate"><span class="pre">m</span> <span class="pre">=</span> <span class="pre">-1e-4</span></code> to start.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your answer</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p><strong>We just fit a model to astronomical data!</strong> This is a critical tool in modern astronomy. But so far, we can only find the best solution by a time consuming “grid search.” Let’s find a better way.</p>
-<p>Many algorithms have been developed to find the parameters that minimize a function (our grid search is one example). Let’s use <code class="docutils literal notranslate"><span class="pre">scipy.optimize.minimize</span></code>.</p>
-<p><strong>Exercise 8</strong></p>
-<p>Run the code below to use <code class="docutils literal notranslate"><span class="pre">scipy.optimize.minimize</span></code>. Then plot the best fit linear function from <code class="docutils literal notranslate"><span class="pre">scipy.optimize.minimize</span></code> alongside the observed data and your “grid search” fit.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">general_objective_function</span><span class="p">(</span><span class="n">theta</span><span class="p">,</span> <span class="n">fn</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
-
-  <span class="n">y_model</span> <span class="o">=</span> <span class="n">fn</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="o">*</span><span class="n">theta</span><span class="p">)</span>
-
-  <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="n">y</span><span class="o">-</span><span class="n">y_model</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="p">)</span>
-
-<span class="n">out</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">optimize</span><span class="o">.</span><span class="n">minimize</span><span class="p">(</span><span class="n">general_objective_function</span><span class="p">,</span> <span class="p">[</span><span class="o">-</span><span class="mf">1e-4</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">bounds</span> <span class="o">=</span> <span class="p">[[</span><span class="o">-</span><span class="mf">1e-3</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">]],</span> <span class="n">args</span> <span class="o">=</span> <span class="p">(</span><span class="n">linear</span><span class="p">,</span> <span class="n">gaia</span><span class="o">.</span><span class="n">teff</span><span class="p">,</span> <span class="n">gaia</span><span class="o">.</span><span class="n">color</span><span class="p">)</span> <span class="p">)</span>
-<span class="n">m_fit</span><span class="p">,</span> <span class="n">b_fit</span> <span class="o">=</span> <span class="n">out</span><span class="o">.</span><span class="n">x</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your plot here</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>We can now perform a linear fit and even can do it quicky using <code class="docutils literal notranslate"><span class="pre">scipy</span></code>. However, the above plots show that a linear fit is not a great match to the data. So what is?</p>
-<p>Fortunately, <code class="docutils literal notranslate"><span class="pre">general_objective_function</span></code> (which we provided for the activity above) allows us to change the function we are fitting…</p>
-<p><strong>Exercise 9</strong></p>
-<p>Let’s try a model where color is <em>inversely</em> proportional to temperature:
-$<span class="math notranslate nohighlight">\( \mathrm{color} = m / T + b \)</span>$
-Write a function <code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">inverse(x,</span> <span class="pre">m,</span> <span class="pre">b)</span></code> that returns the inverse function. Then use <code class="docutils literal notranslate"><span class="pre">scipy</span></code> to find the best fit parameters. Plot the best fit inverse function alongside the observed data and the best fit linear function.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">inverse</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
-  <span class="c1"># your code</span>
-
-<span class="c1"># use scipy to find the best fit parameters</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your plot</span>
 </pre></div>
 </div>
 </div>
@@ -723,7 +696,6 @@ Write a function <code class="docutils literal notranslate"><span class="pre">de
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-fitting-models-to-data">Part 2: fitting models to data</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-fit">Linear fit</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fitting-astronomical-data">Fitting astronomical data</a></li>
 </ul>
 </li>
 </ul>
