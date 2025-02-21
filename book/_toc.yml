@@ -25,9 +25,8 @@ parts:
   - file: docs/imaging/img_simulation
 
 - caption: Merian
- chapters:
- - file: docs/merian/00_photoz.ipynb
-
+  chapters:
+  - file: docs/merian/00_photoz.ipynb
  
 #  - file: docs/final_project/variable_stars_and_planets
 #  - file: docs/final_project/GalaxyZoo_NeuralNet
