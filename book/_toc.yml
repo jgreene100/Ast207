@@ -26,13 +26,13 @@ parts:
 #  - file: docs/imaging/plotting_jwst
 #  - file: docs/intro_gaia_star
 
-#- caption: Final Projects
-#  chapters:
+- caption: Final Projects
+ chapters:
+ - file: docs/final_project/merian/00_photoz.ipynb
 #  - file: docs/final_project/variable_stars_and_planets
 #  - file: docs/final_project/GalaxyZoo_NeuralNet
 #  - file: docs/final_project/lrd/are_LRD_resolved
 #
 #- caption: Merian Project
 #  chapters:
-#  - file: docs/final_project/merian/01_merian_intro.ipynb
 #  - file: docs/final_project/merian/02_Halpha_map.ipynb
