@@ -30,7 +30,7 @@ parts:
 
 - caption: Exoplanets
   chapters:
-  - file: docs/exoplanets/introduction_to_exoplanets.ipynb
+  - file: docs/introduction_to_exoplanets.ipynb
  
 #  - file: docs/final_project/variable_stars_and_planets
 #  - file: docs/final_project/GalaxyZoo_NeuralNet
