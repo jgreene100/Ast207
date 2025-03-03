@@ -27,6 +27,10 @@ parts:
 - caption: Merian
   chapters:
   - file: docs/merian/00_photoz.ipynb
+
+- caption: Exoplanets
+  chapters:
+  - file: docs/exoplanets/introduction_to_exoplanets.ipynb
  
 #  - file: docs/final_project/variable_stars_and_planets
 #  - file: docs/final_project/GalaxyZoo_NeuralNet
