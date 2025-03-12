@@ -28,6 +28,7 @@ parts:
   chapters:
   - file: docs/merian/00_photoz.ipynb
   - file: docs/merian/01_merian_intro.ipynb
+  - file: docs/merian/02_sersic_fit.ipynb
 
 - caption: Exoplanets
   chapters:
