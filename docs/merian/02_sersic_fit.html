@@ -405,7 +405,12 @@ document.write(`
 <li><p>Need to install <code class="docutils literal notranslate"><span class="pre">photutils</span></code> and <code class="docutils literal notranslate"><span class="pre">statmorph</span></code></p></li>
 <li><p>Finished the Photometric Redshift notebook and Merian Part 1 notebook</p></li>
 </ul>
-<div class="cell tag_hide docutils container">
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">load_ext</span> autoreload
 <span class="o">%</span><span class="k">autoreload</span> 2
@@ -426,8 +431,14 @@ document.write(`
 </pre></div>
 </div>
 </div>
+</details>
 </div>
-<div class="cell tag_hide docutils container">
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">required_packages</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;statmorph&#39;</span><span class="p">,</span> <span class="s1">&#39;photutils&#39;</span><span class="p">]</span>  <span class="c1"># Define the required packages for this notebook</span>
 
@@ -467,6 +478,7 @@ document.write(`
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -570,7 +582,10 @@ document.write(`
 </div>
 </div>
 <p><strong>Exercise 2</strong></p>
-<p>There are three parameters in the <code class="docutils literal notranslate"><span class="pre">lupton_rgb</span></code> function: <code class="docutils literal notranslate"><span class="pre">stretch</span></code>, <code class="docutils literal notranslate"><span class="pre">Q</span></code>, and <code class="docutils literal notranslate"><span class="pre">minimum</span></code>. Try to play with these parameters, and find a combination that makes the most beautiful color image.</p>
+<ol class="arabic simple">
+<li><p>There are three parameters in the <code class="docutils literal notranslate"><span class="pre">lupton_rgb</span></code> function: <code class="docutils literal notranslate"><span class="pre">stretch</span></code>, <code class="docutils literal notranslate"><span class="pre">Q</span></code>, and <code class="docutils literal notranslate"><span class="pre">minimum</span></code>. Try to play with these parameters, and find a combination that makes the most beautiful color image.</p></li>
+<li><p>Randomly pick 5 more galaxies, and plot their color images.</p></li>
+</ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## your answer</span>
@@ -582,7 +597,7 @@ document.write(`
 <section id="sersic-fitting">
 <h2>2: Sersic fitting<a class="headerlink" href="#sersic-fitting" title="Permalink to this heading">#</a></h2>
 <p>A galaxy’s light distribution is often described by a <a class="reference external" href="https://en.wikipedia.org/wiki/S%C3%A9rsic_profile">Sersic</a> model. For a comprehensive introduction to the Sersic model, see <a class="reference external" href="https://arxiv.org/abs/astro-ph/0503176">this paper</a>. Here let’s try to fit a Sersic model to the Merian galaxies.</p>
-<p><strong>Note</strong>: For HSC and Merian images below, the zeropoint is always 27.0 mag, and the pixel scale is away 0.168 arcsec/pixel.</p>
+<p><strong>Note</strong>: For HSC and Merian images below, the zeropoint is always 27.0 mag, and the pixel scale is always 0.168 arcsec/pixel.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">statmorph</span>
@@ -647,7 +662,7 @@ document.write(`
 </div>
 </div>
 <p>In the left panel, we show the “segmentation map” for all sources above <span class="math notranslate nohighlight">\(1.5\sigma\)</span>. Many sources are detected. However, we only want the central one, so we use <code class="docutils literal notranslate"><span class="pre">segmap.keep_label(ind)</span></code>. The right panel shows the segmentation map after this step. This segmentation map will be used in the Sersic fitting.</p>
-<p>Sersic fitting needs the background noise level to calculate the chi-square. Let’s use <code class="docutils literal notranslate"><span class="pre">photutils.background.Backgroud2D</span></code> to estimate the background noise. In this step, we will provide an object mask <code class="docutils literal notranslate"><span class="pre">obj_mask</span></code> such that the light from astrophysical sources will not bias the background estimation. <code class="docutils literal notranslate"><span class="pre">obj_mask</span></code> was constructed when we first extracted the segmentation map: <code class="docutils literal notranslate"><span class="pre">obj_mask</span> <span class="pre">=</span> <span class="pre">~segmap.data_ma.mask</span></code>. In this mask, <code class="docutils literal notranslate"><span class="pre">True</span></code> means that the pixel belongs to a real source and should be masked; <code class="docutils literal notranslate"><span class="pre">False</span></code> means that it should not be masked.</p>
+<p>Sersic fitting needs the background noise level to calculate the chi-square, which is the objective function to optimize. We need chi-square to find the best-fit Sersic model. Let’s use <code class="docutils literal notranslate"><span class="pre">photutils.background.Backgroud2D</span></code> to estimate the background noise. In this step, we will provide an object mask <code class="docutils literal notranslate"><span class="pre">obj_mask</span></code> such that the light from astrophysical sources will not bias the background estimation. <code class="docutils literal notranslate"><span class="pre">obj_mask</span></code> was constructed when we first extracted the segmentation map: <code class="docutils literal notranslate"><span class="pre">obj_mask</span> <span class="pre">=</span> <span class="pre">~segmap.data_ma.mask</span></code>. In this mask, <code class="docutils literal notranslate"><span class="pre">True</span></code> means that the pixel belongs to a real source and should be masked; <code class="docutils literal notranslate"><span class="pre">False</span></code> means that it should not be masked.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">photutils.background</span> <span class="kn">import</span> <span class="n">Background2D</span>
@@ -656,7 +671,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p>This <code class="docutils literal notranslate"><span class="pre">bkg</span></code> object contains many information about the background, including the rms of the background level. This is exactly what we need.</p>
+<p>This <code class="docutils literal notranslate"><span class="pre">bkg</span></code> object contains important information about the background, including the rms of the background level. This is exactly what we need.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bkg</span><span class="o">.</span><span class="n">background_rms</span>
@@ -766,9 +781,33 @@ Sersic amplitude: 0.6895891711804388
 </div>
 </div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">astropy.cosmology</span> <span class="kn">import</span> <span class="n">Planck15</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Planck15</span><span class="o">.</span><span class="n">angular_diameter_distance</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[392.84044 \; \mathrm{Mpc}\]</div>
+</div>
+</div>
 <p><strong>Exercise 4</strong></p>
-<ol class="arabic simple">
-<li><p>For this galaxy <code class="docutils literal notranslate"><span class="pre">refID=10</span></code> and <code class="docutils literal notranslate"><span class="pre">Name:</span> <span class="pre">J095828.56+013901.69</span></code>, write a function to calculate its physical half-light size using the half-light radius from Sersic fit and its spec-z. You can use <code class="docutils literal notranslate"><span class="pre">astropy.cosmology</span></code> to calculate the angular diameter distance at a given distance. Express the physical size of this galaxy in <code class="docutils literal notranslate"><span class="pre">kpc</span></code>.</p></li>
+<ol class="arabic">
+<li><p>For this galaxy <code class="docutils literal notranslate"><span class="pre">refID=10</span></code> and <code class="docutils literal notranslate"><span class="pre">Name:</span> <span class="pre">J095828.56+013901.69</span></code>, write a function to calculate its physical half-light size using the half-light radius from Sersic fit and its spec-z. Express the physical size of this galaxy in <code class="docutils literal notranslate"><span class="pre">kpc</span></code>.</p>
+<p>Remember that the angular size (in arcsec) and the physical size (in kpc) are related, using a formula we discussed in class. There is a package called <code class="docutils literal notranslate"><span class="pre">astropy.cosmology</span></code> that will allow you to convert between the redshift that we observe from the spectrum and the “angular diameter distance” in Mpc. For example, we can use the <code class="docutils literal notranslate"><span class="pre">Planck15</span></code> cosmology to calculate the distance for <span class="math notranslate nohighlight">\(z=0.1\)</span>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">astropy.cosmology</span> <span class="kn">import</span> <span class="n">Planck15</span>
+<span class="n">Planck15</span><span class="o">.</span><span class="n">angular_diameter_distance</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
 <li><p>For all galaxies in our sample, do Sersic fitting, then extract their physical sizes. Make a scatter plot for their sizes and stellar masses.</p></li>
 </ol>
 <div class="cell docutils container">
