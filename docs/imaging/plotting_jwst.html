@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Basic Statistics (Part 4) &#8212; Observational Astronomy</title>
+    <title>Plotting JWST images &#8212; Observational Astronomy</title>
   
   
   
@@ -63,14 +63,12 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/stats/basic_stats_4';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/imaging/plotting_jwst';</script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Calibration frames" href="../imaging/calibration_frames.html" />
-    <link rel="prev" title="Basic Statistics (Part 3)" href="basic_stats_3.html" />
+    <link rel="next" title="Photometric Redshifts" href="../merian/00_photoz.html" />
+    <link rel="prev" title="Simulate an artificial image" href="img_simulation.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -180,21 +178,21 @@ const thebe_selector_output = ".output, .cell_output"
 
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Statistics</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="basic_stats_1.html">Basic Statistics (Part 1)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="basic_stats_2.html">Basic Statistics (Part 2)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="basic_stats_3.html">Basic Statistics (Part 3)</a></li>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../stats/basic_stats_1.html">Basic Statistics (Part 1)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../stats/basic_stats_2.html">Basic Statistics (Part 2)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../stats/basic_stats_3.html">Basic Statistics (Part 3)</a></li>
 
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Basic Statistics (Part 4)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../stats/basic_stats_4.html">Basic Statistics (Part 4)</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Detector and Imaging</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../imaging/calibration_frames.html">Calibration frames</a></li>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="calibration_frames.html">Calibration frames</a></li>
 
 
 
-<li class="toctree-l1"><a class="reference internal" href="../imaging/img_simulation.html">Simulate an artificial image</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../imaging/plotting_jwst.html">Plotting JWST images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="img_simulation.html">Simulate an artificial image</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Plotting JWST images</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Merian</span></p>
 <ul class="nav bd-sidenav">
@@ -262,7 +260,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://colab.research.google.com/github/jgreene100/Ast207/blob/main//book/docs/stats/basic_stats_4.ipynb" target="_blank"
+      <li><a href="https://colab.research.google.com/github/jgreene100/Ast207/blob/main//book/docs/imaging/plotting_jwst.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onColab"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -293,7 +291,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../../_sources/docs/stats/basic_stats_4.ipynb" target="_blank"
+      <li><a href="../../_sources/docs/imaging/plotting_jwst.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -377,7 +375,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Basic Statistics (Part 4)</h1>
+    <h1>Plotting JWST images</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -387,7 +385,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fitting-astronomical-data">Fitting astronomical data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#let-s-make-an-color-composite-image-for-this-cluster">Let’s make an color-composite image for this cluster!</a></li>
 </ul>
             </nav>
         </div>
@@ -399,121 +397,142 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="basic-statistics-part-4">
-<h1>Basic Statistics (Part 4)<a class="headerlink" href="#basic-statistics-part-4" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="plotting-jwst-images">
+<h1>Plotting JWST images<a class="headerlink" href="#plotting-jwst-images" title="Permalink to this heading">#</a></h1>
+<p>In this notebook, we will have a taste of the real data of James Webb Space Telescope. We take the images from the <a class="reference external" href="https://jwst-uncover.github.io/DR1.html">UNCOVER</a> survey and plot them using <code class="docutils literal notranslate"><span class="pre">python</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let&#39;s start with importing our packages</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">scipy</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">matplotlib</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">rcParams</span><span class="p">,</span> <span class="n">cycler</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-
-<span class="c1"># We can beautify our plots by changing the matplotlib settings a little</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">18</span>
-<span class="n">matplotlib</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;axes.linewidth&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span>
-<span class="n">matplotlib</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.family&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;serif&quot;</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">pickle</span>
+<span class="kn">import</span> <span class="nn">astropy</span>
 </pre></div>
 </div>
 </div>
 </div>
-<section id="fitting-astronomical-data">
-<h2>Fitting astronomical data<a class="headerlink" href="#fitting-astronomical-data" title="Permalink to this heading">#</a></h2>
-<p>Earlier, we looked at data from the Gaia space telescope. Gaia carefully observes the positions and properties of stars in our galaxy. The code below loads in the Gaia data for all stars within 15 parsec of the Sun.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let&#39;s load in the data</span>
-<span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">drive</span>
-<span class="n">drive</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="s1">&#39;/content/drive/&#39;</span><span class="p">)</span>
-<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="s1">&#39;/content/drive/Shareddrives/AST207/data&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">required_packages</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># Define the required packages for this notebook</span>
 
-<span class="c1"># path to the table</span>
-<span class="n">path</span> <span class="o">=</span> <span class="s1">&#39;gaia_15pc.csv&#39;</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">subprocess</span>
 
-<span class="c1"># loading the table; this function assumes a &#39;comma separated file (aka csv)&#39;</span>
-<span class="n">gaia</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">google.colab</span>
+    <span class="n">IN_COLAB</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+    <span class="n">IN_COLAB</span> <span class="o">=</span> <span class="kc">False</span>
 
-<span class="c1"># simple errors</span>
-<span class="n">gaia</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;color&#39;</span><span class="p">]</span>     <span class="o">=</span> <span class="n">gaia</span><span class="o">.</span><span class="n">gmag</span> <span class="o">-</span> <span class="n">gaia</span><span class="o">.</span><span class="n">rmag</span>
-<span class="n">gaia</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;color_err&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.04</span>
-<span class="n">gaia</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;teff_err&#39;</span><span class="p">]</span>  <span class="o">=</span> <span class="mf">10.</span> <span class="c1"># K</span>
+<span class="k">if</span> <span class="n">IN_COLAB</span><span class="p">:</span>
+    <span class="c1"># Download utils.py</span>
+    <span class="o">!</span>wget<span class="w"> </span>-q<span class="w"> </span>-O<span class="w"> </span>/content/utils.py<span class="w"> </span>https://raw.githubusercontent.com/AstroJacobLi/ObsAstGreene/refs/heads/main/book/docs/utils.py
+    <span class="c1"># Function to check and install missing packages</span>
+    <span class="k">def</span> <span class="nf">install_packages</span><span class="p">(</span><span class="n">packages</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">package</span> <span class="ow">in</span> <span class="n">packages</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="nb">__import__</span><span class="p">(</span><span class="n">package</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Installing </span><span class="si">{</span><span class="n">package</span><span class="si">}</span><span class="s2">...&quot;</span><span class="p">)</span>
+                <span class="n">subprocess</span><span class="o">.</span><span class="n">check_call</span><span class="p">([</span><span class="n">sys</span><span class="o">.</span><span class="n">executable</span><span class="p">,</span> <span class="s1">&#39;-m&#39;</span><span class="p">,</span> <span class="s1">&#39;pip&#39;</span><span class="p">,</span> <span class="s1">&#39;install&#39;</span><span class="p">,</span> <span class="n">package</span><span class="p">])</span>
+    <span class="c1"># Install any missing packages</span>
+    <span class="n">install_packages</span><span class="p">(</span><span class="n">required_packages</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="c1"># If not in Colab, adjust the path for local development</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;/Users/jiaxuanl/Dropbox/Courses/ObsAstGreene/book/docs/&#39;</span><span class="p">)</span>
+
+<span class="c1"># Get the directory right</span>
+<span class="k">if</span> <span class="n">IN_COLAB</span><span class="p">:</span>
+  <span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">drive</span>
+  <span class="n">drive</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="s1">&#39;/content/drive/&#39;</span><span class="p">)</span>
+  <span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="s1">&#39;/content/drive/Shareddrives/AST207/data&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="s1">&#39;../../_static/ObsAstroData/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+</div>
+<p>Let’s now open the JWST data!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;./A2744_cutoutRGB_NIRCAM.pkl&#39;</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+<span class="n">data</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_keys([&#39;rIMG&#39;, &#39;rWCS&#39;, &#39;rHDR&#39;, &#39;rfilt&#39;, &#39;gIMG&#39;, &#39;gWCS&#39;, &#39;gHDR&#39;, &#39;gfilt&#39;, &#39;bIMG&#39;, &#39;bWCS&#39;, &#39;bHDR&#39;, &#39;bfilt&#39;])
+</pre></div>
+</div>
+</div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">IMG</span></code> key represents the image, <code class="docutils literal notranslate"><span class="pre">WCS</span></code> is WCS of the image, <code class="docutils literal notranslate"><span class="pre">filt</span></code> is the filter name, and <code class="docutils literal notranslate"><span class="pre">HDR</span></code> is the image header. Let’s plot the</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">utils</span> <span class="kn">import</span> <span class="n">show_image</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Plotting&#39;</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;bfilt&#39;</span><span class="p">])</span>
+<span class="n">show_image</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;bIMG&#39;</span><span class="p">],</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">percl</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">percu</span><span class="o">=</span><span class="mi">97</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Greys_r&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Plotting F115W+F150W
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: &gt;
+</pre></div>
+</div>
+<img alt="../../_images/e5fd3791be3c9857057386f69c190951ea0f91b625c55ac6a6d4a805bddc7f5a.png" src="../../_images/e5fd3791be3c9857057386f69c190951ea0f91b625c55ac6a6d4a805bddc7f5a.png" />
 </div>
 </div>
 <p><strong>Exercise 1</strong></p>
-<p>In a previous activity, we searched for which properties of a star are correlated (like how football players heights and weights are correlated). Let’s revisit that activity here. Below, plot <code class="docutils literal notranslate"><span class="pre">teff</span></code> versus <code class="docutils literal notranslate"><span class="pre">color</span></code> for the Gaia data (<code class="docutils literal notranslate"><span class="pre">teff</span></code> is the temperature of the star and <code class="docutils literal notranslate"><span class="pre">color</span></code> is the difference between the stars’ <code class="docutils literal notranslate"><span class="pre">g</span></code> and <code class="docutils literal notranslate"><span class="pre">r</span></code> magnitudes). Be sure to label your plot.</p>
+<p>Try to plot the images in other bands, and try to play with the <code class="docutils literal notranslate"><span class="pre">percl</span></code> and <code class="docutils literal notranslate"><span class="pre">percu</span></code> parameters to change the dynamical range when plotting. What are the tiny dots around the brightest cluster galaxy at the center? (just make a guess)</p>
+<section id="let-s-make-an-color-composite-image-for-this-cluster">
+<h2>Let’s make an color-composite image for this cluster!<a class="headerlink" href="#let-s-make-an-color-composite-image-for-this-cluster" title="Permalink to this heading">#</a></h2>
+<p>Black &amp; White images are cool but a bit boring… Let’s make them colorful! Here we use the method in <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2004PASP..116..133L/abstract">Lupton et al. (2004)</a>, featuring our own <a class="reference external" href="https://web.astro.princeton.edu/people/robert-lupton">Robert Lupton</a>!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your plot here</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">astropy.visualization</span> <span class="kn">import</span> <span class="n">make_lupton_rgb</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>Cool! We have a clear observational result: color and temperature of a star are strongly correlated.</p>
-<p>However, we still don’t know <em>how</em> color and temperature are related. Is the relation linear, quadratic, or perhaps much more complex? Answering this question will greatly increase our understanding of the stars in our catalog (it will also help our theorist friends try to <em>explain</em> what’s happening here).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rgb</span> <span class="o">=</span> <span class="n">make_lupton_rgb</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;rIMG&#39;</span><span class="p">],</span> <span class="mf">0.85</span> <span class="o">*</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;gIMG&#39;</span><span class="p">],</span> <span class="mf">1.1</span> <span class="o">*</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;bIMG&#39;</span><span class="p">],</span> <span class="n">Q</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">stretch</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">rgb</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Lupton RGB image&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.06</span><span class="p">,</span> <span class="mf">1.02</span><span class="p">,</span> <span class="s1">&#39;i&#39;</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">ax</span><span class="o">.</span><span class="n">transAxes</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.03</span><span class="p">,</span> <span class="mf">1.02</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">ax</span><span class="o">.</span><span class="n">transAxes</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.02</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">ax</span><span class="o">.</span><span class="n">transAxes</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 1.02, &#39;g&#39;)
+</pre></div>
+</div>
+<img alt="../../_images/bcc87e8164ea315d3317f7b2f437f14424c2e724b8070c05d7f0c016415f9c53.png" src="../../_images/bcc87e8164ea315d3317f7b2f437f14424c2e724b8070c05d7f0c016415f9c53.png" />
+</div>
+</div>
 <p><strong>Exercise 2</strong></p>
-<p>Like we did for the football data, fit the <code class="docutils literal notranslate"><span class="pre">teff</span></code> and <code class="docutils literal notranslate"><span class="pre">color</span></code> data with a linear function. Use the “grid search” method we used for the football data. Try fitting the data by hand first to choose appropriate ranges of <code class="docutils literal notranslate"><span class="pre">m,b</span></code> to search.</p>
-<p>Use your <code class="docutils literal notranslate"><span class="pre">objective_function</span></code> from basic_stats_3.ipynb.</p>
-<p>Print out the best fit <code class="docutils literal notranslate"><span class="pre">m,b</span></code> and plot the best-fit line against the observed data.</p>
-<p>Hint: the slope (<code class="docutils literal notranslate"><span class="pre">m</span></code>) will be small. Try <code class="docutils literal notranslate"><span class="pre">m</span> <span class="pre">=</span> <span class="pre">-1e-4</span></code> to start.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your answer</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p><strong>We just fit a model to astronomical data!</strong> This is a critical tool in modern astronomy. But so far, we can only find the best solution by a time consuming “grid search.” Let’s find a better way.</p>
-<p>Many algorithms have been developed to find the parameters that minimize a function (our grid search is one example). Let’s use <code class="docutils literal notranslate"><span class="pre">scipy.optimize.minimize</span></code>.</p>
-<p><strong>Exercise 3</strong></p>
-<p>Run the code below to use <code class="docutils literal notranslate"><span class="pre">scipy.optimize.minimize</span></code>. Then plot the best fit linear function from <code class="docutils literal notranslate"><span class="pre">scipy.optimize.minimize</span></code> alongside the observed data and your “grid search” fit.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">general_objective_function</span><span class="p">(</span><span class="n">theta</span><span class="p">,</span> <span class="n">fn</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
-
-  <span class="n">y_model</span> <span class="o">=</span> <span class="n">fn</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="o">*</span><span class="n">theta</span><span class="p">)</span>
-
-  <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="n">y</span><span class="o">-</span><span class="n">y_model</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="p">)</span>
-
-<span class="n">out</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">optimize</span><span class="o">.</span><span class="n">minimize</span><span class="p">(</span><span class="n">general_objective_function</span><span class="p">,</span> <span class="p">[</span><span class="o">-</span><span class="mf">1e-4</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">bounds</span> <span class="o">=</span> <span class="p">[[</span><span class="o">-</span><span class="mf">1e-3</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">]],</span> <span class="n">args</span> <span class="o">=</span> <span class="p">(</span><span class="n">linear</span><span class="p">,</span> <span class="n">gaia</span><span class="o">.</span><span class="n">teff</span><span class="p">,</span> <span class="n">gaia</span><span class="o">.</span><span class="n">color</span><span class="p">)</span> <span class="p">)</span>
-<span class="n">m_fit</span><span class="p">,</span> <span class="n">b_fit</span> <span class="o">=</span> <span class="n">out</span><span class="o">.</span><span class="n">x</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your plot here</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>We can now perform a linear fit and even can do it quicky using <code class="docutils literal notranslate"><span class="pre">scipy</span></code>. However, the above plots show that a linear fit is not a great match to the data. So what is?</p>
-<p>Fortunately, <code class="docutils literal notranslate"><span class="pre">general_objective_function</span></code> (which we provided for the activity above) allows us to change the function we are fitting…</p>
-<p><strong>Exercise 4</strong></p>
-<p>Let’s try a model where color is <em>inversely</em> proportional to temperature:
-$<span class="math notranslate nohighlight">\( \mathrm{color} = m / T + b \)</span>$
-Write a function <code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">inverse(x,</span> <span class="pre">m,</span> <span class="pre">b)</span></code> that returns the inverse function. Then use <code class="docutils literal notranslate"><span class="pre">scipy</span></code> to find the best fit parameters. Plot the best fit inverse function alongside the observed data and the best fit linear function.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">inverse</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
-  <span class="c1"># your code</span>
-
-<span class="c1"># use scipy to find the best fit parameters</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your plot</span>
-</pre></div>
-</div>
-</div>
-</div>
+<ol class="arabic simple">
+<li><p>There are three parameters in the <code class="docutils literal notranslate"><span class="pre">lupton_rgb</span></code> function: <code class="docutils literal notranslate"><span class="pre">stretch</span></code>, <code class="docutils literal notranslate"><span class="pre">Q</span></code>, and <code class="docutils literal notranslate"><span class="pre">minimum</span></code>. Try to play with these parameters, and find a combination that makes the most beautiful color image.</p></li>
+<li><p>Why are a few galaxies so red in the above image?</p></li>
+</ol>
 </section>
 </section>
 
@@ -530,7 +549,7 @@ Write a function <code class="docutils literal notranslate"><span class="pre">de
         },
         kernelOptions: {
             name: "python3",
-            path: "./docs/stats"
+            path: "./docs/imaging"
         },
         predefinedOutput: true
     }
@@ -548,20 +567,20 @@ Write a function <code class="docutils literal notranslate"><span class="pre">de
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="basic_stats_3.html"
+       href="img_simulation.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Basic Statistics (Part 3)</p>
+        <p class="prev-next-title">Simulate an artificial image</p>
       </div>
     </a>
     <a class="right-next"
-       href="../imaging/calibration_frames.html"
+       href="../merian/00_photoz.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Calibration frames</p>
+        <p class="prev-next-title">Photometric Redshifts</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -580,7 +599,7 @@ Write a function <code class="docutils literal notranslate"><span class="pre">de
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fitting-astronomical-data">Fitting astronomical data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#let-s-make-an-color-composite-image-for-this-cluster">Let’s make an color-composite image for this cluster!</a></li>
 </ul>
   </nav></div>
 
