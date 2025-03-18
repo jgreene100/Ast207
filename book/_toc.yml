@@ -34,6 +34,7 @@ parts:
   chapters:
   - file: docs/introduction_to_exoplanets.ipynb
   - file: docs/exoplanets_week1_part1.ipynb 
+  # - file: docs/exoplanets_week1_part2.ipynb 
 
 #  - file: docs/final_project/variable_stars_and_planets
 #  - file: docs/final_project/GalaxyZoo_NeuralNet
