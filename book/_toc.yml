@@ -2,13 +2,13 @@ format: jb-book
 root: docs/index
 
 parts: 
-- caption: Introduction to Python (Week 1 Jan 28-30)
+- caption: Introduction to Python
   chapters:
   - file: docs/intro_python/about_py
   - file: docs/intro_python/getting_started
   - file: docs/intro_python/numpy_and_plotting
   
-- caption: Getting used to data (Week 2 Feb 4-6)
+- caption: Getting used to data
   chapters:
   - file: docs/gaia
 
@@ -23,6 +23,7 @@ parts:
   chapters:
   - file: docs/imaging/calibration_frames
   - file: docs/imaging/img_simulation
+  - file: docs/imaging/plotting_jwst
 
 - caption: Merian
   chapters:
