@@ -813,33 +813,12 @@ Sersic amplitude: 0.7144324349610914
 </div>
 </div>
 <p><strong>Exercise 3</strong></p>
-<ol class="arabic simple">
-<li><p>Repeat this Sersic fitting for a few other galaxies, and make sure it works for most of them. Also try it in other bands, such as <code class="docutils literal notranslate"><span class="pre">N708</span></code>.</p></li>
-<li><p>When extracting the segmentation map, let’s try to smooth the image a bit so small-scale noise peaks can be smeared out. We can do this by convolving the image with the PSF. Note that this is only important for detection; we won’t use this convolved image for Sersic fitting. You can use <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">astropy.convolution</span> <span class="pre">import</span> <span class="pre">convolve</span></code>, and use the PSF from above. Then, use the convolved image in the <code class="docutils literal notranslate"><span class="pre">detect_sources()</span></code> function.</p></li>
-</ol>
+<p>Repeat this Sersic fitting for a few other galaxies, and make sure it works for most of them. Also try it in other bands, such as <code class="docutils literal notranslate"><span class="pre">N708</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## your answer</span>
 </pre></div>
 </div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">astropy.cosmology</span> <span class="kn">import</span> <span class="n">Planck15</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Planck15</span><span class="o">.</span><span class="n">angular_diameter_distance</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_latex math notranslate nohighlight">
-\[392.84044 \; \mathrm{Mpc}\]</div>
 </div>
 </div>
 <p><strong>Exercise 4</strong></p>
