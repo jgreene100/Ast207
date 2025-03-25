@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Exoplanets Part II: Lightcurves, transits, and TESS! Oh My! &#8212; Observational Astronomy</title>
+    <title>Lightcurves, transits, and TESS! Oh My! &#8212; Observational Astronomy</title>
   
   
   
@@ -205,7 +205,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 <li class="toctree-l1"><a class="reference internal" href="exoplanets_week1_part1.html">Exoplanets Final Week 1 Part 1</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Exoplanets Part II: Lightcurves, transits, and TESS! Oh My!</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Lightcurves, transits, and TESS! Oh My!</a></li>
 
 
 </ul>
@@ -377,7 +377,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Exoplanets Part II: Lightcurves, transits, and TESS! Oh My!</h1>
+    <h1>Lightcurves, transits, and TESS! Oh My!</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -387,7 +387,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Exoplanets Part II: Lightcurves, transits, and TESS! Oh My!</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Lightcurves, transits, and TESS! Oh My!</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-0-imports-read-the-comment-below-please-you-ll-need-to-import-a-new-package">Step 0: imports (Read the comment below please. You’ll need to import a new package)</a></li>
 </ul>
 </li>
@@ -405,8 +405,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="exoplanets-part-ii-lightcurves-transits-and-tess-oh-my">
-<h1>Exoplanets Part II: Lightcurves, transits, and TESS! Oh My!<a class="headerlink" href="#exoplanets-part-ii-lightcurves-transits-and-tess-oh-my" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="lightcurves-transits-and-tess-oh-my">
+<h1>Lightcurves, transits, and TESS! Oh My!<a class="headerlink" href="#lightcurves-transits-and-tess-oh-my" title="Permalink to this heading">#</a></h1>
 <section id="step-0-imports-read-the-comment-below-please-you-ll-need-to-import-a-new-package">
 <h2>Step 0: imports (Read the comment below please. You’ll need to import a new package)<a class="headerlink" href="#step-0-imports-read-the-comment-below-please-you-ll-need-to-import-a-new-package" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
@@ -703,6 +703,7 @@ document.write(`
 <p>We’ve made a lightcurve! And we can clearly see by eye that the star is variable (it’s flux is changing with time). However, our approach is still a little too simple. While we are optimizing the <code class="docutils literal notranslate"><span class="pre">scale</span></code> parameter, we’ve left all the other model parameters fixed.</p>
 <p>As we discussed in class, we can optimize all the parameters of model using <code class="docutils literal notranslate"><span class="pre">scipy.optimize.minimize</span></code>. This is much much faster than trying a grid search across all the parameters at once.</p>
 <p><strong>Exercise:</strong> Using <code class="docutils literal notranslate"><span class="pre">scipy.optimize.minimize</span></code> find the best-fit <code class="docutils literal notranslate"><span class="pre">scale</span></code> for each TESS cutout. Plot the resulting lightcurve alongside out “grid-search” and “sum” lightcurves.</p>
+<p>You’ll want to try searching in these ranges: (.1,5) for <code class="docutils literal notranslate"><span class="pre">sigma</span></code>, (0,1000) for <code class="docutils literal notranslate"><span class="pre">scale</span></code>, (0,10) for <code class="docutils literal notranslate"><span class="pre">bkg</span></code>, (5,15) for <code class="docutils literal notranslate"><span class="pre">xmu</span></code> and <code class="docutils literal notranslate"><span class="pre">ymu</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># answer here</span>
@@ -766,7 +767,7 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Exoplanets Part II: Lightcurves, transits, and TESS! Oh My!</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Lightcurves, transits, and TESS! Oh My!</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-0-imports-read-the-comment-below-please-you-ll-need-to-import-a-new-package">Step 0: imports (Read the comment below please. You’ll need to import a new package)</a></li>
 </ul>
 </li>
