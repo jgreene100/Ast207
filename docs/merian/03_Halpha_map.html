@@ -1,0 +1,1064 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Merian Part 3: Make your H-alpha maps! &#8212; Observational Astronomy</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/redirect.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/merian/03_Halpha_map';</script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Introduction to Exoplanets" href="../introduction_to_exoplanets.html" />
+    <link rel="prev" title="Merian Part 2: images and Sersic fitting" href="02_sersic_fit.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/jwst-min.png" class="logo__image only-light" alt="Observational Astronomy - Home"/>
+    <script>document.write(`<img src="../../_static/jwst-min.png" class="logo__image only-dark" alt="Observational Astronomy - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to Python</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../intro_python/about_py.html">About Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro_python/getting_started.html">Setting up Your Python Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro_python/numpy_and_plotting.html">Getting started with arrays and plots in Python</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../class_plotting_cheatsheet.html">Plotting in Matplotlib</a></li>
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting used to data</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../gaia.html">Understand stars in Gaia data</a></li>
+
+
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Statistics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../stats/basic_stats_1.html">Basic Statistics (Part 1)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../stats/basic_stats_2.html">Basic Statistics (Part 2)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../stats/basic_stats_3.html">Basic Statistics (Part 3)</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../stats/basic_stats_4.html">Basic Statistics (Part 4)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Detector and Imaging</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../imaging/calibration_frames.html">Calibration frames</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../imaging/img_simulation.html">Simulate an artificial image</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../imaging/plotting_jwst.html">Plotting JWST images</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Merian</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="00_photoz.html">Photometric Redshifts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_merian_intro.html">Merian Part 1: catalogs and scaling relations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_sersic_fit.html">Merian Part 2: images and Sersic fitting</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Merian Part 3: Make your H-alpha maps!</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Exoplanets</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../introduction_to_exoplanets.html">Introduction to Exoplanets</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="../exoplanets_week1_part1.html">Exoplanets Final Week 1 Part 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exoplanets_week1_part2.html">Lightcurves, transits, and TESS! Oh My!</a></li>
+
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/jgreene100/Ast207/blob/main//book/docs/merian/03_Halpha_map.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/docs/merian/03_Halpha_map.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Merian Part 3: Make your H-alpha maps!</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#understand-psf">1. Understand PSF</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#make-h-alpha-map-for-merian-dwarfs">2: Make H<span class="math notranslate nohighlight">\(\alpha\)</span> map for Merian dwarfs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#make-pretty-image-with-h-alpha-map-highlighted">3: Make pretty image with H<span class="math notranslate nohighlight">\(\alpha\)</span> map highlighted</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="merian-part-3-make-your-h-alpha-maps">
+<h1>Merian Part 3: Make your H-alpha maps!<a class="headerlink" href="#merian-part-3-make-your-h-alpha-maps" title="Permalink to this heading">#</a></h1>
+<p><strong>Explore the morphology of dwarf galaxies in H<span class="math notranslate nohighlight">\(\alpha\)</span> using the Merian Survey data</strong></p>
+<p><strong>Prerequisites</strong></p>
+<ul class="simple">
+<li><p>Finished the Photometric Redshift notebook and, Merian Part 1 and Part 2 notebooks</p></li>
+</ul>
+<p><strong>Prerequisites</strong></p>
+<ul class="simple">
+<li><p>Need to install <code class="docutils literal notranslate"><span class="pre">reproject,</span> <span class="pre">photutils,</span> <span class="pre">cmasher,</span> <span class="pre">sep,</span> <span class="pre">statmorph</span></code></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">load_ext</span> autoreload
+<span class="o">%</span><span class="k">autoreload</span> 2
+<span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">astropy.table</span> <span class="kn">import</span> <span class="n">Table</span>
+<span class="kn">from</span> <span class="nn">astropy.coordinates</span> <span class="kn">import</span> <span class="n">SkyCoord</span>
+<span class="kn">from</span> <span class="nn">astropy.io</span> <span class="kn">import</span> <span class="n">fits</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">clear_output</span>
+
+<span class="c1"># We can beautify our plots by changing the matpltlib setting a little</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">18</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;image.origin&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;lower&#39;</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.dpi&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">90</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;axes.linewidth&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The autoreload extension is already loaded. To reload it, use:
+  %reload_ext autoreload
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">required_packages</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;statmorph&#39;</span><span class="p">,</span> <span class="s1">&#39;photutils&#39;</span><span class="p">,</span> <span class="s1">&#39;sep&#39;</span><span class="p">,</span> <span class="s1">&#39;cmasher&#39;</span><span class="p">,</span> <span class="s1">&#39;reproject&#39;</span><span class="p">]</span>  <span class="c1"># Define the required packages for this notebook</span>
+
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">subprocess</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">google.colab</span>
+    <span class="n">IN_COLAB</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+    <span class="n">IN_COLAB</span> <span class="o">=</span> <span class="kc">False</span>
+
+<span class="k">if</span> <span class="n">IN_COLAB</span><span class="p">:</span>
+    <span class="c1"># Download utils.py</span>
+    <span class="o">!</span>wget<span class="w"> </span>-q<span class="w"> </span>-O<span class="w"> </span>/content/utils.py<span class="w"> </span>https://raw.githubusercontent.com/AstroJacobLi/ObsAstGreene/refs/heads/main/book/docs/utils.py
+    <span class="c1"># Function to check and install missing packages</span>
+    <span class="k">def</span> <span class="nf">install_packages</span><span class="p">(</span><span class="n">packages</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">package</span> <span class="ow">in</span> <span class="n">packages</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="nb">__import__</span><span class="p">(</span><span class="n">package</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Installing </span><span class="si">{</span><span class="n">package</span><span class="si">}</span><span class="s2">...&quot;</span><span class="p">)</span>
+                <span class="n">subprocess</span><span class="o">.</span><span class="n">check_call</span><span class="p">([</span><span class="n">sys</span><span class="o">.</span><span class="n">executable</span><span class="p">,</span> <span class="s1">&#39;-m&#39;</span><span class="p">,</span> <span class="s1">&#39;pip&#39;</span><span class="p">,</span> <span class="s1">&#39;install&#39;</span><span class="p">,</span> <span class="n">package</span><span class="p">])</span>
+    <span class="c1"># Install any missing packages</span>
+    <span class="n">install_packages</span><span class="p">(</span><span class="n">required_packages</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="c1"># If not in Colab, adjust the path for local development</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;/Users/jiaxuanl/Dropbox/Courses/ObsAstGreene/book/docs/&#39;</span><span class="p">)</span>
+
+<span class="c1"># Get the directory right</span>
+<span class="k">if</span> <span class="n">IN_COLAB</span><span class="p">:</span>
+  <span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">drive</span>
+  <span class="n">drive</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="s1">&#39;/content/drive/&#39;</span><span class="p">)</span>
+  <span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="s1">&#39;/content/drive/Shareddrives/AST207/data&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="s1">&#39;../../_static/ObsAstroData/&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">utils</span> <span class="kn">import</span> <span class="n">pad_psf</span><span class="p">,</span> <span class="n">show_image</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>From previous notebooks, we already know the Merian survey and have played with HSC and Merian images. For those galaxies in the Merian redshift range, their H-alpha fluxes will be captured by the N708 medium-band filter. In this notebook, we will try to subtract the continuum from the N708 image to isolate the H-alpha only. In this way, we can study the spatial distribution of H-alpha, and how that correlates with other properties of the galaxy.</p>
+<p>Let’s first open the images of a Merian dwarf:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cutout_dir</span> <span class="o">=</span> <span class="s2">&quot;./merian/cutouts/&quot;</span>
+<span class="n">cat_inband</span> <span class="o">=</span> <span class="n">Table</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;./merian/cosmos_Merian_DR1_specz_inband.fits&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Total number of galaxies:&#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">cat_inband</span><span class="p">))</span>
+
+<span class="kn">from</span> <span class="nn">astropy.io</span> <span class="kn">import</span> <span class="n">fits</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">14</span>
+<span class="n">obj</span> <span class="o">=</span> <span class="n">cat_inband</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+<span class="n">coord</span> <span class="o">=</span> <span class="n">SkyCoord</span><span class="p">(</span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;coord_ra_Merian&#39;</span><span class="p">],</span> <span class="n">obj</span><span class="p">[</span><span class="s1">&#39;coord_dec_Merian&#39;</span><span class="p">],</span> <span class="n">unit</span><span class="o">=</span><span class="s1">&#39;deg&#39;</span><span class="p">)</span>
+<span class="n">name</span> <span class="o">=</span> <span class="n">obj</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Name:&#39;</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+
+<span class="c1"># Open images and psfs</span>
+<span class="n">cutouts</span> <span class="o">=</span> <span class="p">{</span><span class="n">band</span><span class="p">:</span> <span class="n">fits</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">cutout_dir</span><span class="p">,</span> <span class="s2">&quot;hsc&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">_HSC-</span><span class="si">{</span><span class="n">band</span><span class="si">}</span><span class="s2">.fits&quot;</span><span class="p">))[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">data</span> <span class="k">for</span> <span class="n">band</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="s1">&#39;i&#39;</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">]}</span>
+<span class="n">cutouts</span><span class="p">[</span><span class="s1">&#39;N708&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">fits</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">cutout_dir</span><span class="p">,</span> <span class="s2">&quot;merian&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">_N708_merim.fits&quot;</span><span class="p">))[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">data</span>
+<span class="n">cutout_headers</span> <span class="o">=</span> <span class="p">{</span><span class="n">band</span><span class="p">:</span> <span class="n">fits</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">cutout_dir</span><span class="p">,</span> <span class="s2">&quot;hsc&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">_HSC-</span><span class="si">{</span><span class="n">band</span><span class="si">}</span><span class="s2">.fits&quot;</span><span class="p">))[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">header</span> <span class="k">for</span> <span class="n">band</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="s1">&#39;i&#39;</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">]}</span>
+<span class="n">cutout_headers</span><span class="p">[</span><span class="s1">&#39;N708&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">fits</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">cutout_dir</span><span class="p">,</span> <span class="s2">&quot;merian&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">_N708_merim.fits&quot;</span><span class="p">))[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">header</span>
+
+<span class="n">psfs</span> <span class="o">=</span> <span class="p">{</span><span class="n">band</span><span class="p">:</span> <span class="n">fits</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">cutout_dir</span><span class="p">,</span> <span class="s2">&quot;hsc&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">_HSC-</span><span class="si">{</span><span class="n">band</span><span class="si">}</span><span class="s2">_psf.fits&quot;</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">data</span> <span class="k">for</span> <span class="n">band</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="s1">&#39;i&#39;</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">]}</span>
+<span class="n">psfs</span><span class="p">[</span><span class="s1">&#39;N708&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">fits</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">cutout_dir</span><span class="p">,</span> <span class="s2">&quot;merian&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">_N708_merpsf.fits&quot;</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">data</span>
+
+<span class="c1"># bands = list(cutouts.keys())</span>
+<span class="n">psf_shape</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">i</span><span class="o">.</span><span class="n">shape</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">psfs</span><span class="o">.</span><span class="n">values</span><span class="p">()]),</span> <span class="mi">0</span><span class="p">)</span>
+<span class="c1"># cutout_shape = np.min(np.array([i.shape for i in cutouts.values()]), 0)</span>
+<span class="c1"># make all the psfs the same shape</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">psfs</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="n">psfs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">pad_psf</span><span class="p">(</span><span class="n">psfs</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">psf_shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Total number of galaxies: 152
+Name: J100158.40+014812.31
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">percl</span> <span class="o">=</span> <span class="mi">98</span> <span class="c1"># this changes the contrast and dynamic range of the display</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">band</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">cutouts</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
+    <span class="n">show_image</span><span class="p">(</span><span class="n">cutouts</span><span class="p">[</span><span class="n">band</span><span class="p">],</span> <span class="n">fig</span><span class="o">=</span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Greys&#39;</span><span class="p">,</span> <span class="n">percl</span><span class="o">=</span><span class="n">percl</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">band</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/b04512a2619e1979d3046c74b0075175604f5be06f7938c79f0eb285e621d92c.png" src="../../_images/b04512a2619e1979d3046c74b0075175604f5be06f7938c79f0eb285e621d92c.png" />
+</div>
+</div>
+<section id="understand-psf">
+<h2>1. Understand PSF<a class="headerlink" href="#understand-psf" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">band</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">cutouts</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
+    <span class="n">show_image</span><span class="p">(</span><span class="n">psfs</span><span class="p">[</span><span class="n">band</span><span class="p">],</span> <span class="n">fig</span><span class="o">=</span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Greys&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mf">8e-2</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">band</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/259fda92a922e298c2122e88c2231e54e99a75b7c9a9d9afba9d29436e1fd6d0.png" src="../../_images/259fda92a922e298c2122e88c2231e54e99a75b7c9a9d9afba9d29436e1fd6d0.png" />
+</div>
+</div>
+<p>We have played with PSFs in previous notebooks, so you must know what is a PSF (in case you forgot – see <a class="reference external" href="https://jgreene100.github.io/Ast207/docs/imaging/img_simulation.html#point-spread-function-psf">this</a>). The PSFs in griz+N708 bands are shown in the above figure, using the same stretching and dynamic range. Answer the following questions:</p>
+<p><strong>Exercise 1:</strong></p>
+<ol class="arabic simple">
+<li><p>Verify that the PSFs are all normalized (i.e., the sum of all pixel values is 1).</p></li>
+<li><p>By looking at the above figure, which band has the sharpest PSF? Which band has the biggest PSF? Why?</p></li>
+<li><p>How can we quantify the size of the PSF?</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Your answer here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>One way to quantify the size of the PSF is to measure its <a class="reference external" href="https://en.wikipedia.org/wiki/Full_width_at_half_maximum">“Full Width at Half Maximum” (FWHM)</a>. Although one can measure it in a non-parametric way, it is more robust to fit a parametric model (i.e., you know its analytical expression) to the PSF and then ask what the FWHM of that model is. In the cells below, we fit <a class="reference external" href="https://docs.astropy.org/en/stable/api/astropy.modeling.functional_models.Moffat2D.html">a Moffat model</a> to the PSF and calculate its FWHM. The Moffat model is generally a good description for the (core of the) PSF.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">band</span> <span class="o">=</span> <span class="s1">&#39;i&#39;</span>
+<span class="n">psf</span> <span class="o">=</span> <span class="n">psfs</span><span class="p">[</span><span class="n">band</span><span class="p">]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">psf</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x150a6f190&gt;
+</pre></div>
+</div>
+<img alt="../../_images/e783b81ec659981991d794dc38f1d3a41dc742a242e50c3b75c15f19bc5827a1.png" src="../../_images/e783b81ec659981991d794dc38f1d3a41dc742a242e50c3b75c15f19bc5827a1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">astropy.modeling</span> <span class="kn">import</span> <span class="n">models</span><span class="p">,</span> <span class="n">fitting</span>
+<span class="n">y</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mgrid</span><span class="p">[:</span><span class="n">psf</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="p">:</span><span class="n">psf</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">Moffat2D</span><span class="p">(</span><span class="n">x_0</span><span class="o">=</span><span class="n">psf</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">y_0</span><span class="o">=</span><span class="n">psf</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">amplitude</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">psf</span><span class="p">))</span> <span class="c1"># initialize a Moffat model</span>
+<span class="n">fitter</span> <span class="o">=</span> <span class="n">fitting</span><span class="o">.</span><span class="n">LevMarLSQFitter</span><span class="p">()</span>
+<span class="n">best_fit</span> <span class="o">=</span> <span class="n">fitter</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">psf</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;FWHM = </span><span class="si">{</span><span class="n">best_fit</span><span class="o">.</span><span class="n">fwhm</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1"> pix&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>FWHM = 2.867 pix
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+
+<span class="n">show_image</span><span class="p">(</span><span class="n">psf</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">fig</span><span class="o">=</span><span class="n">fig</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">psf</span><span class="p">,</span> <span class="mi">92</span><span class="p">),</span> <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">band</span><span class="si">}</span><span class="s1"> PSF&#39;</span><span class="p">)</span>
+<span class="n">show_image</span><span class="p">(</span><span class="n">best_fit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">fig</span><span class="o">=</span><span class="n">fig</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">psf</span><span class="p">,</span> <span class="mi">92</span><span class="p">),</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;best-fit Moffat&#39;</span><span class="p">)</span>
+<span class="n">show_image</span><span class="p">(</span><span class="n">psf</span> <span class="o">-</span> <span class="n">best_fit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">fig</span><span class="o">=</span><span class="n">fig</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">psf</span><span class="p">,</span> <span class="mi">92</span><span class="p">),</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;residual&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: title={&#39;center&#39;: &#39;residual&#39;}&gt;
+</pre></div>
+</div>
+<img alt="../../_images/35ad58f74336f592d8aaa82f6d3033f819f892b3d464f33f8f29447d1a1ea998.png" src="../../_images/35ad58f74336f592d8aaa82f6d3033f819f892b3d464f33f8f29447d1a1ea998.png" />
+</div>
+</div>
+<p>Great! We get the FWHM of the i-band PSF is about 3 pixels. The pixel size is 0.168 arcsec/pixel for griz+N708 bands. So the PSF’s FWHM is 0.5 arcsec. This is approximately the best resolution you can get from the ground!! Again, this resolution is not limited by the telescope, but by the atmospheric seeing.</p>
+<p>We also notice that there are asymmetric patterns left in the residual image. That is more or less expected because the PSF of any real telescope isn’t perfectly round.</p>
+<p><strong>Exercise 2:</strong></p>
+<ol class="arabic simple">
+<li><p>Estimate the FWHMs of the PSFs in griz+N708 bands. Which band has the best resolution? Which band has the worst resolution?</p></li>
+<li><p>Recall that we want to subtract the continuum from the N708 image to get H-alpha map. Can we directly subtract a high-resolution image from an image with lower resolution?</p></li>
+</ol>
+</section>
+<section id="make-h-alpha-map-for-merian-dwarfs">
+<h2>2: Make H<span class="math notranslate nohighlight">\(\alpha\)</span> map for Merian dwarfs<a class="headerlink" href="#make-h-alpha-map-for-merian-dwarfs" title="Permalink to this heading">#</a></h2>
+<p>In order to isolate H-alpha, let’s try to subtract the z-band image (representing the continuum) from the N708 image directly. However, images in different bands have slightly different sizes. We need to project them onto the same WCS before we can subtract them.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">astropy.wcs</span> <span class="kn">import</span> <span class="n">WCS</span>
+<span class="kn">from</span> <span class="nn">reproject</span> <span class="kn">import</span> <span class="n">reproject_interp</span>
+<span class="kn">from</span> <span class="nn">astropy.nddata</span> <span class="kn">import</span> <span class="n">Cutout2D</span>
+<span class="kn">import</span> <span class="nn">astropy.units</span> <span class="k">as</span> <span class="nn">u</span>
+<span class="kn">import</span> <span class="nn">cmasher</span> <span class="k">as</span> <span class="nn">cmr</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We take the z-band image as the reference, and project everything else onto its WCS</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># reproject images to line up properly</span>
+<span class="n">size</span> <span class="o">=</span> <span class="mi">60</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">arcsec</span>
+<span class="n">wcs_z</span> <span class="o">=</span> <span class="n">WCS</span><span class="p">(</span><span class="n">cutout_headers</span><span class="p">[</span><span class="s2">&quot;z&quot;</span><span class="p">])</span>
+<span class="n">cutouts_reproj</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">cutouts</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="n">wcs_i</span> <span class="o">=</span> <span class="n">WCS</span><span class="p">(</span><span class="n">cutout_headers</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="n">stamp_i</span> <span class="o">=</span> <span class="n">Cutout2D</span><span class="p">(</span><span class="n">cutouts</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">coord</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">wcs</span><span class="o">=</span><span class="n">wcs_i</span><span class="p">)</span>
+    <span class="n">cutouts_reproj</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">_</span> <span class="o">=</span> <span class="n">reproject_interp</span><span class="p">((</span><span class="n">stamp_i</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">stamp_i</span><span class="o">.</span><span class="n">wcs</span><span class="p">),</span> <span class="n">wcs_z</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cutouts_reproj</span><span class="p">[</span><span class="s1">&#39;z&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">cutouts_reproj</span><span class="p">[</span><span class="s1">&#39;N708&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span> <span class="c1"># check if they have the same shape now</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>((357, 357), (357, 357))
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s check how <span class="math notranslate nohighlight">\(\mathrm{N708} - z\)</span> looks like:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="n">show_image</span><span class="p">(</span><span class="n">cutouts_reproj</span><span class="p">[</span><span class="s1">&#39;z&#39;</span><span class="p">],</span> <span class="n">fig</span><span class="o">=</span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">show_colorbar</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;HSC z&#39;</span><span class="p">)</span>
+
+<span class="n">show_image</span><span class="p">(</span><span class="n">cutouts_reproj</span><span class="p">[</span><span class="s1">&#39;N708&#39;</span><span class="p">],</span> <span class="n">fig</span><span class="o">=</span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">show_colorbar</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;N708&#39;</span><span class="p">)</span>
+
+<span class="n">show_image</span><span class="p">(</span><span class="n">cutouts_reproj</span><span class="p">[</span><span class="s1">&#39;N708&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">cutouts_reproj</span><span class="p">[</span><span class="s1">&#39;z&#39;</span><span class="p">],</span> 
+           <span class="n">fig</span><span class="o">=</span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">show_colorbar</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;N708 - z&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Direct subtraction: PSFs do not match&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">1.1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.1, &#39;Direct subtraction: PSFs do not match&#39;)
+</pre></div>
+</div>
+<img alt="../../_images/2f945fa11e9ff78ab6c5ebc1865f191b1dff10bdf3e88f3515afa524d7521f9e.png" src="../../_images/2f945fa11e9ff78ab6c5ebc1865f191b1dff10bdf3e88f3515afa524d7521f9e.png" />
+</div>
+</div>
+<p>It’s actually already pretty good! You can see that the H-alpha is concentrated in the lower-right part of the galaxy!</p>
+<p>We can do a better job! The z-band image and the N708-band image do not have the same resolution. One can “blur” the z-band image by a little bit such that it matches the resolution of N708. In practice, we convolve the z-band image with a kernel, and such kernel is derived using the PSFs in both bands. The PSF matching technique is described <a class="reference external" href="https://photutils.readthedocs.io/en/latest/user_guide/psf_matching.html">here</a> and references therein.</p>
+<p>We take the functions in <code class="docutils literal notranslate"><span class="pre">photutils</span></code> to perform PSF matching:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">photutils.psf</span> <span class="kn">import</span> <span class="n">matching</span>
+<span class="kn">from</span> <span class="nn">astropy.convolution</span> <span class="kn">import</span> <span class="n">convolve_fft</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">worst_psf</span> <span class="o">=</span> <span class="s1">&#39;N708&#39;</span> <span class="c1"># indicate the band with the worst seeing</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cutouts_matched</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">window</span> <span class="o">=</span> <span class="n">matching</span><span class="o">.</span><span class="n">CosineBellWindow</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span> <span class="c1"># this window supresses the high-frequency noise after Fourier transform</span>
+<span class="k">for</span> <span class="n">band</span> <span class="ow">in</span> <span class="n">bands</span><span class="p">:</span>
+    <span class="n">kernel</span> <span class="o">=</span> <span class="n">matching</span><span class="o">.</span><span class="n">create_matching_kernel</span><span class="p">(</span><span class="n">psfs</span><span class="p">[</span><span class="n">band</span><span class="p">],</span> <span class="n">psfs</span><span class="p">[</span><span class="n">worst_psf</span><span class="p">],</span> <span class="n">window</span><span class="o">=</span><span class="n">window</span><span class="p">)</span>
+    <span class="n">cutouts_matched</span><span class="p">[</span><span class="n">band</span><span class="p">]</span> <span class="o">=</span> <span class="n">convolve_fft</span><span class="p">(</span><span class="n">cutouts</span><span class="p">[</span><span class="n">band</span><span class="p">],</span> <span class="n">kernel</span><span class="p">)</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">band</span> <span class="o">==</span> <span class="n">worst_psf</span><span class="p">):</span>
+        <span class="n">cutouts_matched</span><span class="p">[</span><span class="n">band</span><span class="p">]</span> <span class="o">=</span> <span class="n">cutouts</span><span class="p">[</span><span class="n">band</span><span class="p">]</span> <span class="c1"># no need to touch the worst band</span>
+        <span class="k">continue</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now the images in <code class="docutils literal notranslate"><span class="pre">cutouts_matched</span></code> are all matched to the N708 resolution! Let’s compare the z-band image before and after the PSF matching.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="n">show_image</span><span class="p">(</span><span class="n">cutouts</span><span class="p">[</span><span class="s1">&#39;z&#39;</span><span class="p">],</span> <span class="n">fig</span><span class="o">=</span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">show_colorbar</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;original&#39;</span><span class="p">)</span>
+
+<span class="n">show_image</span><span class="p">(</span><span class="n">cutouts_matched</span><span class="p">[</span><span class="s1">&#39;z&#39;</span><span class="p">],</span> <span class="n">fig</span><span class="o">=</span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">show_colorbar</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;PSF matched&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;HSC z-band&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">1.05</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.05, &#39;HSC z-band&#39;)
+</pre></div>
+</div>
+<img alt="../../_images/388e9c0340a47e1fb4b74b4aa7ba165b0bc1ac4eb4912c8927940fca20e239f8.png" src="../../_images/388e9c0340a47e1fb4b74b4aa7ba165b0bc1ac4eb4912c8927940fca20e239f8.png" />
+</div>
+</div>
+<p>The PSF-matched z-band image is indeed fuzzier!</p>
+<p>Great, let’s subtract the PSF-matched images:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># reproject images to line up properly</span>
+<span class="n">size</span> <span class="o">=</span> <span class="mi">60</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">arcsec</span>
+<span class="n">wcs_z</span> <span class="o">=</span> <span class="n">WCS</span><span class="p">(</span><span class="n">cutout_headers</span><span class="p">[</span><span class="s2">&quot;z&quot;</span><span class="p">])</span>
+<span class="n">cutouts_matched_reproj</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">band</span> <span class="ow">in</span> <span class="n">bands</span><span class="p">:</span>
+    <span class="n">wcs_i</span> <span class="o">=</span> <span class="n">WCS</span><span class="p">(</span><span class="n">cutout_headers</span><span class="p">[</span><span class="n">band</span><span class="p">])</span>
+    <span class="n">stamp_i</span> <span class="o">=</span> <span class="n">Cutout2D</span><span class="p">(</span><span class="n">cutouts_matched</span><span class="p">[</span><span class="n">band</span><span class="p">],</span> <span class="n">coord</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">wcs</span><span class="o">=</span><span class="n">wcs_i</span><span class="p">)</span>
+    <span class="n">cutouts_matched_reproj</span><span class="p">[</span><span class="n">band</span><span class="p">],</span> <span class="n">_</span> <span class="o">=</span> <span class="n">reproject_interp</span><span class="p">(</span>
+        <span class="p">(</span><span class="n">stamp_i</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">stamp_i</span><span class="o">.</span><span class="n">wcs</span><span class="p">),</span> <span class="n">wcs_z</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">utils</span> <span class="kn">import</span> <span class="n">get_img_central_region</span>
+<span class="kn">from</span> <span class="nn">astropy.visualization</span> <span class="kn">import</span> <span class="n">ImageNormalize</span><span class="p">,</span> <span class="n">LuptonAsinhStretch</span><span class="p">,</span> <span class="n">make_lupton_rgb</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="n">show_image</span><span class="p">(</span><span class="n">cutouts_matched_reproj</span><span class="p">[</span><span class="s1">&#39;z&#39;</span><span class="p">],</span> <span class="n">fig</span><span class="o">=</span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">show_colorbar</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;HSC z&#39;</span><span class="p">)</span>
+
+<span class="n">show_image</span><span class="p">(</span><span class="n">cutouts_matched_reproj</span><span class="p">[</span><span class="s1">&#39;N708&#39;</span><span class="p">],</span> <span class="n">fig</span><span class="o">=</span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">show_colorbar</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;N708&#39;</span><span class="p">)</span>
+
+<span class="n">show_image</span><span class="p">(</span><span class="n">cutouts_matched_reproj</span><span class="p">[</span><span class="s1">&#39;N708&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">cutouts_matched_reproj</span><span class="p">[</span><span class="s1">&#39;z&#39;</span><span class="p">],</span> 
+           <span class="n">fig</span><span class="o">=</span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">show_colorbar</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;N708 - z&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Subtraction after PSF matching&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">1.1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.1, &#39;Subtraction after PSF matching&#39;)
+</pre></div>
+</div>
+<img alt="../../_images/749abbd29ac45e10b739f8fd2b73355174dcb5db92292acb352ce6c83d927d43.png" src="../../_images/749abbd29ac45e10b739f8fd2b73355174dcb5db92292acb352ce6c83d927d43.png" />
+</div>
+</div>
+<p>We can then define the H-alpha map as following:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cutouts_matched_reproj</span><span class="p">[</span><span class="s1">&#39;ha&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cutouts_matched_reproj</span><span class="p">[</span><span class="s1">&#39;N708&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">*</span> <span class="n">cutouts_matched_reproj</span><span class="p">[</span><span class="s1">&#39;z&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">norm</span> <span class="o">=</span> <span class="n">ImageNormalize</span><span class="p">(</span><span class="n">cutouts_matched_reproj</span><span class="p">[</span><span class="s1">&#39;ha&#39;</span><span class="p">],</span> <span class="n">vmin</span><span class="o">=-</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">nanpercentile</span><span class="p">(</span><span class="n">cutouts_matched_reproj</span><span class="p">[</span><span class="s1">&#39;ha&#39;</span><span class="p">],</span> <span class="mf">99.8</span><span class="p">),</span>
+                      <span class="n">stretch</span><span class="o">=</span><span class="n">LuptonAsinhStretch</span><span class="p">(</span><span class="n">stretch</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">Q</span><span class="o">=</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">show_image</span><span class="p">(</span><span class="n">cutouts_matched_reproj</span><span class="p">[</span><span class="s1">&#39;ha&#39;</span><span class="p">],</span> <span class="n">norm</span><span class="o">=</span><span class="n">norm</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;cmr.ember&quot;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: &gt;
+</pre></div>
+</div>
+<img alt="../../_images/920469d9b30b2353a1df4cfecce3d5fdd4a6b234b995d08a65344b6a8b9c374d.png" src="../../_images/920469d9b30b2353a1df4cfecce3d5fdd4a6b234b995d08a65344b6a8b9c374d.png" />
+</div>
+</div>
+<p>It is worth noticing that there is a galaxy with prominent H-alpha at the lower-right corner. <a class="reference external" href="https://www.legacysurvey.org/viewer?ra=150.4881&amp;dec=1.7973&amp;layer=ls-dr10&amp;zoom=16">This galaxy</a> is also actually in the Merian redshift range (you can check its <a class="reference external" href="https://www.legacysurvey.org/viewer/desi-spectrum/dr1/targetid39627829528237201">spectra</a>. It’s so cool that its H-alpha is concentrated in two individual blobs.</p>
+</section>
+<section id="make-pretty-image-with-h-alpha-map-highlighted">
+<h2>3: Make pretty image with H<span class="math notranslate nohighlight">\(\alpha\)</span> map highlighted<a class="headerlink" href="#make-pretty-image-with-h-alpha-map-highlighted" title="Permalink to this heading">#</a></h2>
+<p>Let’s try to make a color image (as we did before), but highlighting the H-alpha component in blue.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="p">[</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">,</span> <span class="n">ax3</span><span class="p">]</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+
+<span class="n">norm</span> <span class="o">=</span> <span class="n">ImageNormalize</span><span class="p">(</span><span class="n">cutouts_matched_reproj</span><span class="p">[</span><span class="s1">&#39;ha&#39;</span><span class="p">],</span> <span class="n">vmin</span><span class="o">=-</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">nanpercentile</span><span class="p">(</span><span class="n">cutouts_matched_reproj</span><span class="p">[</span><span class="s1">&#39;ha&#39;</span><span class="p">],</span> <span class="mf">99.8</span><span class="p">),</span>
+                      <span class="n">stretch</span><span class="o">=</span><span class="n">LuptonAsinhStretch</span><span class="p">(</span><span class="n">stretch</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">Q</span><span class="o">=</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">cutouts_matched_reproj</span><span class="p">[</span><span class="s1">&#39;ha&#39;</span><span class="p">],</span> <span class="n">norm</span><span class="o">=</span><span class="n">norm</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;cmr.ember&quot;</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;H$\alpha$ map&#39;</span><span class="p">)</span>
+
+<span class="n">rgb</span> <span class="o">=</span> <span class="n">make_lupton_rgb</span><span class="p">(</span><span class="n">cutouts</span><span class="p">[</span><span class="s1">&#39;z&#39;</span><span class="p">],</span> <span class="c1">#red</span>
+                      <span class="n">cutouts</span><span class="p">[</span><span class="s1">&#39;r&#39;</span><span class="p">],</span> <span class="c1">#green</span>
+                      <span class="n">cutouts</span><span class="p">[</span><span class="s1">&#39;g&#39;</span><span class="p">],</span> <span class="c1">#blue</span>
+                      <span class="n">stretch</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">Q</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">minimum</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">0.02</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.02</span><span class="p">,</span> <span class="mf">0.06</span><span class="p">])</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">rgb</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;grz&#39;</span><span class="p">)</span>
+
+<span class="n">rgb</span> <span class="o">=</span> <span class="n">make_lupton_rgb</span><span class="p">(</span><span class="n">cutouts_reproj</span><span class="p">[</span><span class="s1">&#39;z&#39;</span><span class="p">],</span> <span class="c1">#red</span>
+                      <span class="n">cutouts_reproj</span><span class="p">[</span><span class="s1">&#39;r&#39;</span><span class="p">],</span> <span class="c1">#green</span>
+                      <span class="mf">1.1</span> <span class="o">*</span> <span class="n">cutouts_reproj</span><span class="p">[</span><span class="s1">&#39;g&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="mf">1.2</span> <span class="o">*</span> <span class="n">cutouts_matched_reproj</span><span class="p">[</span><span class="s1">&#39;ha&#39;</span><span class="p">],</span> <span class="c1">#blue</span>
+                      <span class="n">stretch</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">Q</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">minimum</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">0.02</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.02</span><span class="p">,</span> <span class="mf">0.06</span><span class="p">])</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">rgb</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">)</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;grz+H$\alpha$ (blue)&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;grz+H$\\alpha$ (blue)&#39;)
+</pre></div>
+</div>
+<img alt="../../_images/e6a02fe2233faa929cf7ccc03d4f467c71cd3cdca093cfefddc456f87d0c4ecc.png" src="../../_images/e6a02fe2233faa929cf7ccc03d4f467c71cd3cdca093cfefddc456f87d0c4ecc.png" />
+</div>
+</div>
+<p><strong>Exercise 3:</strong></p>
+<p>Make this H-alpha map for 10 more galaxies! You can choose whatever you like from the catalog. But remember – not every one of them looks as good as the example in this notebook.</p>
+<p><strong>Exercise 4 (not tested yet):</strong></p>
+<p>Let’s measure the asymmetry and concentration of the H-alpha map!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">img_ha</span> <span class="o">=</span> <span class="n">cutouts_matched_reproj</span><span class="p">[</span><span class="s1">&#39;ha&#39;</span><span class="p">]</span>
+<span class="n">img</span> <span class="o">=</span> <span class="n">cutouts_reproj</span><span class="p">[</span><span class="s1">&#39;z&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sep</span>
+<span class="n">img</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">img</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">dtype</span><span class="o">.</span><span class="n">newbyteorder</span><span class="p">(</span><span class="s1">&#39;=&#39;</span><span class="p">))</span>
+<span class="n">bkg</span> <span class="o">=</span> <span class="n">sep</span><span class="o">.</span><span class="n">Background</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">bw</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span> <span class="n">bh</span><span class="o">=</span><span class="mi">128</span><span class="p">)</span> <span class="c1"># this makes the background model</span>
+<span class="c1"># We extract sources above 4-sigma</span>
+<span class="n">_</span><span class="p">,</span> <span class="n">segmap</span> <span class="o">=</span> <span class="n">sep</span><span class="o">.</span><span class="n">extract</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">err</span><span class="o">=</span><span class="n">bkg</span><span class="o">.</span><span class="n">rms</span><span class="p">(),</span> <span class="n">deblend_cont</span><span class="o">=</span><span class="mf">0.005</span><span class="p">,</span> <span class="n">segmentation_map</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="c1"># we only keep the footprint of the target galaxy </span>
+<span class="n">ind</span> <span class="o">=</span> <span class="n">segmap</span><span class="p">[</span><span class="n">img</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">//</span><span class="mi">2</span><span class="p">,</span> <span class="n">img</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">//</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">obj_segmap</span> <span class="o">=</span> <span class="n">segmap</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">obj_segmap</span><span class="p">[</span><span class="n">obj_segmap</span> <span class="o">!=</span> <span class="n">ind</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="c1"># We construct a mask based on the original segmap. The mask blocks out</span>
+<span class="n">segmap</span><span class="p">[</span><span class="n">segmap</span> <span class="o">==</span> <span class="n">ind</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">segmap</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">astropy.convolution</span> <span class="kn">import</span> <span class="n">convolve_fft</span><span class="p">,</span> <span class="n">Gaussian2DKernel</span>
+<span class="n">mask</span> <span class="o">=</span> <span class="n">convolve_fft</span><span class="p">(</span><span class="n">mask</span><span class="p">,</span> <span class="n">Gaussian2DKernel</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">mask</span> <span class="o">=</span> <span class="n">mask</span> <span class="o">&gt;</span> <span class="mf">1e-2</span>
+<span class="n">show_image</span><span class="p">(</span><span class="n">img</span> <span class="o">*</span> <span class="o">~</span><span class="n">mask</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">percl</span><span class="o">=</span><span class="mf">99.5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: &gt;
+</pre></div>
+</div>
+<img alt="../../_images/8a9e9d284f38ef5c742342458d5119cc826ce00a7363a3a0d665ca349f65e4f3.png" src="../../_images/8a9e9d284f38ef5c742342458d5119cc826ce00a7363a3a0d665ca349f65e4f3.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">statmorph</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">source_morphs</span> <span class="o">=</span> <span class="n">statmorph</span><span class="o">.</span><span class="n">source_morphology</span><span class="p">(</span>
+  <span class="n">img_ha</span><span class="p">,</span> <span class="n">obj_segmap</span><span class="p">,</span> <span class="n">weightmap</span><span class="o">=</span><span class="n">bkg</span><span class="o">.</span><span class="n">rms</span><span class="p">(),</span> <span class="n">psf</span><span class="o">=</span><span class="n">psf</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="n">mask</span><span class="p">)</span>
+<span class="n">morph</span> <span class="o">=</span> <span class="n">source_morphs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">statmorph.utils.image_diagnostics</span> <span class="kn">import</span> <span class="n">make_figure</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">make_figure</span><span class="p">(</span><span class="n">morph</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/170271038d5ac70527510b8e85275734a7a0ea90ebc1ad9111b8a2a56c6bc6f1.png" src="../../_images/170271038d5ac70527510b8e85275734a7a0ea90ebc1ad9111b8a2a56c6bc6f1.png" />
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./docs/merian"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="02_sersic_fit.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Merian Part 2: images and Sersic fitting</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../introduction_to_exoplanets.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Introduction to Exoplanets</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#understand-psf">1. Understand PSF</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#make-h-alpha-map-for-merian-dwarfs">2: Make H<span class="math notranslate nohighlight">\(\alpha\)</span> map for Merian dwarfs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#make-pretty-image-with-h-alpha-map-highlighted">3: Make pretty image with H<span class="math notranslate nohighlight">\(\alpha\)</span> map highlighted</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Jenny Greene, Jared Siegel, Erin Flowers, Jiaxuan Li
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
