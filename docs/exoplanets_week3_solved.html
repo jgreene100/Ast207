@@ -431,74 +431,7 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span><span class="w"> </span>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>lightkurve<span class="w"> </span>--upgrade
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: lightkurve in /usr/local/lib/python3.11/dist-packages (2.5.0)
-Requirement already satisfied: astropy&gt;=5.0 in /usr/local/lib/python3.11/dist-packages (from lightkurve) (7.0.1)
-Requirement already satisfied: astroquery&gt;=0.3.10 in /usr/local/lib/python3.11/dist-packages (from lightkurve) (0.4.10)
-Requirement already satisfied: beautifulsoup4&gt;=4.6.0 in /usr/local/lib/python3.11/dist-packages (from lightkurve) (4.13.3)
-Requirement already satisfied: bokeh&gt;=2.3.2 in /usr/local/lib/python3.11/dist-packages (from lightkurve) (3.6.3)
-Requirement already satisfied: fbpca&gt;=1.0 in /usr/local/lib/python3.11/dist-packages (from lightkurve) (1.0)
-Requirement already satisfied: matplotlib&gt;=3.1 in /usr/local/lib/python3.11/dist-packages (from lightkurve) (3.10.0)
-Requirement already satisfied: memoization&gt;=0.3.1 in /usr/local/lib/python3.11/dist-packages (from lightkurve) (0.4.0)
-Requirement already satisfied: numpy&gt;=1.18 in /usr/local/lib/python3.11/dist-packages (from lightkurve) (2.0.2)
-Requirement already satisfied: oktopus&gt;=0.1.2 in /usr/local/lib/python3.11/dist-packages (from lightkurve) (0.1.2)
-Requirement already satisfied: pandas&gt;=1.1.4 in /usr/local/lib/python3.11/dist-packages (from lightkurve) (2.2.2)
-Requirement already satisfied: patsy&gt;=0.5.0 in /usr/local/lib/python3.11/dist-packages (from lightkurve) (1.0.1)
-Requirement already satisfied: requests&gt;=2.22.0 in /usr/local/lib/python3.11/dist-packages (from lightkurve) (2.32.3)
-Requirement already satisfied: s3fs&gt;=2024.6.1 in /usr/local/lib/python3.11/dist-packages (from lightkurve) (2025.3.0)
-Requirement already satisfied: scikit-learn&gt;=0.24.0 in /usr/local/lib/python3.11/dist-packages (from lightkurve) (1.6.1)
-Requirement already satisfied: tqdm&gt;=4.25.0 in /usr/local/lib/python3.11/dist-packages (from lightkurve) (4.67.1)
-Requirement already satisfied: uncertainties&gt;=3.1.4 in /usr/local/lib/python3.11/dist-packages (from lightkurve) (3.2.2)
-Requirement already satisfied: urllib3&gt;=1.23 in /usr/local/lib/python3.11/dist-packages (from lightkurve) (2.3.0)
-Requirement already satisfied: pyerfa&gt;=2.0.1.1 in /usr/local/lib/python3.11/dist-packages (from astropy&gt;=5.0-&gt;lightkurve) (2.0.1.5)
-Requirement already satisfied: astropy-iers-data&gt;=0.2025.1.31.12.41.4 in /usr/local/lib/python3.11/dist-packages (from astropy&gt;=5.0-&gt;lightkurve) (0.2025.3.17.0.34.53)
-Requirement already satisfied: PyYAML&gt;=6.0.0 in /usr/local/lib/python3.11/dist-packages (from astropy&gt;=5.0-&gt;lightkurve) (6.0.2)
-Requirement already satisfied: packaging&gt;=22.0.0 in /usr/local/lib/python3.11/dist-packages (from astropy&gt;=5.0-&gt;lightkurve) (24.2)
-Requirement already satisfied: html5lib&gt;=0.999 in /usr/local/lib/python3.11/dist-packages (from astroquery&gt;=0.3.10-&gt;lightkurve) (1.1)
-Requirement already satisfied: keyring&gt;=15.0 in /usr/lib/python3/dist-packages (from astroquery&gt;=0.3.10-&gt;lightkurve) (23.5.0)
-Requirement already satisfied: pyvo&gt;=1.5 in /usr/local/lib/python3.11/dist-packages (from astroquery&gt;=0.3.10-&gt;lightkurve) (1.6.1)
-Requirement already satisfied: soupsieve&gt;1.2 in /usr/local/lib/python3.11/dist-packages (from beautifulsoup4&gt;=4.6.0-&gt;lightkurve) (2.6)
-Requirement already satisfied: typing-extensions&gt;=4.0.0 in /usr/local/lib/python3.11/dist-packages (from beautifulsoup4&gt;=4.6.0-&gt;lightkurve) (4.12.2)
-Requirement already satisfied: Jinja2&gt;=2.9 in /usr/local/lib/python3.11/dist-packages (from bokeh&gt;=2.3.2-&gt;lightkurve) (3.1.6)
-Requirement already satisfied: contourpy&gt;=1.2 in /usr/local/lib/python3.11/dist-packages (from bokeh&gt;=2.3.2-&gt;lightkurve) (1.3.1)
-Requirement already satisfied: pillow&gt;=7.1.0 in /usr/local/lib/python3.11/dist-packages (from bokeh&gt;=2.3.2-&gt;lightkurve) (11.1.0)
-Requirement already satisfied: tornado&gt;=6.2 in /usr/local/lib/python3.11/dist-packages (from bokeh&gt;=2.3.2-&gt;lightkurve) (6.4.2)
-Requirement already satisfied: xyzservices&gt;=2021.09.1 in /usr/local/lib/python3.11/dist-packages (from bokeh&gt;=2.3.2-&gt;lightkurve) (2025.1.0)
-Requirement already satisfied: cycler&gt;=0.10 in /usr/local/lib/python3.11/dist-packages (from matplotlib&gt;=3.1-&gt;lightkurve) (0.12.1)
-Requirement already satisfied: fonttools&gt;=4.22.0 in /usr/local/lib/python3.11/dist-packages (from matplotlib&gt;=3.1-&gt;lightkurve) (4.56.0)
-Requirement already satisfied: kiwisolver&gt;=1.3.1 in /usr/local/lib/python3.11/dist-packages (from matplotlib&gt;=3.1-&gt;lightkurve) (1.4.8)
-Requirement already satisfied: pyparsing&gt;=2.3.1 in /usr/local/lib/python3.11/dist-packages (from matplotlib&gt;=3.1-&gt;lightkurve) (3.2.1)
-Requirement already satisfied: python-dateutil&gt;=2.7 in /usr/local/lib/python3.11/dist-packages (from matplotlib&gt;=3.1-&gt;lightkurve) (2.8.2)
-Requirement already satisfied: scipy in /usr/local/lib/python3.11/dist-packages (from oktopus&gt;=0.1.2-&gt;lightkurve) (1.14.1)
-Requirement already satisfied: autograd in /usr/local/lib/python3.11/dist-packages (from oktopus&gt;=0.1.2-&gt;lightkurve) (1.7.0)
-Requirement already satisfied: pytz&gt;=2020.1 in /usr/local/lib/python3.11/dist-packages (from pandas&gt;=1.1.4-&gt;lightkurve) (2025.1)
-Requirement already satisfied: tzdata&gt;=2022.7 in /usr/local/lib/python3.11/dist-packages (from pandas&gt;=1.1.4-&gt;lightkurve) (2025.1)
-Requirement already satisfied: charset-normalizer&lt;4,&gt;=2 in /usr/local/lib/python3.11/dist-packages (from requests&gt;=2.22.0-&gt;lightkurve) (3.4.1)
-Requirement already satisfied: idna&lt;4,&gt;=2.5 in /usr/local/lib/python3.11/dist-packages (from requests&gt;=2.22.0-&gt;lightkurve) (3.10)
-Requirement already satisfied: certifi&gt;=2017.4.17 in /usr/local/lib/python3.11/dist-packages (from requests&gt;=2.22.0-&gt;lightkurve) (2025.1.31)
-Requirement already satisfied: aiobotocore&lt;3.0.0,&gt;=2.5.4 in /usr/local/lib/python3.11/dist-packages (from s3fs&gt;=2024.6.1-&gt;lightkurve) (2.21.1)
-Requirement already satisfied: fsspec==2025.3.0.* in /usr/local/lib/python3.11/dist-packages (from s3fs&gt;=2024.6.1-&gt;lightkurve) (2025.3.0)
-Requirement already satisfied: aiohttp!=4.0.0a0,!=4.0.0a1 in /usr/local/lib/python3.11/dist-packages (from s3fs&gt;=2024.6.1-&gt;lightkurve) (3.11.14)
-Requirement already satisfied: joblib&gt;=1.2.0 in /usr/local/lib/python3.11/dist-packages (from scikit-learn&gt;=0.24.0-&gt;lightkurve) (1.4.2)
-Requirement already satisfied: threadpoolctl&gt;=3.1.0 in /usr/local/lib/python3.11/dist-packages (from scikit-learn&gt;=0.24.0-&gt;lightkurve) (3.6.0)
-Requirement already satisfied: aioitertools&lt;1.0.0,&gt;=0.5.1 in /usr/local/lib/python3.11/dist-packages (from aiobotocore&lt;3.0.0,&gt;=2.5.4-&gt;s3fs&gt;=2024.6.1-&gt;lightkurve) (0.12.0)
-Requirement already satisfied: botocore&lt;1.37.2,&gt;=1.37.0 in /usr/local/lib/python3.11/dist-packages (from aiobotocore&lt;3.0.0,&gt;=2.5.4-&gt;s3fs&gt;=2024.6.1-&gt;lightkurve) (1.37.1)
-Requirement already satisfied: jmespath&lt;2.0.0,&gt;=0.7.1 in /usr/local/lib/python3.11/dist-packages (from aiobotocore&lt;3.0.0,&gt;=2.5.4-&gt;s3fs&gt;=2024.6.1-&gt;lightkurve) (1.0.1)
-Requirement already satisfied: multidict&lt;7.0.0,&gt;=6.0.0 in /usr/local/lib/python3.11/dist-packages (from aiobotocore&lt;3.0.0,&gt;=2.5.4-&gt;s3fs&gt;=2024.6.1-&gt;lightkurve) (6.2.0)
-Requirement already satisfied: wrapt&lt;2.0.0,&gt;=1.10.10 in /usr/local/lib/python3.11/dist-packages (from aiobotocore&lt;3.0.0,&gt;=2.5.4-&gt;s3fs&gt;=2024.6.1-&gt;lightkurve) (1.17.2)
-Requirement already satisfied: aiohappyeyeballs&gt;=2.3.0 in /usr/local/lib/python3.11/dist-packages (from aiohttp!=4.0.0a0,!=4.0.0a1-&gt;s3fs&gt;=2024.6.1-&gt;lightkurve) (2.6.1)
-Requirement already satisfied: aiosignal&gt;=1.1.2 in /usr/local/lib/python3.11/dist-packages (from aiohttp!=4.0.0a0,!=4.0.0a1-&gt;s3fs&gt;=2024.6.1-&gt;lightkurve) (1.3.2)
-Requirement already satisfied: attrs&gt;=17.3.0 in /usr/local/lib/python3.11/dist-packages (from aiohttp!=4.0.0a0,!=4.0.0a1-&gt;s3fs&gt;=2024.6.1-&gt;lightkurve) (25.3.0)
-Requirement already satisfied: frozenlist&gt;=1.1.1 in /usr/local/lib/python3.11/dist-packages (from aiohttp!=4.0.0a0,!=4.0.0a1-&gt;s3fs&gt;=2024.6.1-&gt;lightkurve) (1.5.0)
-Requirement already satisfied: propcache&gt;=0.2.0 in /usr/local/lib/python3.11/dist-packages (from aiohttp!=4.0.0a0,!=4.0.0a1-&gt;s3fs&gt;=2024.6.1-&gt;lightkurve) (0.3.0)
-Requirement already satisfied: yarl&lt;2.0,&gt;=1.17.0 in /usr/local/lib/python3.11/dist-packages (from aiohttp!=4.0.0a0,!=4.0.0a1-&gt;s3fs&gt;=2024.6.1-&gt;lightkurve) (1.18.3)
-Requirement already satisfied: six&gt;=1.9 in /usr/local/lib/python3.11/dist-packages (from html5lib&gt;=0.999-&gt;astroquery&gt;=0.3.10-&gt;lightkurve) (1.17.0)
-Requirement already satisfied: webencodings in /usr/local/lib/python3.11/dist-packages (from html5lib&gt;=0.999-&gt;astroquery&gt;=0.3.10-&gt;lightkurve) (0.5.1)
-Requirement already satisfied: MarkupSafe&gt;=2.0 in /usr/local/lib/python3.11/dist-packages (from Jinja2&gt;=2.9-&gt;bokeh&gt;=2.3.2-&gt;lightkurve) (3.0.2)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ! python -m pip install lightkurve --upgrade</span>
 </pre></div>
 </div>
 </div>
@@ -720,7 +653,7 @@ Requirement already satisfied: MarkupSafe&gt;=2.0 in /usr/local/lib/python3.11/d
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1150it [00:21, 52.49it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1150it [00:22, 50.76it/s]
 </pre></div>
 </div>
 </div>
@@ -752,6 +685,18 @@ Plot the sine wave alongside the lightcurve we calculated above. Set the paramet
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sinusoid_model</span><span class="p">(</span><span class="n">time</span><span class="p">,</span><span class="n">ampl</span><span class="p">,</span><span class="n">period</span><span class="p">,</span><span class="n">phase</span><span class="p">,</span><span class="n">background</span><span class="p">):</span>
     <span class="n">omega</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="n">period</span>
     <span class="k">return</span> <span class="n">ampl</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span> <span class="n">time</span> <span class="o">*</span> <span class="n">omega</span> <span class="o">+</span> <span class="n">phase</span> <span class="p">)</span> <span class="o">+</span> <span class="n">background</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sinusoid_model</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span><span class="n">ampl</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">period</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">phase</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span><span class="n">background</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(1.8048408359814878)
 </pre></div>
 </div>
 </div>
@@ -988,7 +933,7 @@ Plot the sine wave alongside the lightcurve we calculated above. Set the paramet
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>980it [00:14, 69.53it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>980it [00:14, 69.35it/s]
 </pre></div>
 </div>
 </div>
@@ -1004,6 +949,16 @@ Plot the sine wave alongside the lightcurve we calculated above. Set the paramet
 </div>
 <div class="cell_output docutils container">
 <img alt="../_images/4813c821da6739faa9e51f5d23fe1b27b9c6981a18b6a12f7b4198dfac80cf82.png" src="../_images/4813c821da6739faa9e51f5d23fe1b27b9c6981a18b6a12f7b4198dfac80cf82.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_cutout</span><span class="p">(</span><span class="n">flux</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/29cb4c1c3e69b1ed5a4ffe3fda32a19eeecd3029cd60011d79aa2375eb470684.png" src="../_images/29cb4c1c3e69b1ed5a4ffe3fda32a19eeecd3029cd60011d79aa2375eb470684.png" />
 </div>
 </div>
 <p>In addition to transits, we can also see the star is undergoing a more steady change in brightness with time. We want to study the transits to let’s try to remove the non-transit flux changes (this called “detrending” the lightcurve).</p>
@@ -1116,16 +1071,23 @@ Use the provided function <code class="docutils literal notranslate"><span class
 </div>
 </div>
 <p>We now have a very clear transit signal to study!</p>
-<p><strong>Exercise:</strong> Above we plotted the detrended lightcurve (i.e., the observed lightcurve minus the smooth median filter). Now plot the detrended lightcurve divided by the observed lightcurve. This way we now looking at the fractional change in flux.</p>
+<p><strong>Exercise:</strong> Above we plotted the detrended lightcurve (i.e., the observed lightcurve minus the smooth median filter). Now plot the lightcurve divided by the smooth median filter. This way we now looking at the fractional change in flux.</p>
 <p>By eye estimate the transit depth and calculate the planet to star size ratio:
 $<span class="math notranslate nohighlight">\(\delta = (R_p / R_\star)^2\)</span>$</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x_phased</span><span class="p">,</span> <span class="n">y_phased</span> <span class="o">=</span> <span class="n">phase_it</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">lc_detrended</span><span class="o">/</span><span class="n">lightcurve</span><span class="p">,</span> <span class="n">period</span><span class="p">)</span> <span class="c1"># phase</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lc_detrended_rel</span> <span class="o">=</span> <span class="n">lightcurve</span> <span class="o">/</span> <span class="n">median_filter</span><span class="p">(</span><span class="n">time</span><span class="p">,</span><span class="n">lightcurve</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x_phased</span><span class="p">,</span> <span class="n">y_phased</span> <span class="o">=</span> <span class="n">phase_it</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">lc_detrended_rel</span><span class="p">,</span> <span class="n">period</span><span class="p">)</span> <span class="c1"># phase</span>
 
 <span class="n">_</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x_phased</span><span class="p">,</span> <span class="n">y_phased</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Normalized flux&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Flux&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Phase&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span><span class="mf">0.2</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -1133,7 +1095,7 @@ $<span class="math notranslate nohighlight">\(\delta = (R_p / R_\star)^2\)</span
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/a79fba6bf9ea2967554a91a22d1c17eca4fcf916e4695e72a8e43e7e6b4a65d4.png" src="../_images/a79fba6bf9ea2967554a91a22d1c17eca4fcf916e4695e72a8e43e7e6b4a65d4.png" />
+<img alt="../_images/87375e091d29fd299f7c6ce39a7e182db49db37558a0260c6c3974689574493b.png" src="../_images/87375e091d29fd299f7c6ce39a7e182db49db37558a0260c6c3974689574493b.png" />
 </div>
 </div>
 <p><strong>Exercise:</strong> The provided function <code class="docutils literal notranslate"><span class="pre">transit_model(phase,</span> <span class="pre">depth,</span> <span class="pre">duration,</span> <span class="pre">ingress)</span></code> describes the shape of a transit with a few free paremters. Try changing the transit depth, duration, and ingress time to fit the observed shape.</p>
@@ -1161,7 +1123,7 @@ $<span class="math notranslate nohighlight">\(\delta = (R_p / R_\star)^2\)</span
 
     <span class="n">model</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">phase</span><span class="o">-</span><span class="n">midpoint</span><span class="p">)</span><span class="o">&lt;</span><span class="n">duration</span><span class="o">/</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="o">-</span><span class="n">depth</span>
 
-    <span class="k">return</span> <span class="n">model</span><span class="o">-</span><span class="mi">1</span>
+    <span class="k">return</span> <span class="n">model</span>
 
 <span class="k">def</span> <span class="nf">residual_transit_model</span><span class="p">(</span><span class="n">theta</span><span class="p">,</span> <span class="n">phase</span><span class="p">,</span> <span class="n">lc</span><span class="p">):</span>
     <span class="n">midpoint</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="n">duration</span><span class="p">,</span> <span class="n">ingress</span> <span class="o">=</span> <span class="n">theta</span>
@@ -1189,7 +1151,7 @@ $<span class="math notranslate nohighlight">\(\delta = (R_p / R_\star)^2\)</span
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/7c879ba8d4888dd9a33d2a31543b5b6ed1ebe39a796c1877a7dec0016866fdab.png" src="../_images/7c879ba8d4888dd9a33d2a31543b5b6ed1ebe39a796c1877a7dec0016866fdab.png" />
+<img alt="../_images/a8de8930ee8bfeaa66864a4b158391ea15617f3ce9134d9ee9db4a2006806309.png" src="../_images/a8de8930ee8bfeaa66864a4b158391ea15617f3ce9134d9ee9db4a2006806309.png" />
 </div>
 </div>
 <p><strong>Exercise:</strong> use the code below to fit the folded lightcurve with <code class="docutils literal notranslate"><span class="pre">transit_model</span></code> using <code class="docutils literal notranslate"><span class="pre">scipy.optimize.differential_evolution</span></code>. Plot the best fit transit model against the data. How does the fit transit depth compare to your by eye estimate?</p>
@@ -1223,7 +1185,7 @@ $<span class="math notranslate nohighlight">\(\delta = (R_p / R_\star)^2\)</span
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/d751e78aae85748db4eab5675ea4e49b04b95d51df1da524c483c7d266527c96.png" src="../_images/d751e78aae85748db4eab5675ea4e49b04b95d51df1da524c483c7d266527c96.png" />
+<img alt="../_images/9bc70a5a72addf8ba8badf83392a8cd227b9f4f4f62b3a7917029439791d45c2.png" src="../_images/9bc70a5a72addf8ba8badf83392a8cd227b9f4f4f62b3a7917029439791d45c2.png" />
 </div>
 </div>
 <p><strong>Exercise:</strong> Using the transit depth measured above (and the provided stellar radius <code class="docutils literal notranslate"><span class="pre">radius_star_tess</span></code>) what is the radius of the planet in Jupiter radii?</p>

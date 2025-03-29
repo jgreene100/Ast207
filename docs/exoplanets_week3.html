@@ -611,7 +611,16 @@ document.write(`
 <img alt="../_images/a08e10ae72b81aadb29a63791107d6e4c9b2764bac0a07f971f4c987b1de68b3.png" src="../_images/a08e10ae72b81aadb29a63791107d6e4c9b2764bac0a07f971f4c987b1de68b3.png" />
 </div>
 </div>
-<p><strong>Exercise:</strong> Using your code from the end of the last notebook, use <code class="docutils literal notranslate"><span class="pre">scipy.optimize.minimize</span></code> find the best-fit <code class="docutils literal notranslate"><span class="pre">scale</span></code> for each TESS cutout.</p>
+<p><strong>Exercise:</strong> As a refresher, first plot the total flux in each cutout as a function of time. Remember, this is the simple light curve we made in the last notebook. Be sure to label your plot.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># answer here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise:</strong> Now let’s measure the flux of the cutouts using our more robust method. With your code from the end of the last notebook, use <code class="docutils literal notranslate"><span class="pre">scipy.optimize.minimize</span></code> to find the best-fit <code class="docutils literal notranslate"><span class="pre">scale</span></code> for each TESS cutout.</p>
+<p>Plot the light curve.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># answer here</span>
@@ -622,11 +631,21 @@ document.write(`
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="step-3-finding-the-oscillation-period">
 <h1>Step 3: finding the oscillation period<a class="headerlink" href="#step-3-finding-the-oscillation-period" title="Permalink to this heading">#</a></h1>
-<p>We’ve now successfully made a lightcurve for our star! By eye we can see the star is <strong>variable</strong> (it’s flux is periodically varying with time). How long does it take to complete a cycle?</p>
-<p>Let’s start by simply fitting the lightcurve with a simple periodic function: a sine wave.</p>
+<p>We’ve now successfully made a lightcurve for our star! By eye we can see the star is <strong>variable</strong> (it’s flux is periodically varying with time).</p>
+<p><strong>Exercise:</strong> By eye, how long does it take for the star’s flux to complete a cycle?</p>
+<p>answer here</p>
+<p>Now let’s try to measure the oscillation period. We’ll start by fitting the lightcurve with a simple periodic function: a sine wave.</p>
 <p><strong>Exercise:</strong> Write the function <code class="docutils literal notranslate"><span class="pre">sinusoid_model(time,ampl,period,phase,background)</span></code> where <code class="docutils literal notranslate"><span class="pre">time</span></code> is a numpy array, and <code class="docutils literal notranslate"><span class="pre">ampl,period,phase,background</span></code> all all floats. The function shound return:
-$<span class="math notranslate nohighlight">\(  y(t) = A \sin[t \times (2\pi / \mathrm{period})+ \mathrm{phase}] + \mathrm{background} \)</span>$
-Plot the sine wave alongside the lightcurve we calculated above. Set the parameters of <code class="docutils literal notranslate"><span class="pre">sinusoid_model</span></code> hand to best fit the lightcurve.</p>
+$<span class="math notranslate nohighlight">\(  y(t) = A \sin[t \times (2\pi / \mathrm{period})+ \mathrm{phase}] + \mathrm{background} \)</span>$</p>
+<p>As a test, <code class="docutils literal notranslate"><span class="pre">sinusoid_model(time=0.1,ampl=2,period=2,phase=0.1,background=1)</span></code> should return <code class="docutils literal notranslate"><span class="pre">1.8045</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># answer here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise:</strong> Plot the sine wave alongside the lightcurve we calculated above (with <code class="docutils literal notranslate"><span class="pre">scipy</span></code>). Set the parameters of <code class="docutils literal notranslate"><span class="pre">sinusoid_model</span></code> by hand to best fit the lightcurve.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># answer here</span>
@@ -638,7 +657,14 @@ Plot the sine wave alongside the lightcurve we calculated above. Set the paramet
 <p><strong>Exercise:</strong> For a grid of periods (<code class="docutils literal notranslate"><span class="pre">0</span> <span class="pre">&lt;</span> <span class="pre">period</span> <span class="pre">&lt;</span> <span class="pre">5</span></code>) and phases (<code class="docutils literal notranslate"><span class="pre">0</span> <span class="pre">&lt;</span> <span class="pre">phase</span> <span class="pre">&lt;</span> <span class="pre">2</span> <span class="pre">*</span> <span class="pre">np.pi</span></code>), calculate the goodness of fit:
 <code class="docutils literal notranslate"><span class="pre">np.sum(np.power(lightcurve-model,2)</span> <span class="pre">)</span></code>. For each combination of period and phase, plot period versus phase on a scatter plot with the color of the marker set by <code class="docutils literal notranslate"><span class="pre">np.log10</span></code> of goodness of fit. Leave <code class="docutils literal notranslate"><span class="pre">ampl=100</span></code> and <code class="docutils literal notranslate"><span class="pre">background=600</span></code>.</p>
 <p>For ease of reading, try setting your colorbar to go from <code class="docutils literal notranslate"><span class="pre">vmin</span> <span class="pre">=</span> <span class="pre">6.</span></code> and <code class="docutils literal notranslate"><span class="pre">vmax=7.3</span></code></p>
-<p>Compare the best fit sine wave with your by hand fit.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># answer here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise:</strong> Compare the best fit sine wave with the lightcurve.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># answer here</span>
@@ -692,7 +718,7 @@ Plot the sine wave alongside the lightcurve we calculated above. Set the paramet
 <section class="tex2jax_ignore mathjax_ignore" id="step-4-finding-planets">
 <h1>Step 4: finding planets<a class="headerlink" href="#step-4-finding-planets" title="Permalink to this heading">#</a></h1>
 <p>Above we measured the lightcurve for a star from TESS cutouts and then calculated it’s oscillation period. Let’s now repeat that process for a star known to host a transiting planet!</p>
-<p>Let’s start with a relatively bright star hosting a Jupiter sized planet:</p>
+<p>Let’s consider a relatively bright star hosting a Jupiter sized planet:</p>
 <p><strong>Exercise:</strong>  Run the code below to load the TESS data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -759,25 +785,37 @@ Plot the sine wave alongside the lightcurve we calculated above. Set the paramet
 </div>
 </div>
 </div>
-<p><strong>Exercise:</strong>  Like we did above, use <code class="docutils literal notranslate"><span class="pre">scipy.optimize.minimize</span></code> to extract the lightcurve from the TESS cutouts by fitting the images with the 2-d gaussian model.</p>
-<p>Use the same ranges for the parameters as above.</p>
-<p>Plot the lightcurve. What do you notice? Can you spot transits by eye?</p>
+<p><strong>Exercise:</strong> To get acquainted with this star, first use <code class="docutils literal notranslate"><span class="pre">plot_cutout</span></code> to plot the first image (i.e., <code class="docutils literal notranslate"><span class="pre">flux[0]</span></code>).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># answer here</span>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>178it [00:03, 49.17it/s]
+</div>
+<p><strong>Exercise:</strong> Now let’s measure a simple light curve. Plot the total flux in each cutout as a function of time. Be sure to label your plot.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># answer here</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>In addition to transits, we can also see the star is undergoing a more steady change in brightness with time. We want to study the transits to let’s try to remove the non-transit flux changes (this called “detrending” the lightcurve).</p>
-<p><strong>Exercise:</strong> Use the function <code class="docutils literal notranslate"><span class="pre">median_filter(x,y,width)</span></code>, where <code class="docutils literal notranslate"><span class="pre">x,y</span></code> are arrays (for example time and lightcurve) and <code class="docutils literal notranslate"><span class="pre">width</span></code> is a float, to detrend the lightcurve. For each x value, the function returns with the median y within width of the given x value (i.e., a rolling median filter).</p>
-<p>Detrend the lightcurve by subtracting <code class="docutils literal notranslate"><span class="pre">median_filter(x,y,width)</span></code>. Choose <code class="docutils literal notranslate"><span class="pre">width</span></code> such that the transits are not affected by the detrending but the long term trends are removed.</p>
-<p>Plot the detrended lightcurve.</p>
+<p><strong>Exercise:</strong>  Next use <code class="docutils literal notranslate"><span class="pre">scipy.optimize.minimize</span></code> to extract the lightcurve from the TESS cutouts by fitting the images with the 2-d gaussian model. Just like we did at the end of the last notebook.</p>
+<p>Use the ranges for the parameters from the last notebook: (.1,5) for <code class="docutils literal notranslate"><span class="pre">sigma</span></code>, (0,1000) for <code class="docutils literal notranslate"><span class="pre">scale</span></code>, (0,10) for <code class="docutils literal notranslate"><span class="pre">bkg</span></code>, (5,15) for <code class="docutils literal notranslate"><span class="pre">xmu</span></code> and <code class="docutils literal notranslate"><span class="pre">ymu</span></code>.</p>
+<p>Plot the lightcurve.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># answer here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise:</strong> What do you notice about the lightcurve? Can you spot transits by eye? How does the lightcurve using scipy compare to the simple “total flux” lightcurve?</p>
+<p>answer here</p>
+<p>In addition to transits, we can also see the star is undergoing a more steady change in brightness with time. We want to study the transits so let’s try to remove the non-transit flux changes (this is called “detrending” the lightcurve).</p>
+<p>Let’s use the function <code class="docutils literal notranslate"><span class="pre">median_filter(x,y,width)</span></code>, where <code class="docutils literal notranslate"><span class="pre">x,y</span></code> are arrays (for example time and lightcurve) and <code class="docutils literal notranslate"><span class="pre">width</span></code> is a float, to detrend the lightcurve. For each x value, the function returns with the median y within <code class="docutils literal notranslate"><span class="pre">width</span></code> of the given x value (i.e., a rolling median filter).</p>
+<p><strong>Exercise:</strong> Run the code below to load the <code class="docutils literal notranslate"><span class="pre">median_filter</span></code> function. Then evaluate <code class="docutils literal notranslate"><span class="pre">median_filter</span></code> on the lightcurve we measured with <code class="docutils literal notranslate"><span class="pre">scipy</span></code>, set <code class="docutils literal notranslate"><span class="pre">width=1</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">median_filter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">width</span><span class="p">):</span>
@@ -792,13 +830,41 @@ Plot the sine wave alongside the lightcurve we calculated above. Set the paramet
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># answer</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise:</strong> On the same plot, compare the lightcurve the median filter. Show the median filter for different values of <code class="docutils literal notranslate"><span class="pre">width</span></code>. Try <code class="docutils literal notranslate"><span class="pre">width</span></code> between <code class="docutils literal notranslate"><span class="pre">0.1</span></code> and <code class="docutils literal notranslate"><span class="pre">10</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># answer</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise:</strong> For which value of <code class="docutils literal notranslate"><span class="pre">width</span></code> does the median filter best match the long-period changes in the lightcurve and <strong>not</strong> trace the transits?  Remember we want to use the median filter to remove the long term trends without affecting the transits.</p>
+<p>answer here</p>
+<p><strong>Exercise:</strong>  Detrend the lightcurve by subtracting <code class="docutils literal notranslate"><span class="pre">median_filter</span></code> (with your chosen <code class="docutils literal notranslate"><span class="pre">width</span></code>). Call the detrended lightcurve <code class="docutils literal notranslate"><span class="pre">lc_detrended</span></code></p>
+<p>Plot the detrended lightcurve.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># answer here</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p><strong>Exercise:</strong> use the Lomb-Scargle periodogram to find the period of the planet.</p>
-<p>Hint: search periods longer than 1 day.</p>
+<p><strong>Exercise:</strong> Now use calculate the Lomb-Scargle periodogram for our cleaned light curve. Plot period vs. power. Be sure to label your plot.</p>
+<p>Let’s look at <code class="docutils literal notranslate"><span class="pre">periods</span> <span class="pre">=</span> <span class="pre">10**np.linspace(np.log10(1.1),2,1000)</span></code>; this means we are looking for periodic signals between <span class="math notranslate nohighlight">\(1.1\)</span> and <span class="math notranslate nohighlight">\(100\)</span> days. Also remember, the <code class="docutils literal notranslate"><span class="pre">LombScargle</span></code> function takes in <code class="docutils literal notranslate"><span class="pre">frequency</span> <span class="pre">=</span> <span class="pre">1/periods</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># answer here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise:</strong> At what period is the power of the Lomb-Scargle periodogram greatest?</p>
+<p>hint: use <code class="docutils literal notranslate"><span class="pre">np.argmax</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># answer here</span>
@@ -812,6 +878,7 @@ $<span class="math notranslate nohighlight">\( T(n) = T_0 + P \times n \)</span>
 where \)</span>T(n)<span class="math notranslate nohighlight">\( is the \)</span>n<span class="math notranslate nohighlight">\(th transit time (i.e., \)</span>n=0,1,2,\dots<span class="math notranslate nohighlight">\(), \)</span>T_0<span class="math notranslate nohighlight">\( is the first observed transit time, and \)</span>P$ is the orbital period.
 This means we can “fold” all the individual transits on top of each other to create a higher signal average transit, if we know the planet’s period.
 Use the provided function <code class="docutils literal notranslate"><span class="pre">phase_it</span></code> to fold the light curve to the Lomb-Scargle period and plot the folded lightcurve. Change the x limits to zoom in on the transit. Be sure to use the detrended light curve.</p>
+<p>Set <code class="docutils literal notranslate"><span class="pre">period</span></code> to what you found with the Lomb-Scargle periodogram.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">phase_it</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">period</span><span class="p">):</span>
@@ -838,9 +905,7 @@ Use the provided function <code class="docutils literal notranslate"><span class
 </div>
 </div>
 <p>We now have a very clear transit signal to study!</p>
-<p><strong>Exercise:</strong> Above we plotted the detrended lightcurve (i.e., the observed lightcurve minus the smooth median filter). Now plot the detrended lightcurve divided by the observed lightcurve. This way we now looking at the fractional change in flux.</p>
-<p>By eye estimate the transit depth and calculate the planet to star size ratio:
-$<span class="math notranslate nohighlight">\(\delta = (R_p / R_\star)^2\)</span>$</p>
+<p><strong>Exercise:</strong> Above we plotted the detrended lightcurve (i.e., the observed lightcurve minus the smooth median filter). Now let’s look at the fractional change in flux. Plot the lightcurve divided by the smooth median filter (instead of subtracted). Let’s refer to this as <em>Relative Flux Lightcurve</em>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># answer here</span>
@@ -848,7 +913,23 @@ $<span class="math notranslate nohighlight">\(\delta = (R_p / R_\star)^2\)</span
 </div>
 </div>
 </div>
-<p><strong>Exercise:</strong> The provided function <code class="docutils literal notranslate"><span class="pre">transit_model(phase,</span> <span class="pre">depth,</span> <span class="pre">duration,</span> <span class="pre">ingress)</span></code> describes the shape of a transit with a few free paremters. Try changing the transit depth, duration, and ingress time to fit the observed shape.</p>
+<p><strong>Exercise:</strong> now plot the phased <em>relative flux</em> lightcurve.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># answer here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise:</strong> By eye estimate the transit depth. Remember, the transit depth is <span class="math notranslate nohighlight">\(1-\)</span>minimum of the relative flux lightcurve.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># answer here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise:</strong> The provided function <code class="docutils literal notranslate"><span class="pre">transit_model(phase,</span> <span class="pre">depth,</span> <span class="pre">duration,</span> <span class="pre">ingress)</span></code> describes the shape of a transit with a few free paremters. Try changing the transit depth, duration, and ingress time to fit the observed shape of the phased relative flux lightcurve.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">transit_model</span><span class="p">(</span><span class="n">phase</span><span class="p">,</span> <span class="n">midpoint</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="n">duration</span><span class="p">,</span> <span class="n">ingress</span><span class="p">):</span>
@@ -873,7 +954,7 @@ $<span class="math notranslate nohighlight">\(\delta = (R_p / R_\star)^2\)</span
 
     <span class="n">model</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">phase</span><span class="o">-</span><span class="n">midpoint</span><span class="p">)</span><span class="o">&lt;</span><span class="n">duration</span><span class="o">/</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="o">-</span><span class="n">depth</span>
 
-    <span class="k">return</span> <span class="n">model</span><span class="o">-</span><span class="mi">1</span>
+    <span class="k">return</span> <span class="n">model</span>
 
 <span class="k">def</span> <span class="nf">residual_transit_model</span><span class="p">(</span><span class="n">theta</span><span class="p">,</span> <span class="n">phase</span><span class="p">,</span> <span class="n">lc</span><span class="p">):</span>
     <span class="n">midpoint</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="n">duration</span><span class="p">,</span> <span class="n">ingress</span> <span class="o">=</span> <span class="n">theta</span>
