@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Lightcurves, transits, and TESS! Oh My! &#8212; Observational Astronomy</title>
+    <title>Part 3 Lightcurves &#8212; Observational Astronomy</title>
   
   
   
@@ -386,7 +386,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Lightcurves, transits, and TESS! Oh My!</h1>
+    <h1>Part 3 Lightcurves</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -396,7 +396,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Lightcurves, transits, and TESS! Oh My!</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Part 3 Lightcurves</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-0-imports">Step 0: imports</a></li>
 </ul>
 </li>
@@ -415,8 +415,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="lightcurves-transits-and-tess-oh-my">
-<h1>Lightcurves, transits, and TESS! Oh My!<a class="headerlink" href="#lightcurves-transits-and-tess-oh-my" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="part-3-lightcurves">
+<h1>Part 3 Lightcurves<a class="headerlink" href="#part-3-lightcurves" title="Permalink to this heading">#</a></h1>
 <p>Assumed knowledege:</p>
 <ol class="arabic simple">
 <li><p>CCD operation and structure</p></li>
@@ -436,7 +436,137 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ! python -m pip install lightkurve --upgrade</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span><span class="w"> </span>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>lightkurve<span class="w"> </span>--upgrade
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting lightkurve
+  Downloading lightkurve-2.5.0-py3-none-any.whl.metadata (6.1 kB)
+Requirement already satisfied: astropy&gt;=5.0 in /usr/local/lib/python3.11/dist-packages (from lightkurve) (7.0.1)
+Collecting astroquery&gt;=0.3.10 (from lightkurve)
+  Downloading astroquery-0.4.10-py3-none-any.whl.metadata (6.3 kB)
+Requirement already satisfied: beautifulsoup4&gt;=4.6.0 in /usr/local/lib/python3.11/dist-packages (from lightkurve) (4.13.3)
+Requirement already satisfied: bokeh&gt;=2.3.2 in /usr/local/lib/python3.11/dist-packages (from lightkurve) (3.6.3)
+Collecting fbpca&gt;=1.0 (from lightkurve)
+  Downloading fbpca-1.0.tar.gz (11 kB)
+  Preparing metadata (setup.py) ... ?25l?25hdone
+Requirement already satisfied: matplotlib&gt;=3.1 in /usr/local/lib/python3.11/dist-packages (from lightkurve) (3.10.0)
+Collecting memoization&gt;=0.3.1 (from lightkurve)
+  Downloading memoization-0.4.0.tar.gz (41 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">41.2/41.2 kB</span> <span class=" -Color -Color-Red">1.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25h  Preparing metadata (setup.py) ... ?25l?25hdone
+Requirement already satisfied: numpy&gt;=1.18 in /usr/local/lib/python3.11/dist-packages (from lightkurve) (2.0.2)
+Collecting oktopus&gt;=0.1.2 (from lightkurve)
+  Downloading oktopus-0.1.2.tar.gz (10 kB)
+  Preparing metadata (setup.py) ... ?25l?25hdone
+Requirement already satisfied: pandas&gt;=1.1.4 in /usr/local/lib/python3.11/dist-packages (from lightkurve) (2.2.2)
+Requirement already satisfied: patsy&gt;=0.5.0 in /usr/local/lib/python3.11/dist-packages (from lightkurve) (1.0.1)
+Requirement already satisfied: requests&gt;=2.22.0 in /usr/local/lib/python3.11/dist-packages (from lightkurve) (2.32.3)
+Collecting s3fs&gt;=2024.6.1 (from lightkurve)
+  Downloading s3fs-2025.3.1-py3-none-any.whl.metadata (1.9 kB)
+Requirement already satisfied: scikit-learn&gt;=0.24.0 in /usr/local/lib/python3.11/dist-packages (from lightkurve) (1.6.1)
+Requirement already satisfied: tqdm&gt;=4.25.0 in /usr/local/lib/python3.11/dist-packages (from lightkurve) (4.67.1)
+Collecting uncertainties&gt;=3.1.4 (from lightkurve)
+  Downloading uncertainties-3.2.2-py3-none-any.whl.metadata (6.9 kB)
+Requirement already satisfied: urllib3&gt;=1.23 in /usr/local/lib/python3.11/dist-packages (from lightkurve) (2.3.0)
+Requirement already satisfied: pyerfa&gt;=2.0.1.1 in /usr/local/lib/python3.11/dist-packages (from astropy&gt;=5.0-&gt;lightkurve) (2.0.1.5)
+Requirement already satisfied: astropy-iers-data&gt;=0.2025.1.31.12.41.4 in /usr/local/lib/python3.11/dist-packages (from astropy&gt;=5.0-&gt;lightkurve) (0.2025.3.17.0.34.53)
+Requirement already satisfied: PyYAML&gt;=6.0.0 in /usr/local/lib/python3.11/dist-packages (from astropy&gt;=5.0-&gt;lightkurve) (6.0.2)
+Requirement already satisfied: packaging&gt;=22.0.0 in /usr/local/lib/python3.11/dist-packages (from astropy&gt;=5.0-&gt;lightkurve) (24.2)
+Requirement already satisfied: html5lib&gt;=0.999 in /usr/local/lib/python3.11/dist-packages (from astroquery&gt;=0.3.10-&gt;lightkurve) (1.1)
+Requirement already satisfied: keyring&gt;=15.0 in /usr/lib/python3/dist-packages (from astroquery&gt;=0.3.10-&gt;lightkurve) (23.5.0)
+Collecting pyvo&gt;=1.5 (from astroquery&gt;=0.3.10-&gt;lightkurve)
+  Downloading pyvo-1.6.1-py3-none-any.whl.metadata (4.8 kB)
+Requirement already satisfied: soupsieve&gt;1.2 in /usr/local/lib/python3.11/dist-packages (from beautifulsoup4&gt;=4.6.0-&gt;lightkurve) (2.6)
+Requirement already satisfied: typing-extensions&gt;=4.0.0 in /usr/local/lib/python3.11/dist-packages (from beautifulsoup4&gt;=4.6.0-&gt;lightkurve) (4.12.2)
+Requirement already satisfied: Jinja2&gt;=2.9 in /usr/local/lib/python3.11/dist-packages (from bokeh&gt;=2.3.2-&gt;lightkurve) (3.1.6)
+Requirement already satisfied: contourpy&gt;=1.2 in /usr/local/lib/python3.11/dist-packages (from bokeh&gt;=2.3.2-&gt;lightkurve) (1.3.1)
+Requirement already satisfied: pillow&gt;=7.1.0 in /usr/local/lib/python3.11/dist-packages (from bokeh&gt;=2.3.2-&gt;lightkurve) (11.1.0)
+Requirement already satisfied: tornado&gt;=6.2 in /usr/local/lib/python3.11/dist-packages (from bokeh&gt;=2.3.2-&gt;lightkurve) (6.4.2)
+Requirement already satisfied: xyzservices&gt;=2021.09.1 in /usr/local/lib/python3.11/dist-packages (from bokeh&gt;=2.3.2-&gt;lightkurve) (2025.1.0)
+Requirement already satisfied: cycler&gt;=0.10 in /usr/local/lib/python3.11/dist-packages (from matplotlib&gt;=3.1-&gt;lightkurve) (0.12.1)
+Requirement already satisfied: fonttools&gt;=4.22.0 in /usr/local/lib/python3.11/dist-packages (from matplotlib&gt;=3.1-&gt;lightkurve) (4.56.0)
+Requirement already satisfied: kiwisolver&gt;=1.3.1 in /usr/local/lib/python3.11/dist-packages (from matplotlib&gt;=3.1-&gt;lightkurve) (1.4.8)
+Requirement already satisfied: pyparsing&gt;=2.3.1 in /usr/local/lib/python3.11/dist-packages (from matplotlib&gt;=3.1-&gt;lightkurve) (3.2.1)
+Requirement already satisfied: python-dateutil&gt;=2.7 in /usr/local/lib/python3.11/dist-packages (from matplotlib&gt;=3.1-&gt;lightkurve) (2.8.2)
+Requirement already satisfied: scipy in /usr/local/lib/python3.11/dist-packages (from oktopus&gt;=0.1.2-&gt;lightkurve) (1.14.1)
+Requirement already satisfied: autograd in /usr/local/lib/python3.11/dist-packages (from oktopus&gt;=0.1.2-&gt;lightkurve) (1.7.0)
+Requirement already satisfied: pytz&gt;=2020.1 in /usr/local/lib/python3.11/dist-packages (from pandas&gt;=1.1.4-&gt;lightkurve) (2025.1)
+Requirement already satisfied: tzdata&gt;=2022.7 in /usr/local/lib/python3.11/dist-packages (from pandas&gt;=1.1.4-&gt;lightkurve) (2025.1)
+Requirement already satisfied: charset-normalizer&lt;4,&gt;=2 in /usr/local/lib/python3.11/dist-packages (from requests&gt;=2.22.0-&gt;lightkurve) (3.4.1)
+Requirement already satisfied: idna&lt;4,&gt;=2.5 in /usr/local/lib/python3.11/dist-packages (from requests&gt;=2.22.0-&gt;lightkurve) (3.10)
+Requirement already satisfied: certifi&gt;=2017.4.17 in /usr/local/lib/python3.11/dist-packages (from requests&gt;=2.22.0-&gt;lightkurve) (2025.1.31)
+Collecting aiobotocore&lt;3.0.0,&gt;=2.5.4 (from s3fs&gt;=2024.6.1-&gt;lightkurve)
+  Downloading aiobotocore-2.21.1-py3-none-any.whl.metadata (24 kB)
+Collecting fsspec==2025.3.1.* (from s3fs&gt;=2024.6.1-&gt;lightkurve)
+  Downloading fsspec-2025.3.1-py3-none-any.whl.metadata (11 kB)
+Requirement already satisfied: aiohttp!=4.0.0a0,!=4.0.0a1 in /usr/local/lib/python3.11/dist-packages (from s3fs&gt;=2024.6.1-&gt;lightkurve) (3.11.14)
+Requirement already satisfied: joblib&gt;=1.2.0 in /usr/local/lib/python3.11/dist-packages (from scikit-learn&gt;=0.24.0-&gt;lightkurve) (1.4.2)
+Requirement already satisfied: threadpoolctl&gt;=3.1.0 in /usr/local/lib/python3.11/dist-packages (from scikit-learn&gt;=0.24.0-&gt;lightkurve) (3.6.0)
+Collecting aioitertools&lt;1.0.0,&gt;=0.5.1 (from aiobotocore&lt;3.0.0,&gt;=2.5.4-&gt;s3fs&gt;=2024.6.1-&gt;lightkurve)
+  Downloading aioitertools-0.12.0-py3-none-any.whl.metadata (3.8 kB)
+Collecting botocore&lt;1.37.2,&gt;=1.37.0 (from aiobotocore&lt;3.0.0,&gt;=2.5.4-&gt;s3fs&gt;=2024.6.1-&gt;lightkurve)
+  Downloading botocore-1.37.1-py3-none-any.whl.metadata (5.7 kB)
+Collecting jmespath&lt;2.0.0,&gt;=0.7.1 (from aiobotocore&lt;3.0.0,&gt;=2.5.4-&gt;s3fs&gt;=2024.6.1-&gt;lightkurve)
+  Downloading jmespath-1.0.1-py3-none-any.whl.metadata (7.6 kB)
+Requirement already satisfied: multidict&lt;7.0.0,&gt;=6.0.0 in /usr/local/lib/python3.11/dist-packages (from aiobotocore&lt;3.0.0,&gt;=2.5.4-&gt;s3fs&gt;=2024.6.1-&gt;lightkurve) (6.2.0)
+Requirement already satisfied: wrapt&lt;2.0.0,&gt;=1.10.10 in /usr/local/lib/python3.11/dist-packages (from aiobotocore&lt;3.0.0,&gt;=2.5.4-&gt;s3fs&gt;=2024.6.1-&gt;lightkurve) (1.17.2)
+Requirement already satisfied: aiohappyeyeballs&gt;=2.3.0 in /usr/local/lib/python3.11/dist-packages (from aiohttp!=4.0.0a0,!=4.0.0a1-&gt;s3fs&gt;=2024.6.1-&gt;lightkurve) (2.6.1)
+Requirement already satisfied: aiosignal&gt;=1.1.2 in /usr/local/lib/python3.11/dist-packages (from aiohttp!=4.0.0a0,!=4.0.0a1-&gt;s3fs&gt;=2024.6.1-&gt;lightkurve) (1.3.2)
+Requirement already satisfied: attrs&gt;=17.3.0 in /usr/local/lib/python3.11/dist-packages (from aiohttp!=4.0.0a0,!=4.0.0a1-&gt;s3fs&gt;=2024.6.1-&gt;lightkurve) (25.3.0)
+Requirement already satisfied: frozenlist&gt;=1.1.1 in /usr/local/lib/python3.11/dist-packages (from aiohttp!=4.0.0a0,!=4.0.0a1-&gt;s3fs&gt;=2024.6.1-&gt;lightkurve) (1.5.0)
+Requirement already satisfied: propcache&gt;=0.2.0 in /usr/local/lib/python3.11/dist-packages (from aiohttp!=4.0.0a0,!=4.0.0a1-&gt;s3fs&gt;=2024.6.1-&gt;lightkurve) (0.3.0)
+Requirement already satisfied: yarl&lt;2.0,&gt;=1.17.0 in /usr/local/lib/python3.11/dist-packages (from aiohttp!=4.0.0a0,!=4.0.0a1-&gt;s3fs&gt;=2024.6.1-&gt;lightkurve) (1.18.3)
+Requirement already satisfied: six&gt;=1.9 in /usr/local/lib/python3.11/dist-packages (from html5lib&gt;=0.999-&gt;astroquery&gt;=0.3.10-&gt;lightkurve) (1.17.0)
+Requirement already satisfied: webencodings in /usr/local/lib/python3.11/dist-packages (from html5lib&gt;=0.999-&gt;astroquery&gt;=0.3.10-&gt;lightkurve) (0.5.1)
+Requirement already satisfied: MarkupSafe&gt;=2.0 in /usr/local/lib/python3.11/dist-packages (from Jinja2&gt;=2.9-&gt;bokeh&gt;=2.3.2-&gt;lightkurve) (3.0.2)
+Downloading lightkurve-2.5.0-py3-none-any.whl (270 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">270.4/270.4 kB</span> <span class=" -Color -Color-Red">6.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25hDownloading astroquery-0.4.10-py3-none-any.whl (11.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">11.1/11.1 MB</span> <span class=" -Color -Color-Red">33.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25hDownloading s3fs-2025.3.1-py3-none-any.whl (30 kB)
+Downloading fsspec-2025.3.1-py3-none-any.whl (194 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">194.4/194.4 kB</span> <span class=" -Color -Color-Red">10.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25hDownloading uncertainties-3.2.2-py3-none-any.whl (58 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">58.3/58.3 kB</span> <span class=" -Color -Color-Red">4.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25hDownloading aiobotocore-2.21.1-py3-none-any.whl (78 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">78.3/78.3 kB</span> <span class=" -Color -Color-Red">4.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25hDownloading pyvo-1.6.1-py3-none-any.whl (997 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">997.6/997.6 kB</span> <span class=" -Color -Color-Red">33.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25hDownloading aioitertools-0.12.0-py3-none-any.whl (24 kB)
+Downloading botocore-1.37.1-py3-none-any.whl (13.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">13.4/13.4 MB</span> <span class=" -Color -Color-Red">51.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25hDownloading jmespath-1.0.1-py3-none-any.whl (20 kB)
+Building wheels for collected packages: fbpca, memoization, oktopus
+  Building wheel for fbpca (setup.py) ... ?25l?25hdone
+  Created wheel for fbpca: filename=fbpca-1.0-py3-none-any.whl size=11373 sha256=964ac414437fb2cadc84ee8e169870572d0d3c10a0bd7c3e067348a829efd786
+  Stored in directory: /root/.cache/pip/wheels/71/ae/f7/5b7e1e16a133d094431428169e9a8d9f750afe5459f0333c9b
+  Building wheel for memoization (setup.py) ... ?25l?25hdone
+  Created wheel for memoization: filename=memoization-0.4.0-py3-none-any.whl size=50453 sha256=b16b3ab087706ebebc167d85131a6d89b290bd92b083216a80481ac924d58ba5
+  Stored in directory: /root/.cache/pip/wheels/72/08/6d/529f7ad70429b918b80178256c3adb167607326260884385f7
+  Building wheel for oktopus (setup.py) ... ?25l?25hdone
+  Created wheel for oktopus: filename=oktopus-0.1.2-py3-none-any.whl size=12764 sha256=e8bf03d18fb986376942e480b811e5ac21581a60337287bd9611c133be365cd5
+  Stored in directory: /root/.cache/pip/wheels/59/ac/2e/de04329ce2503f6dcc133e2657ccb9f0f0e59a516aefc4714d
+Successfully built fbpca memoization oktopus
+Installing collected packages: fbpca, uncertainties, memoization, jmespath, fsspec, aioitertools, oktopus, botocore, pyvo, aiobotocore, s3fs, astroquery, lightkurve
+  Attempting uninstall: fsspec
+    Found existing installation: fsspec 2025.3.0
+    Uninstalling fsspec-2025.3.0:
+      Successfully uninstalled fsspec-2025.3.0
+<span class=" -Color -Color-Red">ERROR: pip&#39;s dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.</span>
+<span class=" -Color -Color-Red">gcsfs 2025.3.0 requires fsspec==2025.3.0, but you have fsspec 2025.3.1 which is incompatible.</span>
+<span class=" -Color -Color-Red">torch 2.6.0+cu124 requires nvidia-cublas-cu12==12.4.5.8; platform_system == &quot;Linux&quot; and platform_machine == &quot;x86_64&quot;, but you have nvidia-cublas-cu12 12.5.3.2 which is incompatible.</span>
+<span class=" -Color -Color-Red">torch 2.6.0+cu124 requires nvidia-cuda-cupti-cu12==12.4.127; platform_system == &quot;Linux&quot; and platform_machine == &quot;x86_64&quot;, but you have nvidia-cuda-cupti-cu12 12.5.82 which is incompatible.</span>
+<span class=" -Color -Color-Red">torch 2.6.0+cu124 requires nvidia-cuda-nvrtc-cu12==12.4.127; platform_system == &quot;Linux&quot; and platform_machine == &quot;x86_64&quot;, but you have nvidia-cuda-nvrtc-cu12 12.5.82 which is incompatible.</span>
+<span class=" -Color -Color-Red">torch 2.6.0+cu124 requires nvidia-cuda-runtime-cu12==12.4.127; platform_system == &quot;Linux&quot; and platform_machine == &quot;x86_64&quot;, but you have nvidia-cuda-runtime-cu12 12.5.82 which is incompatible.</span>
+<span class=" -Color -Color-Red">torch 2.6.0+cu124 requires nvidia-cudnn-cu12==9.1.0.70; platform_system == &quot;Linux&quot; and platform_machine == &quot;x86_64&quot;, but you have nvidia-cudnn-cu12 9.3.0.75 which is incompatible.</span>
+<span class=" -Color -Color-Red">torch 2.6.0+cu124 requires nvidia-cufft-cu12==11.2.1.3; platform_system == &quot;Linux&quot; and platform_machine == &quot;x86_64&quot;, but you have nvidia-cufft-cu12 11.2.3.61 which is incompatible.</span>
+<span class=" -Color -Color-Red">torch 2.6.0+cu124 requires nvidia-curand-cu12==10.3.5.147; platform_system == &quot;Linux&quot; and platform_machine == &quot;x86_64&quot;, but you have nvidia-curand-cu12 10.3.6.82 which is incompatible.</span>
+<span class=" -Color -Color-Red">torch 2.6.0+cu124 requires nvidia-cusolver-cu12==11.6.1.9; platform_system == &quot;Linux&quot; and platform_machine == &quot;x86_64&quot;, but you have nvidia-cusolver-cu12 11.6.3.83 which is incompatible.</span>
+<span class=" -Color -Color-Red">torch 2.6.0+cu124 requires nvidia-cusparse-cu12==12.3.1.170; platform_system == &quot;Linux&quot; and platform_machine == &quot;x86_64&quot;, but you have nvidia-cusparse-cu12 12.5.1.3 which is incompatible.</span>
+<span class=" -Color -Color-Red">torch 2.6.0+cu124 requires nvidia-nvjitlink-cu12==12.4.127; platform_system == &quot;Linux&quot; and platform_machine == &quot;x86_64&quot;, but you have nvidia-nvjitlink-cu12 12.5.82 which is incompatible.</span>
+Successfully installed aiobotocore-2.21.1 aioitertools-0.12.0 astroquery-0.4.10 botocore-1.37.1 fbpca-1.0 fsspec-2025.3.1 jmespath-1.0.1 lightkurve-2.5.0 memoization-0.4.0 oktopus-0.1.2 pyvo-1.6.1 s3fs-2025.3.1 uncertainties-3.2.2
 </pre></div>
 </div>
 </div>
@@ -466,7 +596,8 @@ document.write(`
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="step-1-loading-data-from-the-tess-mission">
 <h1>Step 1: loading data from the TESS mission<a class="headerlink" href="#step-1-loading-data-from-the-tess-mission" title="Permalink to this heading">#</a></h1>
-<p>The function below uses the python package <code class="docutils literal notranslate"><span class="pre">lightkurve</span></code> to load data from the TESS mission. To search for exoplanets, TESS takes pictures of a patch of the sky once every 2 minutes. The function <code class="docutils literal notranslate"><span class="pre">load_TESS_data</span></code> takes in the name of a star and the size of image cutout we want to downdload (centered on the star).</p>
+<p>Like the last notebook, the function below uses the python package <code class="docutils literal notranslate"><span class="pre">lightkurve</span></code> to load data from the TESS mission. To search for exoplanets, TESS takes pictures of a patch of the sky once every 2 minutes. The function <code class="docutils literal notranslate"><span class="pre">load_TESS_data</span></code> takes in the name of a star and the size of image cutout we want to downdload (centered on the star).</p>
+<p><strong>Exercise:</strong> Run the code below to load in the functions we used in the last notebook.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># this function downloades TESS lightcurves (I recommend we supply this function</span>
@@ -541,13 +672,8 @@ document.write(`
     <span class="n">q</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">q</span> <span class="o">=</span> <span class="n">vrange</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span> <span class="n">image</span><span class="p">,</span> <span class="n">vmin</span> <span class="o">=</span> <span class="n">q</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">vmax</span> <span class="o">=</span> <span class="n">q</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">psf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">sigma</span><span class="p">,</span><span class="n">scale</span><span class="p">,</span><span class="n">bkg</span><span class="p">,</span><span class="n">xmu</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">ymu</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">unravel</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+
+<span class="k">def</span> <span class="nf">psf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">sigma</span><span class="p">,</span><span class="n">scale</span><span class="p">,</span><span class="n">bkg</span><span class="p">,</span><span class="n">xmu</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">ymu</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">unravel</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Symmetric 2D point-spread function (PSF)</span>
 
@@ -569,13 +695,8 @@ document.write(`
         <span class="k">return</span> <span class="n">mod</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">mod</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">residual</span><span class="p">(</span><span class="n">theta</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">z_err</span><span class="p">):</span>
+
+<span class="k">def</span> <span class="nf">residual</span><span class="p">(</span><span class="n">theta</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">z_err</span><span class="p">):</span>
     <span class="n">sigma</span><span class="p">,</span> <span class="n">scale</span><span class="p">,</span> <span class="n">bkg</span><span class="p">,</span> <span class="n">xmu</span><span class="p">,</span> <span class="n">ymu</span> <span class="o">=</span> <span class="n">theta</span>
 
     <span class="n">model</span> <span class="o">=</span> <span class="n">psf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">sigma</span><span class="o">=</span><span class="n">sigma</span><span class="p">,</span><span class="n">scale</span><span class="o">=</span><span class="n">scale</span><span class="p">,</span><span class="n">bkg</span><span class="o">=</span><span class="n">bkg</span><span class="p">,</span><span class="n">xmu</span><span class="o">=</span><span class="n">xmu</span><span class="p">,</span><span class="n">ymu</span><span class="o">=</span><span class="n">ymu</span><span class="p">)</span>
@@ -587,7 +708,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p><strong>Exercise:</strong> Run the code below to load all the TESS data for one small patch of the sky. We’ll center our images on a single variable star.</p>
+<p><strong>Exercise:</strong> Run the code below to load all the TESS data for one small patch of the sky. We’ll center our images on the same variable star from the last notebook.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">target</span> <span class="o">=</span> <span class="s1">&#39;Gaia_DR2279382060625871360&#39;</span>
@@ -620,7 +741,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p><strong>Exercise:</strong> Run the code below to plot the mean of the TESS cutouts.</p>
+<p><strong>Exercise:</strong> To check things loaded well, run the code below to plot the mean of the TESS cutouts.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># linear scale</span>
@@ -632,7 +753,25 @@ document.write(`
 <img alt="../_images/a08e10ae72b81aadb29a63791107d6e4c9b2764bac0a07f971f4c987b1de68b3.png" src="../_images/a08e10ae72b81aadb29a63791107d6e4c9b2764bac0a07f971f4c987b1de68b3.png" />
 </div>
 </div>
-<p><strong>Exercise:</strong> Using <code class="docutils literal notranslate"><span class="pre">scipy.optimize.minimize</span></code> find the best-fit <code class="docutils literal notranslate"><span class="pre">scale</span></code> for each TESS cutout. Plot the resulting lightcurve alongside out “grid-search” and “sum” lightcurves.</p>
+<p><strong>Exercise:</strong> As a refresher, first plot the total flux in each cutout as a function of time. Remember, this is the simple light curve we made in the last notebook. Be sure to label your plot.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">flux</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">time</span><span class="o">-</span><span class="n">time</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">f</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time [days]&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Flux&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Flux&#39;)
+</pre></div>
+</div>
+<img alt="../_images/7daa294e5d5a6014b81eee7b8405c1a51d572f8fc3754af3fa861d023b312b63.png" src="../_images/7daa294e5d5a6014b81eee7b8405c1a51d572f8fc3754af3fa861d023b312b63.png" />
+</div>
+</div>
+<p><strong>Exercise:</strong> Now let’s measure the flux of the cutouts using our more robust method. With your code from the end of the last notebook, use <code class="docutils literal notranslate"><span class="pre">scipy.optimize.minimize</span></code> to find the best-fit <code class="docutils literal notranslate"><span class="pre">scale</span></code> for each TESS cutout.</p>
+<p>Plot the light curve.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">scipy</span>
@@ -658,33 +797,36 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1150it [00:22, 50.76it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1150it [00:30, 37.98it/s]
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">time</span><span class="o">-</span><span class="n">time</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="p">(</span><span class="n">lightcurve</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">lightcurve</span><span class="p">))</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">lightcurve</span><span class="p">)</span> <span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">20</span><span class="p">])</span>
-<span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time [days]&#39;</span><span class="p">)</span>
-<span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Normalized flux&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">time</span><span class="o">-</span><span class="n">time</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">lightcurve</span> <span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time [days]&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Flux&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/64d40b1bea0d4b4765e6e9bf1d862531f2b7e829d6ba653b468fcdde121ed90c.png" src="../_images/64d40b1bea0d4b4765e6e9bf1d862531f2b7e829d6ba653b468fcdde121ed90c.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Flux&#39;)
+</pre></div>
+</div>
+<img alt="../_images/400db261a79952653d62cda1a9c8a7016b20d86d673d2e02a64ed55b120e5b01.png" src="../_images/400db261a79952653d62cda1a9c8a7016b20d86d673d2e02a64ed55b120e5b01.png" />
 </div>
 </div>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="step-3-finding-the-oscillation-period">
 <h1>Step 3: finding the oscillation period<a class="headerlink" href="#step-3-finding-the-oscillation-period" title="Permalink to this heading">#</a></h1>
-<p>We’ve now successfully made a lightcurve for our star! By eye we can see the star is <strong>variable</strong> (it’s flux is periodically varying with time). How long does it take to complete a cycle?</p>
-<p>Let’s start by simply fitting the lightcurve with a simple periodic function: a sine wave.</p>
+<p>We’ve now successfully made a lightcurve for our star! By eye we can see the star is <strong>variable</strong> (it’s flux is periodically varying with time).</p>
+<p><strong>Exercise:</strong> By eye, how long does it take for the star’s flux to complete a cycle?</p>
+<p>answer here</p>
+<p>Now let’s try to measure the oscillation period. We’ll start by fitting the lightcurve with a simple periodic function: a sine wave.</p>
 <p><strong>Exercise:</strong> Write the function <code class="docutils literal notranslate"><span class="pre">sinusoid_model(time,ampl,period,phase,background)</span></code> where <code class="docutils literal notranslate"><span class="pre">time</span></code> is a numpy array, and <code class="docutils literal notranslate"><span class="pre">ampl,period,phase,background</span></code> all all floats. The function shound return:
-$<span class="math notranslate nohighlight">\(  y(t) = A \sin[t \times (2\pi / \mathrm{period})+ \mathrm{phase}] + \mathrm{background} \)</span>$
-Plot the sine wave alongside the lightcurve we calculated above. Set the parameters of <code class="docutils literal notranslate"><span class="pre">sinusoid_model</span></code> hand to best fit the lightcurve.</p>
+$<span class="math notranslate nohighlight">\(  y(t) = A \sin[t \times (2\pi / \mathrm{period})+ \mathrm{phase}] + \mathrm{background} \)</span>$</p>
+<p>As a test, <code class="docutils literal notranslate"><span class="pre">sinusoid_model(time=0.1,ampl=2,period=2,phase=0.1,background=1)</span></code> should return <code class="docutils literal notranslate"><span class="pre">1.8045</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sinusoid_model</span><span class="p">(</span><span class="n">time</span><span class="p">,</span><span class="n">ampl</span><span class="p">,</span><span class="n">period</span><span class="p">,</span><span class="n">phase</span><span class="p">,</span><span class="n">background</span><span class="p">):</span>
@@ -706,6 +848,7 @@ Plot the sine wave alongside the lightcurve we calculated above. Set the paramet
 </div>
 </div>
 </div>
+<p><strong>Exercise:</strong> Plot the sine wave alongside the lightcurve we calculated above (with <code class="docutils literal notranslate"><span class="pre">scipy</span></code>). Set the parameters of <code class="docutils literal notranslate"><span class="pre">sinusoid_model</span></code> by hand to best fit the lightcurve.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">time</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">-</span><span class="n">time</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span><span class="mi">1000</span><span class="p">)</span>
@@ -732,11 +875,10 @@ Plot the sine wave alongside the lightcurve we calculated above. Set the paramet
 <p><strong>Exercise:</strong> For a grid of periods (<code class="docutils literal notranslate"><span class="pre">0</span> <span class="pre">&lt;</span> <span class="pre">period</span> <span class="pre">&lt;</span> <span class="pre">5</span></code>) and phases (<code class="docutils literal notranslate"><span class="pre">0</span> <span class="pre">&lt;</span> <span class="pre">phase</span> <span class="pre">&lt;</span> <span class="pre">2</span> <span class="pre">*</span> <span class="pre">np.pi</span></code>), calculate the goodness of fit:
 <code class="docutils literal notranslate"><span class="pre">np.sum(np.power(lightcurve-model,2)</span> <span class="pre">)</span></code>. For each combination of period and phase, plot period versus phase on a scatter plot with the color of the marker set by <code class="docutils literal notranslate"><span class="pre">np.log10</span></code> of goodness of fit. Leave <code class="docutils literal notranslate"><span class="pre">ampl=100</span></code> and <code class="docutils literal notranslate"><span class="pre">background=600</span></code>.</p>
 <p>For ease of reading, try setting your colorbar to go from <code class="docutils literal notranslate"><span class="pre">vmin</span> <span class="pre">=</span> <span class="pre">6.</span></code> and <code class="docutils literal notranslate"><span class="pre">vmax=7.3</span></code></p>
-<p>Compare the best fit sine wave with your by hand fit.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">periods</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
-<span class="n">phases</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">periods</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">phases</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span>
 
 <span class="n">period_grid</span><span class="p">,</span> <span class="n">phase_grid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">periods</span><span class="p">,</span><span class="n">phases</span><span class="p">)</span>
 
@@ -750,12 +892,20 @@ Plot the sine wave alongside the lightcurve we calculated above. Set the paramet
 
         <span class="n">chi</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">c</span>
 
-        <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">period</span><span class="p">,</span> <span class="n">phase</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">c</span><span class="p">),</span> <span class="n">vmin</span> <span class="o">=</span> <span class="mf">6.</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mf">7.3</span><span class="p">)</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">period_grid</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span> <span class="n">phase_grid</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span>
+            <span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">chi</span><span class="o">.</span><span class="n">ravel</span><span class="p">()),</span> <span class="n">vmin</span> <span class="o">=</span> <span class="mf">6.</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mf">7.3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Period [days]&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Phase [rad]&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/5151da7f36d35784872a2ef113f4c9e6307a4c2e36b92b57e6bf8b48430b8676.png" src="../_images/5151da7f36d35784872a2ef113f4c9e6307a4c2e36b92b57e6bf8b48430b8676.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Phase [rad]&#39;)
+</pre></div>
+</div>
+<img alt="../_images/c14d956f43bf63a53bf26064ac55d7900c2ed62d4d87c34128414919ce54c036.png" src="../_images/c14d956f43bf63a53bf26064ac55d7900c2ed62d4d87c34128414919ce54c036.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -769,11 +919,12 @@ Plot the sine wave alongside the lightcurve we calculated above. Set the paramet
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Best: 3.22 days
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Best: 3.32 days
 </pre></div>
 </div>
 </div>
 </div>
+<p><strong>Exercise:</strong> Compare the best fit sine wave with the lightcurve.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span><span class="n">time</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span><span class="mi">1000</span><span class="p">)</span>
@@ -793,7 +944,7 @@ Plot the sine wave alongside the lightcurve we calculated above. Set the paramet
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/c23b2a5583ae8ad53111f174cecdb8c3dc5786e23a944d74cc4f4373743bb270.png" src="../_images/c23b2a5583ae8ad53111f174cecdb8c3dc5786e23a944d74cc4f4373743bb270.png" />
+<img alt="../_images/bb56a374753849483bf2adccb4a3c8bae07fe95c20f074f932126d01d375bd2c.png" src="../_images/bb56a374753849483bf2adccb4a3c8bae07fe95c20f074f932126d01d375bd2c.png" />
 </div>
 </div>
 <p>Our sine model works okay but certainly isn’t a perfect fit to the data. Instead let’s try a Lomb-Scargle periodogram. This method finds the periodic signals in a dataset using Fourier transforms. See some background: <a class="reference external" href="https://iopscience.iop.org/article/10.3847/1538-4365/aab766/pdf">https://iopscience.iop.org/article/10.3847/1538-4365/aab766/pdf</a></p>
@@ -842,14 +993,13 @@ Plot the sine wave alongside the lightcurve we calculated above. Set the paramet
 <section class="tex2jax_ignore mathjax_ignore" id="step-4-finding-planets">
 <h1>Step 4: finding planets<a class="headerlink" href="#step-4-finding-planets" title="Permalink to this heading">#</a></h1>
 <p>Above we measured the lightcurve for a star from TESS cutouts and then calculated it’s oscillation period. Let’s now repeat that process for a star known to host a transiting planet!</p>
-<p>Let’s start with a relatively bright star hosting a Jupiter sized planet:</p>
+<p>Let’s consider a relatively bright star hosting a Jupiter sized planet:</p>
 <p><strong>Exercise:</strong>  Run the code below to load the TESS data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">target</span> <span class="o">=</span> <span class="s1">&#39;Gaia_DR24624979393181971328&#39;</span>
 
 <span class="n">period_tess</span> <span class="o">=</span> <span class="mf">2.084544</span>     <span class="c1"># days</span>
-<span class="n">radius_planet_tess</span> <span class="o">=</span> <span class="mf">1.286</span> <span class="c1"># R_jup</span>
 <span class="n">radius_star_tess</span>   <span class="o">=</span> <span class="mf">1.17</span>  <span class="c1"># R_sun</span>
 </pre></div>
 </div>
@@ -865,7 +1015,7 @@ Plot the sine wave alongside the lightcurve we calculated above. Set the paramet
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>SearchResult containing 36 data products.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>SearchResult containing 37 data products.
 
  #     mission     year  author exptime         target_name         distance
                                    s                                 arcsec 
@@ -883,8 +1033,8 @@ Plot the sine wave alongside the lightcurve we calculated above. Set the paramet
  10 TESS Sector 07 2019 TESScut    1426 Gaia_DR24624979393181971328      0.0
  11 TESS Sector 09 2019 TESScut    1426 Gaia_DR24624979393181971328      0.0
  12 TESS Sector 27 2020 TESScut     475 Gaia_DR24624979393181971328      0.0
- 13 TESS Sector 33 2020 TESScut     475 Gaia_DR24624979393181971328      0.0
- 14 TESS Sector 30 2020 TESScut     475 Gaia_DR24624979393181971328      0.0
+ 13 TESS Sector 30 2020 TESScut     475 Gaia_DR24624979393181971328      0.0
+ 14 TESS Sector 33 2020 TESScut     475 Gaia_DR24624979393181971328      0.0
  15 TESS Sector 32 2020 TESScut     475 Gaia_DR24624979393181971328      0.0
  16 TESS Sector 31 2020 TESScut     475 Gaia_DR24624979393181971328      0.0
  17 TESS Sector 28 2020 TESScut     475 Gaia_DR24624979393181971328      0.0
@@ -906,13 +1056,43 @@ Plot the sine wave alongside the lightcurve we calculated above. Set the paramet
  33 TESS Sector 62 2023 TESScut     158 Gaia_DR24624979393181971328      0.0
  34 TESS Sector 87 2024 TESScut     158 Gaia_DR24624979393181971328      0.0
  35 TESS Sector 88 2025 TESScut     158 Gaia_DR24624979393181971328      0.0
+ 36 TESS Sector 89 2025 TESScut     158 Gaia_DR24624979393181971328      0.0
 </pre></div>
 </div>
 </div>
 </div>
-<p><strong>Exercise:</strong>  Like we did above, use <code class="docutils literal notranslate"><span class="pre">scipy.optimize.minimize</span></code> to extract the lightcurve from the TESS cutouts by fitting the images with the 2-d gaussian model.</p>
-<p>Use the same ranges for the parameters as above.</p>
-<p>Plot the lightcurve. What do you notice? Can you spot transits by eye?</p>
+<p><strong>Exercise:</strong> To get acquainted with this star, first use <code class="docutils literal notranslate"><span class="pre">plot_cutout</span></code> to plot the first image (i.e., <code class="docutils literal notranslate"><span class="pre">flux[0]</span></code>).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_cutout</span><span class="p">(</span><span class="n">flux</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/29cb4c1c3e69b1ed5a4ffe3fda32a19eeecd3029cd60011d79aa2375eb470684.png" src="../_images/29cb4c1c3e69b1ed5a4ffe3fda32a19eeecd3029cd60011d79aa2375eb470684.png" />
+</div>
+</div>
+<p><strong>Exercise:</strong> Now let’s measure a simple light curve. Plot the total flux in each cutout as a function of time. Be sure to label your plot.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">flux</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">time</span><span class="o">-</span><span class="n">time</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">f</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time [days]&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Flux&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Flux&#39;)
+</pre></div>
+</div>
+<img alt="../_images/9370578cd869969a1b8f09296cf639e4b7610a82ba2d6c4e2ff00ae853d6102f.png" src="../_images/9370578cd869969a1b8f09296cf639e4b7610a82ba2d6c4e2ff00ae853d6102f.png" />
+</div>
+</div>
+<p><strong>Exercise:</strong>  Next use <code class="docutils literal notranslate"><span class="pre">scipy.optimize.minimize</span></code> to extract the lightcurve from the TESS cutouts by fitting the images with the 2-d gaussian model. Just like we did at the end of the last notebook.</p>
+<p>Use the ranges for the parameters from the last notebook: (.1,5) for <code class="docutils literal notranslate"><span class="pre">sigma</span></code>, (0,1000) for <code class="docutils literal notranslate"><span class="pre">scale</span></code>, (0,10) for <code class="docutils literal notranslate"><span class="pre">bkg</span></code>, (5,15) for <code class="docutils literal notranslate"><span class="pre">xmu</span></code> and <code class="docutils literal notranslate"><span class="pre">ymu</span></code>.</p>
+<p>Hint: set the initial guess for <code class="docutils literal notranslate"><span class="pre">x0</span> <span class="pre">=</span> <span class="pre">[1,</span> <span class="pre">40,</span> <span class="pre">0.1,</span> <span class="pre">cutout_size/2,</span> <span class="pre">cutout_size/2]</span></code>.</p>
+<p>Plot the lightcurve.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">scipy</span>
@@ -938,37 +1118,35 @@ Plot the sine wave alongside the lightcurve we calculated above. Set the paramet
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>980it [00:14, 69.35it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>980it [00:18, 53.84it/s]
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">time</span><span class="o">-</span><span class="n">time</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">lightcurve</span><span class="p">)</span>
-
-<span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time [days]&#39;</span><span class="p">)</span>
-<span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Normalized flux&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">time</span><span class="o">-</span><span class="n">time</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">lightcurve</span> <span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time [days]&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Flux&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/4813c821da6739faa9e51f5d23fe1b27b9c6981a18b6a12f7b4198dfac80cf82.png" src="../_images/4813c821da6739faa9e51f5d23fe1b27b9c6981a18b6a12f7b4198dfac80cf82.png" />
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_cutout</span><span class="p">(</span><span class="n">flux</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Flux&#39;)
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/29cb4c1c3e69b1ed5a4ffe3fda32a19eeecd3029cd60011d79aa2375eb470684.png" src="../_images/29cb4c1c3e69b1ed5a4ffe3fda32a19eeecd3029cd60011d79aa2375eb470684.png" />
+<img alt="../_images/59fecaf75b0e17a76fdffc44a66459fe57f87727d68b594db1e1c1716943d492.png" src="../_images/59fecaf75b0e17a76fdffc44a66459fe57f87727d68b594db1e1c1716943d492.png" />
 </div>
 </div>
-<p>In addition to transits, we can also see the star is undergoing a more steady change in brightness with time. We want to study the transits to let’s try to remove the non-transit flux changes (this called “detrending” the lightcurve).</p>
-<p><strong>Exercise:</strong> Use the function <code class="docutils literal notranslate"><span class="pre">median_filter(x,y,width)</span></code>, where <code class="docutils literal notranslate"><span class="pre">x,y</span></code> are arrays (for example time and lightcurve) and <code class="docutils literal notranslate"><span class="pre">width</span></code> is a float, to detrend the lightcurve. For each x value, the function returns with the median y within width of the given x value (i.e., a rolling median filter).</p>
-<p>Detrend the lightcurve by subtracting <code class="docutils literal notranslate"><span class="pre">median_filter(x,y,width)</span></code>. Choose <code class="docutils literal notranslate"><span class="pre">width</span></code> such that the transits are not affected by the detrending but the long term trends are removed.</p>
+<p><strong>Exercise:</strong> What do you notice about the lightcurve? Can you spot transits by eye? How does the lightcurve using scipy compare to the simple “total flux” lightcurve?</p>
+<p>answer here</p>
+<p>In addition to transits, we can also see the star is undergoing a more steady change in brightness with time. We want to study the transits so let’s try to remove the non-transit flux changes (this is called “detrending” the lightcurve).</p>
+<p>Let’s use the function <code class="docutils literal notranslate"><span class="pre">median_filter(x,y,width)</span></code>, where <code class="docutils literal notranslate"><span class="pre">x,y</span></code> are arrays (for example time and lightcurve) and <code class="docutils literal notranslate"><span class="pre">width</span></code> is a float, to detrend the lightcurve. For each x value, the function returns with the median y within <code class="docutils literal notranslate"><span class="pre">width</span></code> of the given x value (i.e., a rolling median filter).</p>
+<p><strong>Exercise:</strong> Run the code below to load the <code class="docutils literal notranslate"><span class="pre">median_filter</span></code> function. Then evaluate <code class="docutils literal notranslate"><span class="pre">median_filter</span></code> on the lightcurve we measured with <code class="docutils literal notranslate"><span class="pre">scipy</span></code>, set <code class="docutils literal notranslate"><span class="pre">width=1</span></code>.</p>
+<p><strong>Exercise:</strong> On the same plot, compare the lightcurve the median filter. Show the median filter for different values of <code class="docutils literal notranslate"><span class="pre">width</span></code>. Try <code class="docutils literal notranslate"><span class="pre">width</span></code> between <code class="docutils literal notranslate"><span class="pre">0.1</span></code> and <code class="docutils literal notranslate"><span class="pre">10</span></code>.</p>
+<p><strong>Exercise:</strong> For which value of <code class="docutils literal notranslate"><span class="pre">width</span></code> does the median filter best match the long-period changes in the lightcurve and <strong>not</strong> trace the transits?  Remember we want to use the median filter to remove the long term trends without affecting the transits.</p>
+<p><strong>Exercise:</strong>  Detrend the lightcurve by subtracting <code class="docutils literal notranslate"><span class="pre">median_filter</span></code> (with your chosen <code class="docutils literal notranslate"><span class="pre">width</span></code>). Call the detrended lightcurve <code class="docutils literal notranslate"><span class="pre">lc_detrended</span></code></p>
+<p>Plot the detrended lightcurve.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">median_filter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">width</span><span class="p">):</span>
@@ -983,45 +1161,48 @@ Plot the sine wave alongside the lightcurve we calculated above. Set the paramet
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lc_detrended</span> <span class="o">=</span> <span class="n">lightcurve</span> <span class="o">-</span> <span class="n">median_filter</span><span class="p">(</span><span class="n">time</span><span class="p">,</span><span class="n">lightcurve</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">smooth</span> <span class="o">=</span> <span class="n">median_filter</span><span class="p">(</span><span class="n">time</span><span class="p">,</span><span class="n">lightcurve</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">lc_detrended</span> <span class="o">=</span> <span class="n">lightcurve</span> <span class="o">-</span> <span class="n">smooth</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">time</span><span class="o">-</span><span class="n">time</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">lc_detrended</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">time</span><span class="o">-</span><span class="n">time</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">lightcurve</span> <span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="o">-</span><span class="n">time</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">smooth</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span> <span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time [days]&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Flux&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
-<span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time [days]&#39;</span><span class="p">)</span>
-<span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Normalized flux&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">time</span><span class="o">-</span><span class="n">time</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">lc_detrended</span> <span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time [days]&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Flux&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/f204cc1eb7f314b4aa4a8cf66a71cb7ac7674ebe6b1dc37b7c9f9aaff6e66037.png" src="../_images/f204cc1eb7f314b4aa4a8cf66a71cb7ac7674ebe6b1dc37b7c9f9aaff6e66037.png" />
+<img alt="../_images/7b62888f75d41cb1d66f09e75a4a1de73f604f4ff652822dcb660554ccb9fd19.png" src="../_images/7b62888f75d41cb1d66f09e75a4a1de73f604f4ff652822dcb660554ccb9fd19.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Flux&#39;)
+</pre></div>
+</div>
+<img alt="../_images/4b1205aa2b671c146eb1b2ce827d54c965005ac9d73162607a39a7c60586dc70.png" src="../_images/4b1205aa2b671c146eb1b2ce827d54c965005ac9d73162607a39a7c60586dc70.png" />
 </div>
 </div>
-<p><strong>Exercise:</strong> use the Lomb-Scargle periodogram to find the period of the planet.</p>
-<p>Hint: search periods longer than 1 day.</p>
+<p><strong>Exercise:</strong> Now use calculate the Lomb-Scargle periodogram for our cleaned light curve. Plot period vs. power. Be sure to label your plot.</p>
+<p>Let’s look at <code class="docutils literal notranslate"><span class="pre">periods</span> <span class="pre">=</span> <span class="pre">10**np.linspace(np.log10(1.1),2,1000)</span></code>; this means we are looking for periodic signals between <span class="math notranslate nohighlight">\(1.1\)</span> and <span class="math notranslate nohighlight">\(100\)</span> days. Also remember, the <code class="docutils literal notranslate"><span class="pre">LombScargle</span></code> function takes in <code class="docutils literal notranslate"><span class="pre">frequency</span> <span class="pre">=</span> <span class="pre">1/periods</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_max_period</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">plot_it</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">l</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">h</span> <span class="o">=</span> <span class="mi">100</span><span class="p">):</span>
-    <span class="kn">from</span> <span class="nn">astropy.timeseries</span> <span class="kn">import</span> <span class="n">LombScargle</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">astropy.timeseries</span> <span class="kn">import</span> <span class="n">LombScargle</span>
 
-    <span class="n">periods</span> <span class="o">=</span> <span class="mi">10</span><span class="o">**</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">l</span><span class="p">),</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">h</span><span class="p">),</span><span class="mi">1000</span><span class="p">)</span>
-    <span class="n">frequency</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">periods</span>
-    <span class="n">power</span> <span class="o">=</span> <span class="n">LombScargle</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="n">frequency</span><span class="p">)</span>
-
-    <span class="k">if</span> <span class="n">plot_it</span><span class="p">:</span>
-        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">periods</span><span class="p">,</span><span class="n">power</span><span class="p">)</span>
-        <span class="n">plt</span><span class="o">.</span><span class="n">xscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
-        <span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Period [days]&#39;</span><span class="p">)</span>
-        <span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Power&#39;</span><span class="p">)</span>
-        <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-
-    <span class="k">return</span> <span class="n">periods</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">power</span><span class="p">)]</span>
+<span class="n">periods</span>   <span class="o">=</span> <span class="mi">10</span><span class="o">**</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="mf">1.1</span><span class="p">),</span><span class="mi">2</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">frequency</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">periods</span>
+<span class="n">power</span> <span class="o">=</span> <span class="n">LombScargle</span><span class="p">(</span><span class="n">time</span><span class="p">,</span><span class="n">lc_detrended</span><span class="p">)</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="n">frequency</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">period</span> <span class="o">=</span> <span class="n">get_max_period</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">lc_detrended</span><span class="p">,</span> <span class="n">plot_it</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">l</span> <span class="o">=</span> <span class="mf">1.1</span><span class="p">,</span> <span class="n">h</span> <span class="o">=</span> <span class="mi">100</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">periods</span><span class="p">,</span><span class="n">power</span><span class="p">)</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Period [days]&#39;</span><span class="p">)</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Power&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1029,14 +1210,17 @@ Plot the sine wave alongside the lightcurve we calculated above. Set the paramet
 <img alt="../_images/9b4f7e63536a9d979b2898d3d5c256c14b0773f88d5d8d58c93d671ba788d407.png" src="../_images/9b4f7e63536a9d979b2898d3d5c256c14b0773f88d5d8d58c93d671ba788d407.png" />
 </div>
 </div>
+<p><strong>Exercise:</strong> At what period is the power of the Lomb-Scargle periodogram greatest?</p>
+<p>hint: use <code class="docutils literal notranslate"><span class="pre">np.argmax</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">period</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">period</span> <span class="o">=</span> <span class="n">periods</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">power</span><span class="p">)]</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">period</span> <span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(2.088302096620561)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.088302096620561
 </pre></div>
 </div>
 </div>
@@ -1047,6 +1231,7 @@ $<span class="math notranslate nohighlight">\( T(n) = T_0 + P \times n \)</span>
 where \)</span>T(n)<span class="math notranslate nohighlight">\( is the \)</span>n<span class="math notranslate nohighlight">\(th transit time (i.e., \)</span>n=0,1,2,\dots<span class="math notranslate nohighlight">\(), \)</span>T_0<span class="math notranslate nohighlight">\( is the first observed transit time, and \)</span>P$ is the orbital period.
 This means we can “fold” all the individual transits on top of each other to create a higher signal average transit, if we know the planet’s period.
 Use the provided function <code class="docutils literal notranslate"><span class="pre">phase_it</span></code> to fold the light curve to the Lomb-Scargle period and plot the folded lightcurve. Change the x limits to zoom in on the transit. Be sure to use the detrended light curve.</p>
+<p>Set <code class="docutils literal notranslate"><span class="pre">period</span></code> to what you found with the Lomb-Scargle periodogram.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">phase_it</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">period</span><span class="p">):</span>
@@ -1054,6 +1239,13 @@ Use the provided function <code class="docutils literal notranslate"><span class
     <span class="n">y_phased</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">x_phased</span><span class="p">)]</span>
 
     <span class="k">return</span> <span class="n">x_phased</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">x_phased</span><span class="p">)],</span> <span class="n">y_phased</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x_phased</span><span class="p">,</span> <span class="n">y_phased</span> <span class="o">=</span> <span class="n">phase_it</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">lc_detrended</span><span class="p">,</span> <span class="n">period</span><span class="p">)</span> <span class="c1"># phase</span>
 </pre></div>
 </div>
 </div>
@@ -1076,19 +1268,26 @@ Use the provided function <code class="docutils literal notranslate"><span class
 </div>
 </div>
 <p>We now have a very clear transit signal to study!</p>
-<p><strong>Exercise:</strong> Above we plotted the detrended lightcurve (i.e., the observed lightcurve minus the smooth median filter). Now plot the lightcurve divided by the smooth median filter. This way we now looking at the fractional change in flux.</p>
-<p>By eye estimate the transit depth and calculate the planet to star size ratio:
-$<span class="math notranslate nohighlight">\(\delta = (R_p / R_\star)^2\)</span>$</p>
+<p><strong>Exercise:</strong> Above we plotted the detrended lightcurve (i.e., the observed lightcurve minus the smooth median filter). Now let’s look at the fractional change in flux. Plot the lightcurve divided by the smooth median filter (instead of subtracted). Let’s refer to this as <em>Relative Flux Lightcurve</em>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lc_detrended_rel</span> <span class="o">=</span> <span class="n">lightcurve</span> <span class="o">/</span> <span class="n">median_filter</span><span class="p">(</span><span class="n">time</span><span class="p">,</span><span class="n">lightcurve</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lc_rel</span> <span class="o">=</span> <span class="n">lightcurve</span> <span class="o">/</span> <span class="n">smooth</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">time</span><span class="o">-</span><span class="n">time</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">lc_rel</span> <span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time [days]&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Flux&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../_images/ab5a251d9347578ce4ab1edf9e24f293c62f66b528dd6cd368547eb44ec2653b.png" src="../_images/ab5a251d9347578ce4ab1edf9e24f293c62f66b528dd6cd368547eb44ec2653b.png" />
 </div>
+</div>
+<p><strong>Exercise:</strong> now plot the phased <em>relative flux</em> lightcurve.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x_phased</span><span class="p">,</span> <span class="n">y_phased</span> <span class="o">=</span> <span class="n">phase_it</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">lc_detrended_rel</span><span class="p">,</span> <span class="n">period</span><span class="p">)</span> <span class="c1"># phase</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x_phased</span><span class="p">,</span> <span class="n">y_phased</span> <span class="o">=</span> <span class="n">phase_it</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">lc_rel</span><span class="p">,</span> <span class="n">period</span><span class="p">)</span> <span class="c1"># phase</span>
 
 <span class="n">_</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x_phased</span><span class="p">,</span> <span class="n">y_phased</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
 
@@ -1103,7 +1302,15 @@ $<span class="math notranslate nohighlight">\(\delta = (R_p / R_\star)^2\)</span
 <img alt="../_images/87375e091d29fd299f7c6ce39a7e182db49db37558a0260c6c3974689574493b.png" src="../_images/87375e091d29fd299f7c6ce39a7e182db49db37558a0260c6c3974689574493b.png" />
 </div>
 </div>
-<p><strong>Exercise:</strong> The provided function <code class="docutils literal notranslate"><span class="pre">transit_model(phase,</span> <span class="pre">depth,</span> <span class="pre">duration,</span> <span class="pre">ingress)</span></code> describes the shape of a transit with a few free paremters. Try changing the transit depth, duration, and ingress time to fit the observed shape.</p>
+<p><strong>Exercise:</strong> By eye estimate the transit depth. Remember, the transit depth is <span class="math notranslate nohighlight">\(1-\)</span>minimum of the relative flux lightcurve.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># answer here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise:</strong> The provided function <code class="docutils literal notranslate"><span class="pre">transit_model(phase,</span> <span class="pre">depth,</span> <span class="pre">duration,</span> <span class="pre">ingress)</span></code> describes the shape of a transit with a few free paremters. Try changing the transit depth, duration, and ingress time to fit the observed shape of the phased relative flux lightcurve.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">transit_model</span><span class="p">(</span><span class="n">phase</span><span class="p">,</span> <span class="n">midpoint</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="n">duration</span><span class="p">,</span> <span class="n">ingress</span><span class="p">):</span>
@@ -1144,19 +1351,26 @@ $<span class="math notranslate nohighlight">\(\delta = (R_p / R_\star)^2\)</span
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">10000</span><span class="p">)</span>
 <span class="n">yp</span> <span class="o">=</span> <span class="n">transit_model</span><span class="p">(</span><span class="n">xp</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.015</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x_phased</span><span class="p">,</span> <span class="n">y_phased</span> <span class="o">=</span> <span class="n">phase_it</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">lc_rel</span><span class="p">,</span> <span class="n">period</span><span class="p">)</span> <span class="c1"># phase</span>
 
 <span class="n">_</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x_phased</span><span class="p">,</span> <span class="n">y_phased</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
-<span class="n">_</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xp</span><span class="p">,</span><span class="n">yp</span><span class="p">)</span>
+<span class="n">_</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xp</span><span class="p">,</span> <span class="n">yp</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Normalized flux&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Flux&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Phase&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.2</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span><span class="mf">0.2</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/a8de8930ee8bfeaa66864a4b158391ea15617f3ce9134d9ee9db4a2006806309.png" src="../_images/a8de8930ee8bfeaa66864a4b158391ea15617f3ce9134d9ee9db4a2006806309.png" />
+<img alt="../_images/a99a57791d85fbc73fdb15ed8b291ba026f859c71da9e9f0e92983756905bf09.png" src="../_images/a99a57791d85fbc73fdb15ed8b291ba026f859c71da9e9f0e92983756905bf09.png" />
 </div>
 </div>
 <p><strong>Exercise:</strong> use the code below to fit the folded lightcurve with <code class="docutils literal notranslate"><span class="pre">transit_model</span></code> using <code class="docutils literal notranslate"><span class="pre">scipy.optimize.differential_evolution</span></code>. Plot the best fit transit model against the data. How does the fit transit depth compare to your by eye estimate?</p>
@@ -1190,7 +1404,7 @@ $<span class="math notranslate nohighlight">\(\delta = (R_p / R_\star)^2\)</span
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/9bc70a5a72addf8ba8badf83392a8cd227b9f4f4f62b3a7917029439791d45c2.png" src="../_images/9bc70a5a72addf8ba8badf83392a8cd227b9f4f4f62b3a7917029439791d45c2.png" />
+<img alt="../_images/311710a51d9ce5d59fc917810bcf02c5ac51d13e32ff9e17f1f3c1049397f9b2.png" src="../_images/311710a51d9ce5d59fc917810bcf02c5ac51d13e32ff9e17f1f3c1049397f9b2.png" />
 </div>
 </div>
 <p><strong>Exercise:</strong> Using the transit depth measured above (and the provided stellar radius <code class="docutils literal notranslate"><span class="pre">radius_star_tess</span></code>) what is the radius of the planet in Jupiter radii?</p>
@@ -1263,7 +1477,7 @@ r_planet= 1.25 R_jup
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Lightcurves, transits, and TESS! Oh My!</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Part 3 Lightcurves</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-0-imports">Step 0: imports</a></li>
 </ul>
 </li>
