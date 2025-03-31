@@ -444,12 +444,6 @@ document.write(`
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The autoreload extension is already loaded. To reload it, use:
-  %reload_ext autoreload
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell tag_hide-cell docutils container">
 <details class="hide above-input">
@@ -598,7 +592,7 @@ Name: J100158.40+014812.31
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x150a6f190&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x14aaf6810&gt;
 </pre></div>
 </div>
 <img alt="../../_images/e783b81ec659981991d794dc38f1d3a41dc742a242e50c3b75c15f19bc5827a1.png" src="../../_images/e783b81ec659981991d794dc38f1d3a41dc742a242e50c3b75c15f19bc5827a1.png" />
@@ -726,6 +720,7 @@ Name: J100158.40+014812.31
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">worst_psf</span> <span class="o">=</span> <span class="s1">&#39;N708&#39;</span> <span class="c1"># indicate the band with the worst seeing</span>
+<span class="n">bands</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="s1">&#39;i&#39;</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">,</span> <span class="s1">&#39;N708&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -868,6 +863,10 @@ Name: J100158.40+014812.31
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/jiaxuanl/Softwares/lsst_stack/conda/miniconda3-py38_4.9.2/envs/lsst-scipipe-8.0.0/lib/python3.11/site-packages/astropy/visualization/basic_rgb.py:153: RuntimeWarning: invalid value encountered in cast
+  return image_rgb.astype(output_dtype)
+</pre></div>
+</div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;grz+H$\\alpha$ (blue)&#39;)
 </pre></div>
 </div>
@@ -875,73 +874,16 @@ Name: J100158.40+014812.31
 </div>
 </div>
 <p><strong>Exercise 3:</strong></p>
-<p>Make this H-alpha map for 10 more galaxies! You can choose whatever you like from the catalog. But remember – not every one of them looks as good as the example in this notebook.</p>
-<p><strong>Exercise 4 (not tested yet):</strong></p>
-<p>Let’s measure the asymmetry and concentration of the H-alpha map!</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">img_ha</span> <span class="o">=</span> <span class="n">cutouts_matched_reproj</span><span class="p">[</span><span class="s1">&#39;ha&#39;</span><span class="p">]</span>
-<span class="n">img</span> <span class="o">=</span> <span class="n">cutouts_reproj</span><span class="p">[</span><span class="s1">&#39;z&#39;</span><span class="p">]</span>
+<ol class="arabic">
+<li><p>Make a callable function to wrap up the above code for generating the H-alpha map for any given galaxy. The function can be like the following:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">make_Ha_map</span><span class="p">(</span><span class="n">idx</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">60</span><span class="o">*</span><span class="n">u</span><span class="o">.</span><span class="n">arcsec</span><span class="p">):</span>
+    <span class="c1"># your answer</span>
+    <span class="k">return</span>
 </pre></div>
 </div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sep</span>
-<span class="n">img</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">img</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">dtype</span><span class="o">.</span><span class="n">newbyteorder</span><span class="p">(</span><span class="s1">&#39;=&#39;</span><span class="p">))</span>
-<span class="n">bkg</span> <span class="o">=</span> <span class="n">sep</span><span class="o">.</span><span class="n">Background</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">bw</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span> <span class="n">bh</span><span class="o">=</span><span class="mi">128</span><span class="p">)</span> <span class="c1"># this makes the background model</span>
-<span class="c1"># We extract sources above 4-sigma</span>
-<span class="n">_</span><span class="p">,</span> <span class="n">segmap</span> <span class="o">=</span> <span class="n">sep</span><span class="o">.</span><span class="n">extract</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">err</span><span class="o">=</span><span class="n">bkg</span><span class="o">.</span><span class="n">rms</span><span class="p">(),</span> <span class="n">deblend_cont</span><span class="o">=</span><span class="mf">0.005</span><span class="p">,</span> <span class="n">segmentation_map</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="c1"># we only keep the footprint of the target galaxy </span>
-<span class="n">ind</span> <span class="o">=</span> <span class="n">segmap</span><span class="p">[</span><span class="n">img</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">//</span><span class="mi">2</span><span class="p">,</span> <span class="n">img</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">//</span><span class="mi">2</span><span class="p">]</span>
-<span class="n">obj_segmap</span> <span class="o">=</span> <span class="n">segmap</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="n">obj_segmap</span><span class="p">[</span><span class="n">obj_segmap</span> <span class="o">!=</span> <span class="n">ind</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
-
-<span class="c1"># We construct a mask based on the original segmap. The mask blocks out</span>
-<span class="n">segmap</span><span class="p">[</span><span class="n">segmap</span> <span class="o">==</span> <span class="n">ind</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">segmap</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
-<span class="kn">from</span> <span class="nn">astropy.convolution</span> <span class="kn">import</span> <span class="n">convolve_fft</span><span class="p">,</span> <span class="n">Gaussian2DKernel</span>
-<span class="n">mask</span> <span class="o">=</span> <span class="n">convolve_fft</span><span class="p">(</span><span class="n">mask</span><span class="p">,</span> <span class="n">Gaussian2DKernel</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
-<span class="n">mask</span> <span class="o">=</span> <span class="n">mask</span> <span class="o">&gt;</span> <span class="mf">1e-2</span>
-<span class="n">show_image</span><span class="p">(</span><span class="n">img</span> <span class="o">*</span> <span class="o">~</span><span class="n">mask</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">percl</span><span class="o">=</span><span class="mf">99.5</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: &gt;
-</pre></div>
-</div>
-<img alt="../../_images/8a9e9d284f38ef5c742342458d5119cc826ce00a7363a3a0d665ca349f65e4f3.png" src="../../_images/8a9e9d284f38ef5c742342458d5119cc826ce00a7363a3a0d665ca349f65e4f3.png" />
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">statmorph</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">source_morphs</span> <span class="o">=</span> <span class="n">statmorph</span><span class="o">.</span><span class="n">source_morphology</span><span class="p">(</span>
-  <span class="n">img_ha</span><span class="p">,</span> <span class="n">obj_segmap</span><span class="p">,</span> <span class="n">weightmap</span><span class="o">=</span><span class="n">bkg</span><span class="o">.</span><span class="n">rms</span><span class="p">(),</span> <span class="n">psf</span><span class="o">=</span><span class="n">psf</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="n">mask</span><span class="p">)</span>
-<span class="n">morph</span> <span class="o">=</span> <span class="n">source_morphs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">statmorph.utils.image_diagnostics</span> <span class="kn">import</span> <span class="n">make_figure</span>
-<span class="n">fig</span> <span class="o">=</span> <span class="n">make_figure</span><span class="p">(</span><span class="n">morph</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../../_images/170271038d5ac70527510b8e85275734a7a0ea90ebc1ad9111b8a2a56c6bc6f1.png" src="../../_images/170271038d5ac70527510b8e85275734a7a0ea90ebc1ad9111b8a2a56c6bc6f1.png" />
-</div>
-</div>
+</li>
+<li><p>Make H-alpha maps for 10 more galaxies! You can choose whatever you like from the catalog. But remember – not every one of them looks as good as the example in this notebook.</p></li>
+</ol>
 </section>
 </section>
 

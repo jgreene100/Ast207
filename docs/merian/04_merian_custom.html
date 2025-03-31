@@ -545,6 +545,52 @@ document.write(`
 </section>
 <section id="generate-h-alpha-maps-for-these-galaxies">
 <h2>2. Generate H-alpha maps for these galaxies<a class="headerlink" href="#generate-h-alpha-maps-for-these-galaxies" title="Permalink to this heading">#</a></h2>
+<p><strong>Exercise 4 (not tested yet):</strong></p>
+<p>Let’s measure the asymmetry and concentration of the H-alpha map!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">img_ha</span> <span class="o">=</span> <span class="n">cutouts_matched_reproj</span><span class="p">[</span><span class="s1">&#39;ha&#39;</span><span class="p">]</span>
+<span class="n">img</span> <span class="o">=</span> <span class="n">cutouts_reproj</span><span class="p">[</span><span class="s1">&#39;z&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sep</span>
+<span class="n">img</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">img</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">dtype</span><span class="o">.</span><span class="n">newbyteorder</span><span class="p">(</span><span class="s1">&#39;=&#39;</span><span class="p">))</span>
+<span class="n">bkg</span> <span class="o">=</span> <span class="n">sep</span><span class="o">.</span><span class="n">Background</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">bw</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span> <span class="n">bh</span><span class="o">=</span><span class="mi">128</span><span class="p">)</span> <span class="c1"># this makes the background model</span>
+<span class="c1"># We extract sources above 4-sigma</span>
+<span class="n">_</span><span class="p">,</span> <span class="n">segmap</span> <span class="o">=</span> <span class="n">sep</span><span class="o">.</span><span class="n">extract</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">err</span><span class="o">=</span><span class="n">bkg</span><span class="o">.</span><span class="n">rms</span><span class="p">(),</span> <span class="n">deblend_cont</span><span class="o">=</span><span class="mf">0.005</span><span class="p">,</span> <span class="n">segmentation_map</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="c1"># we only keep the footprint of the target galaxy </span>
+<span class="n">ind</span> <span class="o">=</span> <span class="n">segmap</span><span class="p">[</span><span class="n">img</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">//</span><span class="mi">2</span><span class="p">,</span> <span class="n">img</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">//</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">obj_segmap</span> <span class="o">=</span> <span class="n">segmap</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">obj_segmap</span><span class="p">[</span><span class="n">obj_segmap</span> <span class="o">!=</span> <span class="n">ind</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="c1"># We construct a mask based on the original segmap. The mask blocks out</span>
+<span class="n">segmap</span><span class="p">[</span><span class="n">segmap</span> <span class="o">==</span> <span class="n">ind</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">segmap</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">astropy.convolution</span> <span class="kn">import</span> <span class="n">convolve_fft</span><span class="p">,</span> <span class="n">Gaussian2DKernel</span>
+<span class="n">mask</span> <span class="o">=</span> <span class="n">convolve_fft</span><span class="p">(</span><span class="n">mask</span><span class="p">,</span> <span class="n">Gaussian2DKernel</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">mask</span> <span class="o">=</span> <span class="n">mask</span> <span class="o">&gt;</span> <span class="mf">1e-2</span>
+<span class="n">show_image</span><span class="p">(</span><span class="n">img</span> <span class="o">*</span> <span class="o">~</span><span class="n">mask</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">percl</span><span class="o">=</span><span class="mf">99.5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">statmorph</span>
+<span class="n">source_morphs</span> <span class="o">=</span> <span class="n">statmorph</span><span class="o">.</span><span class="n">source_morphology</span><span class="p">(</span>
+  <span class="n">img_ha</span><span class="p">,</span> <span class="n">obj_segmap</span><span class="p">,</span> <span class="n">weightmap</span><span class="o">=</span><span class="n">bkg</span><span class="o">.</span><span class="n">rms</span><span class="p">(),</span> <span class="n">psf</span><span class="o">=</span><span class="n">psf</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="n">mask</span><span class="p">)</span>
+<span class="n">morph</span> <span class="o">=</span> <span class="n">source_morphs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="kn">from</span> <span class="nn">statmorph.utils.image_diagnostics</span> <span class="kn">import</span> <span class="n">make_figure</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">make_figure</span><span class="p">(</span><span class="n">morph</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="measure-structural-parameters-for-these-galaxies-in-both-i-band-and-n708-for-majors">
 <h2>3. Measure structural parameters for these galaxies in both i-band and N708 (for majors)<a class="headerlink" href="#measure-structural-parameters-for-these-galaxies-in-both-i-band-and-n708-for-majors" title="Permalink to this heading">#</a></h2>
