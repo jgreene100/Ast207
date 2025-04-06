@@ -514,19 +514,20 @@ document.write(`
 </div>
 </div>
 </div>
-<p>Dsepite the fact that the catalog provides an estimate for the stellar mass, let’s calculate it in another way. For a given galaxy, we know its magnitudes in both <code class="docutils literal notranslate"><span class="pre">g</span></code> and <code class="docutils literal notranslate"><span class="pre">i</span></code> bands, and thus we can calculate its <strong>luminosity</strong> in g-band:
-$<span class="math notranslate nohighlight">\(
+<p>Dsepite the fact that the catalog provides an estimate for the stellar mass, let’s calculate it in another way. For a given galaxy, we know its magnitudes in both <code class="docutils literal notranslate"><span class="pre">g</span></code> and <code class="docutils literal notranslate"><span class="pre">i</span></code> bands, and thus we can calculate its <strong>luminosity</strong> in g-band:</p>
+<div class="math notranslate nohighlight">
+\[
 L_g / L_\odot = 10^{-0.4 \times (M_g - M_{g, \odot})},
-\)</span><span class="math notranslate nohighlight">\(
-where \)</span>M_{g,\odot}=5.05<span class="math notranslate nohighlight">\( is the absolute magnitude of the Sun in \)</span>g$-band.</p>
-<p>To convert the luminosity to stellar mass, we need a so-called “mass-to-light ratio”, which is a function of <span class="math notranslate nohighlight">\(g-i\)</span> color (from <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2013MNRAS.430.2715I/abstract">Into et al. 2013</a>):
-$<span class="math notranslate nohighlight">\(
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(M_{g,\odot}=5.05\)</span> is the absolute magnitude of the Sun in <span class="math notranslate nohighlight">\(g\)</span>-band.</p>
+<p>To convert the luminosity to stellar mass, we need a so-called “mass-to-light ratio”, which is a function of <span class="math notranslate nohighlight">\(g-i\)</span> color (from <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2013MNRAS.430.2715I/abstract">Into et al. 2013</a>):</p>
+<div class="math notranslate nohighlight">
+\[
 \log M_\star / L_g = 1.297 (g-i) - 0.855
-\)</span>$</p>
+\]</div>
 <p><strong>Exercise 1</strong></p>
-<ol class="arabic simple">
-<li><p>Based on the above information, write a Python function to calculate the log(stellar mass) of a given galaxy. The function should look like:</p></li>
-</ol>
+<ol class="arabic">
+<li><p>Based on the above information, write a Python function to calculate the log(stellar mass) of a given galaxy. The function should look like:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">astropy.cosmology</span> <span class="kn">import</span> <span class="n">Planck18</span>
 <span class="kn">import</span> <span class="nn">astropy.units</span> <span class="k">as</span> <span class="nn">u</span>
 <span class="k">def</span> <span class="nf">calc_logMstar</span><span class="p">(</span><span class="n">mag_g</span><span class="p">,</span> <span class="n">mag_i</span><span class="p">,</span> <span class="n">spec_z</span><span class="p">):</span>
@@ -539,7 +540,7 @@ $<span class="math notranslate nohighlight">\(
     <span class="k">return</span> <span class="n">logMstar</span>
 </pre></div>
 </div>
-<ol class="arabic simple" start="2">
+</li>
 <li><p>Use this function to calculate the stellar mass of all galaxies in <code class="docutils literal notranslate"><span class="pre">cat_inband</span></code>, and write the calculated stellar masses to the catalog like <code class="docutils literal notranslate"><span class="pre">cat_inband['logMstar']</span> <span class="pre">=</span> <span class="pre">calc_logMstar(cat_inband['mag_g'],</span> <span class="pre">cat_inband['mag_i'],</span> <span class="pre">cat_inband['z_desi'])</span></code>. Then compare your stellar mass with <code class="docutils literal notranslate"><span class="pre">cat_inband['mass_1p0']</span></code>. Do they agree? Don’t worry if your stellar mass is a bit higher than <code class="docutils literal notranslate"><span class="pre">mass_1p0</span></code>!</p></li>
 <li><p>Plot the properties of galaxies in this sample. You are encouraged to plot mass–SFR and mass–size relations. Note that when plotting these relations, please use <code class="docutils literal notranslate"><span class="pre">log10(stellar</span> <span class="pre">mass)</span></code>, <code class="docutils literal notranslate"><span class="pre">log10(SFR)</span></code>, and <code class="docutils literal notranslate"><span class="pre">log10(size)</span></code>. Note that the size should be in physical units (e.g., kpc) instead of arcsec.</p></li>
 </ol>
