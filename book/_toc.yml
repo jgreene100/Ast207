@@ -32,6 +32,7 @@ parts:
   - file: docs/merian/01_merian_intro.ipynb
   - file: docs/merian/02_sersic_fit.ipynb
   - file: docs/merian/03_Halpha_map.ipynb
+  - file: docs/merian/04_merian_custom.ipynb
 
 - caption: Exoplanets
   chapters:
