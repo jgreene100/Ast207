@@ -483,103 +483,45 @@ document.write(`
 </div>
 </div>
 </div>
-<p><strong>Example 1:</strong> Make a scatter plot of period versus radius using the planet data. Notice we use log-scale on both axes for readability.</p>
+<p><strong>Exercise 1:</strong> Make a scatter plot of period versus radius using the planet data. Use log-scale on both axes for readability.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">period</span><span class="p">,</span> <span class="n">radius</span> <span class="o">=</span> <span class="n">cat</span><span class="o">.</span><span class="n">period</span><span class="p">,</span> <span class="n">cat</span><span class="o">.</span><span class="n">radius</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">period</span><span class="p">,</span> <span class="n">radius</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">xscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">yscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
-<span class="n">_</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Period [days]&#39;</span><span class="p">)</span>
-<span class="n">_</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Radius [$R_\oplus$]&#39;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># answer</span>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="../_images/ec8a8430f34f738a4f199da343bcf90b801e5352645408dc05275c99119f166e.png" src="../_images/ec8a8430f34f738a4f199da343bcf90b801e5352645408dc05275c99119f166e.png" />
 </div>
-</div>
-<p><strong>Example 2:</strong> Now let’s look at planet radius vs mass. Notice we again use log-scale on both axes for readability.</p>
+<p><strong>Exercise 2:</strong> Now let’s look at planet radius vs mass. Again use log-scale on both axes for readability.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">mass</span><span class="p">,</span> <span class="n">radius</span> <span class="o">=</span> <span class="n">cat</span><span class="o">.</span><span class="n">mass</span><span class="p">,</span> <span class="n">cat</span><span class="o">.</span><span class="n">radius</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">radius</span><span class="p">,</span> <span class="n">mass</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">xscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">yscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
-<span class="n">_</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Radius [$R_\oplus$]&#39;</span><span class="p">)</span>
-<span class="n">_</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Mass [$M_\oplus$]&#39;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># answer</span>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="../_images/6632d3a41423db9d15400493f73e52b0828294297717372a4c233b3cd01a745f.png" src="../_images/6632d3a41423db9d15400493f73e52b0828294297717372a4c233b3cd01a745f.png" />
 </div>
-</div>
-<p><strong>Example 3:</strong> In the radius–mass plot, it looks like there are two main groups: large planets over <span class="math notranslate nohighlight">\(10 \times\)</span> the size of the Earth and small(er) planets about <span class="math notranslate nohighlight">\(2-4 \times\)</span> the size of the Earth.</p>
-<p>Let’s make histograms of planet radius and mass to see this better. Notice we make a histogram of <span class="math notranslate nohighlight">\(log_{10}(\mathrm{Mass})\)</span> to easier reading.</p>
+<p><strong>Exercise 3:</strong> In the radius–mass plot, it looks like there are two main groups: large planets over <span class="math notranslate nohighlight">\(10 \times\)</span> the size of the Earth and small(er) planets about <span class="math notranslate nohighlight">\(2-4 \times\)</span> the size of the Earth.</p>
+<p>Let’s make histograms of planet radius and mass to see this better. For easier reading, make the mass histogram as <span class="math notranslate nohighlight">\(log_{10}(\mathrm{Mass})\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># radius</span>
-<span class="n">radius</span> <span class="o">=</span> <span class="n">cat</span><span class="o">.</span><span class="n">radius</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span> <span class="n">radius</span> <span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Earth&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mf">11.2</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Jupiter&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper right&#39;</span><span class="p">)</span>
-
-<span class="n">_</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Radius [$R_\oplus$]&#39;</span><span class="p">)</span>
-<span class="n">_</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Number of planets&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-
-<span class="c1"># mass</span>
-<span class="n">mass</span> <span class="o">=</span> <span class="n">cat</span><span class="o">.</span><span class="n">mass</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">mass</span><span class="p">)</span> <span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Earth&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="mf">317.906</span><span class="p">),</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Jupiter&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper left&#39;</span><span class="p">)</span>
-
-<span class="n">_</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;$\log_</span><span class="si">{10}</span><span class="s1">[Mass / M_\oplus$]&#39;</span><span class="p">)</span>
-<span class="n">_</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Number of planets&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># answer</span>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="../_images/62343248a1ec23a217069dfa16e31fb9a9d219ce0c89160caff384d34e930015.png" src="../_images/62343248a1ec23a217069dfa16e31fb9a9d219ce0c89160caff384d34e930015.png" />
-<img alt="../_images/0804ff64d04a48f161d2f21f9192d028104e7e2e7e06e567cb5d9bef6c2c881f.png" src="../_images/0804ff64d04a48f161d2f21f9192d028104e7e2e7e06e567cb5d9bef6c2c881f.png" />
 </div>
-</div>
-<p><strong>Example 3:</strong> Let’s make histograms of two star properties: radius and metallicity.</p>
+<p><strong>Exercise 3:</strong> Let’s make histograms of two star properties: radius and metallicity.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># radius</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span> <span class="n">cat</span><span class="o">.</span><span class="n">sradius</span> <span class="p">)</span>
-<span class="n">_</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Star Radius [$R_\odot$]&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-
-<span class="c1"># metallicity</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span> <span class="n">cat</span><span class="o">.</span><span class="n">smet</span> <span class="p">)</span>
-<span class="n">_</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Star metallicity&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># answer</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/ced98bdedb421292ca44d595fda22db222046acb3912c28a1c9dc403cfb9485b.png" src="../_images/ced98bdedb421292ca44d595fda22db222046acb3912c28a1c9dc403cfb9485b.png" />
-<img alt="../_images/20c1f2b533b0e1ef4746a7e764b30a63d5dbc2d66e4c6832520ba3cfd49a58fc.png" src="../_images/20c1f2b533b0e1ef4746a7e764b30a63d5dbc2d66e4c6832520ba3cfd49a58fc.png" />
 </div>
 </div>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="now-it-s-your-turn">
 <h1>Now it’s your turn!<a class="headerlink" href="#now-it-s-your-turn" title="Permalink to this heading">#</a></h1>
 <p>Using this data set of <span class="math notranslate nohighlight">\(&gt;1000\)</span> exoplanets, let’s investigate how the radius of a planet depend on its mass.</p>
-<p><strong>Exercise 1:</strong> First, define and fit a model to the radius–mass relation.</p>
-<p><strong>Exercise 2:</strong> Let’s explore the radius–mass relation for different stellar environments. Does it depend on stellar mass? What about temperature?</p>
+<p><strong>Exercise 4:</strong> First, define and fit a model to the radius–mass relation.</p>
+<p><strong>Exercise 5:</strong> Let’s explore the radius–mass relation for different stellar environments. Select a subsample of planets you think it would be interesting to study. Fit the fit radius-mass relation for this sample. What do your results tell us about how planet’s are (or are not) shaped by their environment?</p>
 <p><strong>Challenge:</strong> This <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2023ApJ...949L..21Y/abstract">paper</a> looks at whether the period distribution of hot Jupiters (orbital period<span class="math notranslate nohighlight">\(&lt;10\)</span> days and radius between <span class="math notranslate nohighlight">\(8-24\)</span> Earth radii) depends on the metallicity of the host star. Do you come to the same conclusion as them? Use the table we provide. Focus on Section 1 and 2 of the paper, as well as Figure 1.</p>
 </section>
 
