@@ -41,6 +41,7 @@ parts:
   - file: docs/exoplanets_week1_part2.ipynb 
   - file: docs/exoplanets_week3.ipynb
   - file: docs/exoplanets_week4.ipynb
+  - file: docs/challenge_planet.ipynb
 
 #  - file: docs/final_project/variable_stars_and_planets
 #  - file: docs/final_project/GalaxyZoo_NeuralNet
